@@ -11,6 +11,9 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascript.jsx
+
 
 "This is a litte too colorful for me
 "if (has("termguicolors"))
@@ -75,13 +78,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plugin 'preservim/nerdcommenter'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'stsewd/fzf-checkout.vim'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'mattn/emmet-vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-commentary'
 Plugin 'jparise/vim-graphql'
 Plugin 'airblade/vim-rooter'
 Plugin 'tpope/vim-surround'
@@ -295,6 +298,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-java',
   \ 'coc-json',
+  \ 'coc-eslint',
   \ 'coc-pyright']
 
 " NerdTree config
@@ -343,6 +347,7 @@ nmap <leader><leader>f :Files<cr>
 nmap <leader><leader>b :Buffers<cr>
 nmap <leader><leader>l :BLines<cr>
 nmap <leader><leader>p :Rg<cr>
+
 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
