@@ -1,7 +1,7 @@
 # Vim
 > Create a .vimrc in the user root
 
-> Vim needs to be compiled with +conceal
+> Vim needs to be compiled with "+conceal"
 
 > Copy paste the contents of vimrc
 
@@ -13,4 +13,3 @@
 > Copy paste the contents of .tmux.conf
 
 
-### $PATH may vary. 
