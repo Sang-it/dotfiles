@@ -1,3 +1,4 @@
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -12,13 +13,8 @@ augroup numbertoggle
 augroup END
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascript.jsx
-
-
-"This is a litte too colorful for me
-"if (has("termguicolors"))
-    "set termguicolors
-"endif
+autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 "Basic vim setup
 set nocompatible              
@@ -26,7 +22,6 @@ filetype off
 syntax on
 set term=screen-256color
 set clipboard=unnamed
-set conceallevel=3
 set encoding=utf-8
 set timeoutlen=1000 ttimeoutlen=10
 set hidden
@@ -35,7 +30,6 @@ set cmdheight=2
 set laststatus=2
 set noshowmode
 set background=dark
-set laststatus=2
 set noerrorbells
 set shiftwidth=2 
 set expandtab
@@ -45,11 +39,17 @@ set smartindent
 set nowrap
 set number
 set nobackup
-set undodir=~/.vim/undordir
-set undofile
 set nowritebackup
 set updatetime=300 
 set shortmess+=c
+
+" Undo storage
+let s:undodir="/tmp/.undordir_"
+if !isdirectory(s:undodir)
+  call mkdir(s:undodir,"",0700)
+endif
+let &undodir=s:undodir
+set undofile
 
 " CursorShape config
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -66,7 +66,6 @@ endif
 "---------------------------------------- Vundle config start -------------------------------------------------------
 
 call vundle#begin()
-set vb t_vb=     
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
@@ -88,14 +87,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'jparise/vim-graphql'
 Plugin 'airblade/vim-rooter'
 Plugin 'tpope/vim-surround'
-Plugin 'preservim/nerdtree' |
-            \ Plugin 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plugin 'ryanoasis/vim-devicons'
-
+Plugin 'preservim/nerdtree'
 
 call vundle#end()            
 filetype plugin indent on   
-
 
 "---------------------------------------- Vundle config end -------------------------------------------------------
 
@@ -266,6 +261,7 @@ map <C-k> <C-w>k
 
 "Files closing
 nmap <leader><leader>e :wq<cr>
+nmap <leader><leader>r :qa!<cr>
 nmap <leader><leader>w :w<cr>
 nmap <leader><leader>g :Git<cr>
 nmap <leader><leader>q :q!<cr>
@@ -286,7 +282,6 @@ let g:lightline = {
 colorscheme gruvbox 
 
 "Git config
-nmap <leader><leader>r :qa!<cr>
 nnoremap <leader>gc :GBranches<CR>
 
 "COC extensions 
@@ -301,20 +296,6 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-pyright']
 
-" NerdTree config
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
-
 " AutoPep config
 let g:autopep8_disable_show_diff=1
 let g:autopep8_on_save = 1
@@ -323,9 +304,6 @@ let g:autopep8_aggressive= 2
 " Emmet config
 let g:user_emmet_leader_key='<space>'
 let g:user_emmet_mode='n'
-
-" DevIcons config
-let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " NerdTree config
 let NERDTreeShowHidden=1
@@ -338,8 +316,8 @@ function NERDTreeToggleAndRefresh()
       endif
 endfunction
 
-"Vim router configs
-let g:rooter_patterns = ['.git','=src']
+"Vim rooter configs
+let g:rooter_patterns = ['.git','.env',"=src",'=dist']
 
 "Fuzzy finds
 let $FZF_DEFAULT_COMMAND="rg --files --hidden"
@@ -347,7 +325,6 @@ nmap <leader><leader>f :Files<cr>
 nmap <leader><leader>b :Buffers<cr>
 nmap <leader><leader>l :BLines<cr>
 nmap <leader><leader>p :Rg<cr>
-
 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
