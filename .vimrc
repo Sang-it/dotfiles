@@ -1,11 +1,9 @@
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" StartUp Script --- opens nerdtree and limits buffer size
+" StartUp Script --- limits buffer size
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-autocmd VimEnter * NERDTree | wincmd p
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
@@ -13,8 +11,6 @@ augroup numbertoggle
 augroup END
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
-autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 "Basic vim setup
 set nocompatible              
@@ -34,14 +30,14 @@ set noerrorbells
 set shiftwidth=2 
 set expandtab
 set number
-set guifont=Fira_Code_Nerd_Font:h12
+set guifont=Fira_Code_Nerd_Font:h14
 set smartindent
 set nowrap
 set number
 set nobackup
 set nowritebackup
 set updatetime=300 
-set shortmess+=c
+set shortmess=Ic
 
 " Undo storage
 let s:undodir="/tmp/.undordir_"
@@ -85,9 +81,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-commentary'
 Plugin 'jparise/vim-graphql'
-Plugin 'airblade/vim-rooter'
 Plugin 'tpope/vim-surround'
 Plugin 'preservim/nerdtree'
+Plugin 'kkoomen/vim-doge'
 
 call vundle#end()            
 filetype plugin indent on   
@@ -260,11 +256,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 
 "Files closing
-nmap <leader><leader>e :wq<cr>
-nmap <leader><leader>r :qa!<cr>
-nmap <leader><leader>w :w<cr>
-nmap <leader><leader>g :Git<cr>
-nmap <leader><leader>q :q!<cr>
+nmap <leader>e :wq<cr>
+nmap <leader>r :qa!<cr>
+nmap <leader>w :w<cr>
+nmap <leader>g :Git<cr>
+nmap <leader>q :q!<cr>
 
 "Lightline config
 let g:lightline = {
@@ -275,7 +271,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
-      \ },
+      \ }
       \ }
 
 "Colorcheme setup
@@ -294,6 +290,7 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-json',
   \ 'coc-eslint',
+  \ 'coc-elixir',
   \ 'coc-pyright']
 
 " AutoPep config
@@ -308,7 +305,7 @@ let g:user_emmet_mode='n'
 " NerdTree config
 let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
-map <space><space>t :call NERDTreeToggleAndRefresh()<CR>
+map <space>t :call NERDTreeToggleAndRefresh()<CR>
 function NERDTreeToggleAndRefresh()
     :NERDTreeToggle
       if g:NERDTree.IsOpen()
@@ -316,21 +313,24 @@ function NERDTreeToggleAndRefresh()
       endif
 endfunction
 
-"Vim rooter configs
-let g:rooter_patterns = ['.git','.env',"=src",'=dist']
-
-"Fuzzy finds
+" Fuzzy finds
 let $FZF_DEFAULT_COMMAND="rg --files --hidden"
-nmap <leader><leader>f :Files<cr>
-nmap <leader><leader>b :Buffers<cr>
-nmap <leader><leader>l :BLines<cr>
-nmap <leader><leader>p :Rg<cr>
+nmap <leader>f :Files<cr>
+nmap <leader>b :Buffers<cr>
+nmap <leader>l :BLines<cr>
+nmap <leader>p :Rg<cr>
 
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Toggle paste mode
+function! TogglePaste()
+    if(&paste == 0)
+        set paste
+        echo "Paste Mode Enabled"
+    else
+        set nopaste
+        echo "Paste Mode Disabled"
+    endif
+endfunction
+map <leader>c :call TogglePaste()<cr>
 
+" Disable manual Page hit 
+map <S-k> <Nop>
