@@ -1,3 +1,6 @@
+#### FIG ENV VARIABLES ####
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -59,7 +62,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 
 # Path to Pyenv
 eval "$(pyenv init -)"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+# [[ DOESN'T WORK WELL WITH FIG ]]
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+# Path to custom binaries
+export PATH=/Users/sangitmanandhar/bin:$PATH
 
 # Fzf to search directories
 bindkey -s '^f' 'cd_with_fzf\n'
@@ -80,3 +87,6 @@ pr() {
   git commit --allow-empty -m "Create branch"
   hub pull-request --push --base $CURRENT_BRANCH --message $1
 }
+
+#### FIG ENV VARIABLES ####
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
