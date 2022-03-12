@@ -4,19 +4,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " StartUp Script --- limits buffer size
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
-autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
-autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 
 "Basic vim setup
 set nocompatible              
-filetype off                  
 syntax on
-set term=screen-256color
+filetype plugin indent on   
 set clipboard=unnamed
 set encoding=utf-8
 set timeoutlen=1000 ttimeoutlen=10
@@ -59,45 +57,31 @@ if exists('$TMUX')
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
 
-"---------------------------------------- Vundle config start -------------------------------------------------------
-
+" Vundel Plugins
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'stsewd/fzf-checkout.vim'
+Plugin 'preservim/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plugin 'maxmellon/vim-jsx-pretty' 
+Plugin 'tell-k/vim-autopep8'
+Plugin 'jparise/vim-graphql'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
-Plugin 'stsewd/fzf-checkout.vim'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'mattn/emmet-vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-commentary'
-Plugin 'jparise/vim-graphql'
 Plugin 'tpope/vim-surround'
-Plugin 'preservim/nerdtree'
-Plugin 'kkoomen/vim-doge'
-
+Plugin 'tpope/vim-commentary'
+Plugin 'rust-lang/rust.vim'
+Plugin 'morhetz/gruvbox'
 call vundle#end()            
-filetype plugin indent on   
-
-"---------------------------------------- Vundle config end -------------------------------------------------------
-
-
-
-"---------------------------------------- COC config start -------------------------------------------------------
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
@@ -216,6 +200,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+" Add `:Prettier` command to format files; 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Add (Neo)Vim's native statusline support.
@@ -241,9 +226,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Resume latest coc list.
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-nmap <leader>f  <Plug>(coc-format-selected)
-
-"---------------------------------------- COC config end -------------------------------------------------------
+"Colorcheme setup
+colorscheme gruvbox
 
 "Custom key maps
 :imap jj <Esc>
@@ -274,15 +258,14 @@ let g:lightline = {
       \ }
       \ }
 
-"Colorcheme setup
-colorscheme gruvbox 
-
 "Git config
 nnoremap <leader>gc :GBranches<CR>
 
 "COC extensions 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-emmet',
   \ 'coc-css',
   \ 'coc-pairs',
   \ 'coc-snippets',
@@ -297,6 +280,9 @@ let g:coc_global_extensions = [
 let g:autopep8_disable_show_diff=1
 let g:autopep8_on_save = 1
 let g:autopep8_aggressive= 2
+
+" Rust config
+let g:rustfmt_autosave = 1
 
 " Emmet config
 let g:user_emmet_leader_key='<space>'
@@ -314,7 +300,7 @@ function NERDTreeToggleAndRefresh()
 endfunction
 
 " Fuzzy finds
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob=\!.git"
 nmap <leader>f :Files<cr>
 nmap <leader>b :Buffers<cr>
 nmap <leader>l :BLines<cr>
