@@ -1,7 +1,7 @@
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" StartUp Script --- limits buffer size
+" StartUp Script
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
@@ -10,6 +10,7 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
+au BufWrite *.prisma :Format
 
 "Basic vim setup
 set nocompatible              
@@ -20,8 +21,9 @@ set encoding=utf-8
 set timeoutlen=1000 ttimeoutlen=10
 set hidden
 set re=0
-set cmdheight=2
+set cmdheight=2 
 set laststatus=2
+set backspace=2
 set noshowmode
 set background=dark
 set noerrorbells
@@ -63,6 +65,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'z0mbix/vim-shfmt', { 'for': 'sh' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'stsewd/fzf-checkout.vim'
 Plugin 'preservim/nerdtree'
@@ -75,8 +78,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'rust-lang/rust.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'pantharshit00/vim-prisma'
+Plugin 'mattn/emmet-vim'
 call vundle#end()            
 
 " Always show the signcolumn, otherwise it would shift the text each time
@@ -229,6 +233,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "Colorcheme setup
 colorscheme gruvbox
 
+let g:shfmt_fmt_on_save = 1
+
 "Custom key maps
 :imap jj <Esc>
 let mapleader = " "
@@ -265,11 +271,12 @@ nnoremap <leader>gc :GBranches<CR>
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
-  \ 'coc-emmet',
+  \ 'coc-xml',
   \ 'coc-css',
   \ 'coc-pairs',
   \ 'coc-snippets',
   \ 'coc-html',
+  \ 'coc-rust-analyzer',
   \ 'coc-java',
   \ 'coc-json',
   \ 'coc-eslint',
@@ -281,11 +288,7 @@ let g:autopep8_disable_show_diff=1
 let g:autopep8_on_save = 1
 let g:autopep8_aggressive= 2
 
-" Rust config
-let g:rustfmt_autosave = 1
-
-" Emmet config
-let g:user_emmet_leader_key='<space>'
+" Emmet configs
 let g:user_emmet_mode='n'
 
 " NerdTree config

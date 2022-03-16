@@ -1,6 +1,9 @@
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fig init zsh pre)"
+
 #### FIG ENV VARIABLES ####
 [ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -17,12 +20,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
-alias xampp="/Applications/XAMPP/xamppfiles/bin/mysql -h localhost -u root"
-alias tmk="tmux kill-ses -t"
-alias tma="tmux attach -t"
-alias tmn="tmux new -s"
 alias tm="tmux"
-alias mt="multipass"
 alias kube="kubectl"
 
 # Path to HomeBrew
@@ -62,6 +60,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 
 # Path to Pyenv
 eval "$(pyenv init -)"
+
 # [[ DOESN'T WORK WELL WITH FIG ]]
 # alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
@@ -69,18 +68,25 @@ eval "$(pyenv init -)"
 export PATH=/Users/sangitmanandhar/bin:$PATH
 
 # Fzf to search directories
-bindkey -s '^f' 'cd_with_fzf\n'
+bindkey -s '^d' 'cd_with_fzf\n'
+
+# Tmux new sessions
+bindkey -s '^f' 'tms\n'
+
+# Tmux new sessions
+bindkey -s '^i' 'chtsht\n'
+
+# Show Homebrew Cellar
+bindkey -s '^s' 'get_homebrew_package_sizes\n'
+
 cd_with_fzf() {
   cd $HOME && cd "$(fd -t d --exclude .git --exclude node_modules --exclude dist | fzf)"
 }
 
-# Show Homebrew Cellar
-bindkey -s '^s' 'get_homebrew_package_sizes\n'
 get_homebrew_package_sizes() {
   cd "/opt/homebrew/Cellar" && du -hs * | gsort -hr
 }
 
-# Easy Pull Requests
 pr() { 
   CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2-)
   git checkout -b $1
@@ -90,3 +96,6 @@ pr() {
 
 #### FIG ENV VARIABLES ####
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"
