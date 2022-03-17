@@ -65,7 +65,7 @@ eval "$(pyenv init -)"
 # alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # Path to custom binaries
-export PATH=/Users/sangitmanandhar/bin:$PATH
+export PATH=/Users/sangitmanandhar/.bin:$PATH
 
 # Fzf to search directories
 bindkey -s '^d' 'cd_with_fzf\n'
