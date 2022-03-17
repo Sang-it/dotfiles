@@ -10,11 +10,7 @@ for file in $files; do
 done
 
 cd ~/.dotfiles
-
 git add .
-
 git commit -m "chore: update dotfiles"
-
 branch=$(git branch --show-current)
-
 git push origin $branch
