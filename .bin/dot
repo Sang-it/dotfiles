@@ -15,5 +15,5 @@ git add .
 vared -p 'Commit message: ' -c message
 git commit -m "$message"
 branch=$(git branch -r --list | fzf)
-print -P '%F{cyan}$branch%f'
+echo $branch
 git push origin $(basename $branch)
