@@ -12,6 +12,8 @@ done
 
 cd ~/.dotfiles
 git add .
-git commit -m "chore: update dotfiles"
-branch=$(git branch --show-current)
-git push origin $branch
+vared -p 'Commit message: ' -c message
+git commit -m "$message"
+branch=$(git branch -r --list | fzf)
+echo $branch
+git push origin $(basename $branch)
