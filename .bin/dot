@@ -5,8 +5,9 @@ files=(~/.vimrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty)
 for file in $files; do
 	if [ $(basename "$file") = "alacritty" ]; then
 		cp -r $file ~/.dotfiles/.config
+	else
+		cp -r $file ~/.dotfiles
 	fi
-	cp -r $file ~/.dotfiles
 done
 
 cd ~/.dotfiles
