@@ -81,6 +81,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'morhetz/gruvbox'
 Plugin 'pantharshit00/vim-prisma'
 Plugin 'mattn/emmet-vim'
+Plugin 'elixir-editors/vim-elixir'
 call vundle#end()            
 
 " Always show the signcolumn, otherwise it would shift the text each time
@@ -292,6 +293,8 @@ let g:autopep8_aggressive= 2
 let g:user_emmet_mode='n'
 
 " NerdTree config
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
+let NERDTreeRespectWildIgnore=1
 let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
 map <space>t :call NERDTreeToggleAndRefresh()<CR>
