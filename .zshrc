@@ -6,16 +6,18 @@ eval "$(fig init zsh pre)"
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
 # Theme setup
-ZSH_THEME=""	
+ZSH_THEME=""
 
 # Plugins
 plugins=(
   git
   zsh-syntax-highlighting
-  )
+)
 
 # Path to Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Aliases
 alias tm="tmux"
@@ -29,18 +31,20 @@ export PATH="/opt/homebrew/sbin:$PATH"
 fpath=("$HOME/.zsh" $fpath)
 
 # Pure configs
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
 prompt pure
 
 # Path to JAVA
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
 # JAVA_HOME env
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
 
 #Path to NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # Default FZF configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -48,8 +52,11 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -g '!.git' -g '!dist' -g '!node_
 export FZF_DEFAULT_OPTS="--height=50% --layout=reverse"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Path to OpenSSL 
+# Path to OpenSSL
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+# Path to Python
+export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
 
 # Path to zlib
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
@@ -71,9 +78,6 @@ bindkey -s '^d' 'cd_with_fzf\n'
 # Tmux new sessions
 bindkey -s '^f' 'tms\n'
 
-# Tmux new sessions
-bindkey -s '^i' 'chtsht\n'
-
 # Show Homebrew Cellar
 bindkey -s '^s' 'get_homebrew_package_sizes\n'
 
@@ -85,7 +89,7 @@ get_homebrew_package_sizes() {
   cd "/opt/homebrew/Cellar" && du -hs * | gsort -hr
 }
 
-pr() { 
+pr() {
   CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2-)
   git checkout -b $1
   git commit --allow-empty -m "Create branch"
@@ -94,4 +98,3 @@ pr() {
 
 # Fig post block. Keep at the bottom of this file.
 eval "$(fig init zsh post)"
-
