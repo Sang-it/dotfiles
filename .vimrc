@@ -83,6 +83,8 @@ Plugin 'pantharshit00/vim-prisma'
 Plugin 'mattn/emmet-vim'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'anosillus/vim-ipynb'
+
 call vundle#end()            
 
 " Always show the signcolumn, otherwise it would shift the text each time

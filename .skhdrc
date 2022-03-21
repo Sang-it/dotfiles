@@ -1,0 +1,51 @@
+# Switch window focus
+lctrl + alt + cmd - h : yabai -m window --focus west
+lctrl + alt + cmd - j : yabai -m window --focus south
+lctrl + alt + cmd - k : yabai -m window --focus north
+lctrl + alt + cmd - l : yabai -m window --focus east
+
+# Swap managed window
+lctrl + alt + cmd + shift - w : yabai -m window --swap north
+lctrl + alt + cmd + shift - a : yabai -m window --swap west
+lctrl + alt + cmd + shift - s : yabai -m window --swap south
+lctrl + alt + cmd + shift - d : yabai -m window --swap east
+
+# Move managed window
+lctrl + alt + cmd - w : yabai -m window --warp north
+lctrl + alt + cmd - a : yabai -m window --warp west
+lctrl + alt + cmd - s : yabai -m window --warp south
+lctrl + alt + cmd - d : yabai -m window --warp east
+
+# Balance size of windows
+lctrl + alt + cmd - b : yabai -m space --balance
+
+# Switch desktops
+lctrl + alt + cmd - 1 : yabai -m space --focus 1
+lctrl + alt + cmd - 2 : yabai -m space --focus 2
+lctrl + alt + cmd - 3 : yabai -m space --focus 3
+lctrl + alt + cmd - 4 : yabai -m space --focus 4
+lctrl + alt + cmd - 5 : yabai -m space --focus 5
+lctrl + alt + cmd - 6 : yabai -m space --focus 6
+lctrl + alt + cmd - 7 : yabai -m space --focus 7
+lctrl + alt + cmd - 8 : yabai -m space --focus 8
+lctrl + alt + cmd - 9 : yabai -m space --focus 9
+lctrl + alt + cmd - 0 : yabai -m space --focus 10
+
+# Send window to desktop and focus
+lctrl + alt + cmd + shift - 1 : yabai -m window --space  1; yabai -m space --focus 1
+lctrl + alt + cmd + shift - 2 : yabai -m window --space  2; yabai -m space --focus 2
+lctrl + alt + cmd + shift - 3 : yabai -m window --space  3; yabai -m space --focus 3
+lctrl + alt + cmd + shift - 4 : yabai -m window --space  4; yabai -m space --focus 4
+lctrl + alt + cmd + shift - 5 : yabai -m window --space  5; yabai -m space --focus 5
+lctrl + alt + cmd + shift - 6 : yabai -m window --space  6; yabai -m space --focus 6
+lctrl + alt + cmd + shift - 7 : yabai -m window --space  7; yabai -m space --focus 7
+lctrl + alt + cmd + shift - 8 : yabai -m window --space  8; yabai -m space --focus 8
+lctrl + alt + cmd + shift - 9 : yabai -m window --space  9; yabai -m space --focus 9
+lctrl + alt + cmd + shift - 0 : yabai -m window --space  10; yabai -m space --focus 10
+
+# Create and destroy desktops
+lctrl + alt + cmd - x : yabai -m space --create
+lctrl + alt + cmd + shift - x : yabai -m space --destroy
+
+# Restart Yabai
+lctrl + alt + cmd - q : brew services restart yabai

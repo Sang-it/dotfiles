@@ -17,8 +17,6 @@ plugins=(
 # Path to Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 # Aliases
 alias tm="tmux"
 alias kube="kubectl"

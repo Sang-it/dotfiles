@@ -2,10 +2,10 @@
 autoload colors
 colors
 
-files=(~/.vimrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty)
+files=(~/.vimrc ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf)
 
 for file in $files; do
-	if [ $(basename "$file") = "alacritty" ]; then
+	if [ $(basename "$file") = "alacritty" ] || [ $(basename "$file") = "lf" ]; then
 		cp -r $file ~/.dotfiles/.config
 	else
 		cp -r $file ~/.dotfiles
