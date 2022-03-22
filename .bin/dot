@@ -2,10 +2,10 @@
 autoload colors
 colors
 
-files=(~/.vimrc ~/.zshenv ~/.bashrc ~/.zprofile ~/.cht-languages ~/.cht-command ~/.viebrc ~/.vieb ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf ~/vscode-custom-css.css ~/.profile)
+files=(~/.vimrc ~/.hushlogin ~/.zshenv ~/.bashrc ~/.zprofile ~/.cht-languages ~/.cht-command ~/.viebrc ~/.vieb ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf ~/vscode-custom-css.css ~/.profile ~/.gitconfig ~/.gitignore)
 
 for file in $files; do
-	if [ $(basename "$file") = "alacritty" ] || [ $(basename "$file") = "lf" ]; then
+	if [[ $file == *.config/* ]]; then
 		cp -r $file ~/.dotfiles/.config
 	else
 		cp -r $file ~/.dotfiles
