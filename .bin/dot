@@ -2,7 +2,7 @@
 autoload colors
 colors
 
-files=(~/.vimrc ~/.hushlogin ~/.zshenv ~/.bashrc ~/.zprofile ~/.cht-languages ~/.cht-command ~/.viebrc ~/.vieb ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf ~/vscode-custom-css.css ~/.profile ~/.gitconfig ~/.gitignore)
+files=(~/.vimrc ~/.hushlogin ~/.zshenv ~/.bashrc ~/.zprofile ~/.cht-languages ~/.cht-command ~/.viebrc ~/.vieb ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf ~/.config/karabiner ~/vscode-custom-css.css ~/.profile ~/.gitconfig ~/.gitignore)
 
 for file in $files; do
 	if [[ $file == *.config/* ]]; then
