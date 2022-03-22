@@ -2,7 +2,7 @@
 autoload colors
 colors
 
-files=(~/.vimrc ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf)
+files=(~/.vimrc ~/.viebrc ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf)
 
 for file in $files; do
 	if [ $(basename "$file") = "alacritty" ] || [ $(basename "$file") = "lf" ]; then
