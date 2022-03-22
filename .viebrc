@@ -1,21 +1,28 @@
+" Options
+
 set adblocker=update
 set cache=full
 set favicons=30day
-set startuppages=
-set mintabwidth=0
+set suggesttopsites=0
 set permissioncamera=ask
 set permissioncertificateerror=ask
 set permissiondisplaycapture=ask
 set permissionmediadevices=allow
 set permissionmicrophone=ask
 set permissionpersistentstorage=allow
-set suggesttopsites=0
+set tabclosefocusright
+
+" Mappings
 
 unmap d
-map dd <:close>
 map <C-c> <esc>
 map <C-Y> <:history>
 map <C-J> <:downloads>
 map <C-q> <:quit>
 map <C-I> <:devtools>
 map <C-p> <:pin>
+nmap dd <:close>
+
+" Colorcheme
+
+colorscheme gruvbox

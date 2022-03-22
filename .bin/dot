@@ -2,7 +2,7 @@
 autoload colors
 colors
 
-files=(~/.vimrc ~/.viebrc ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf)
+files=(~/.vimrc ~/.zshenv ~/.bashrc ~/.zprofile ~/.cht-languages ~/.cht-command ~/.viebrc ~/.vieb ~/.yabairc ~/.skhdrc ~/.tmux.conf ~/.zshrc ~/.bin ~/.config/alacritty ~/.config/lf ~/vscode-custom-css.css ~/.profile)
 
 for file in $files; do
 	if [ $(basename "$file") = "alacritty" ] || [ $(basename "$file") = "lf" ]; then
@@ -17,5 +17,5 @@ git add .
 vared -p 'Commit message: ' -c message
 git commit -m "$message"
 branch=$(git branch -r --list | fzf)
-echo $fg[green]$branch$fg[default]
+echo $fg[blue]$branch$fg[default]
 git push origin $(basename $branch)
