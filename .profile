@@ -6,3 +6,4 @@ eval "$(fig init bash pre)"
 
 # Fig post block. Keep at the bottom of this file.
 eval "$(fig init bash post)"
+

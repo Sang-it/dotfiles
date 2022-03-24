@@ -11,3 +11,4 @@ eval "$(pyenv init --path)"
 
 # Fig post block. Keep at the bottom of this file.
 eval "$(fig init zsh post)"
+

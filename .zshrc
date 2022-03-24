@@ -96,3 +96,4 @@ pr() {
 
 # Fig post block. Keep at the bottom of this file.
 eval "$(fig init zsh post)"
+

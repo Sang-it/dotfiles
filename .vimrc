@@ -38,6 +38,7 @@ set nobackup
 set nowritebackup
 set updatetime=300 
 set shortmess=Ic
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
 
 " Undo storage
 let s:undodir="/tmp/.undordir_"
@@ -68,7 +69,6 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'z0mbix/vim-shfmt', { 'for': 'sh' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'stsewd/fzf-checkout.vim'
-Plugin 'preservim/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty' 
@@ -287,6 +287,31 @@ let g:coc_global_extensions = [
   \ 'coc-elixir',
   \ 'coc-pyright']
 
+" Netrw configs
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+let g:NetrwIsOpen=0
+let g:netrw_list_hide = &wildignore
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+map <leader>t :call ToggleNetrw()<CR>
+
 " AutoPep config
 let g:autopep8_disable_show_diff=1
 let g:autopep8_on_save = 1
@@ -294,19 +319,6 @@ let g:autopep8_aggressive= 2
 
 " Emmet configs
 let g:user_emmet_mode='n'
-
-" NerdTree config
-set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
-let NERDTreeRespectWildIgnore=1
-let NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "right"
-map <space>t :call NERDTreeToggleAndRefresh()<CR>
-function NERDTreeToggleAndRefresh()
-    :NERDTreeToggle
-      if g:NERDTree.IsOpen()
-            :NERDTreeRefreshRoot
-      endif
-endfunction
 
 " Fuzzy finds
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob=\!.git"
@@ -329,3 +341,4 @@ map <leader>c :call TogglePaste()<cr>
 
 " Disable manual Page hit 
 map <S-k> <Nop>
+
