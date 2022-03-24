@@ -1,0 +1,19 @@
+.quick-input-widget {
+  top: 30% !important;
+  border-radius: 5px !important;
+  opacity: 0.9 !important;
+}
+
+.cdr.squiggly-error:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #a52e2e;
+  filter: blur(10px);
+}
+
+.showUnused .monaco-editor .squiggly-inline-unnecessary {
+  opacity: 0.8;
+  filter: contrast(0.7);
+}
