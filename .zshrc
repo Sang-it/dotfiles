@@ -73,6 +73,9 @@ export PATH=/Users/sangitmanandhar/.bin:$PATH
 # Fzf to search directories
 bindkey -s '^d' 'cd_with_fzf\n'
 
+# Fzf to cheatsheet
+bindkey -s '^e' 'cht\n'
+
 # Tmux new sessions
 bindkey -s '^f' 'tms\n'
 

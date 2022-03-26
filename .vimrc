@@ -1,10 +1,8 @@
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
 " StartUp Script
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+autocmd BufEnter * :syntax sync fromstart
+autocmd BufLeave * :syntax sync clear
+autocmd FileType * let b:coc_root_patterns = ['.git', '.env']
+autocmd BufWritePre * %s/\s\+$//e
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
@@ -13,21 +11,23 @@ augroup END
 au BufWrite *.prisma :Format
 
 "Basic vim setup
-set nocompatible              
+set nocompatible
 syntax on
-filetype plugin indent on   
+filetype plugin indent on
 set clipboard=unnamed
 set encoding=utf-8
 set timeoutlen=1000 ttimeoutlen=10
 set hidden
 set re=0
-set cmdheight=2 
+set cmdheight=2
 set laststatus=2
 set backspace=2
 set noshowmode
 set background=dark
 set noerrorbells
-set shiftwidth=2 
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 set number
 set guifont=Fira_Code_Nerd_Font:h14
@@ -36,9 +36,9 @@ set nowrap
 set number
 set nobackup
 set nowritebackup
-set updatetime=300 
+set updatetime=300
 set shortmess=Ic
-set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
+set cursorline
 
 " Undo storage
 let s:undodir="/tmp/.undordir_"
@@ -60,32 +60,32 @@ if exists('$TMUX')
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
 
-" Vundel Plugins
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'itchyny/lightline.vim'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'z0mbix/vim-shfmt', { 'for': 'sh' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'stsewd/fzf-checkout.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'maxmellon/vim-jsx-pretty' 
-Plugin 'tell-k/vim-autopep8'
-Plugin 'jparise/vim-graphql'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'morhetz/gruvbox'
-Plugin 'pantharshit00/vim-prisma'
-Plugin 'mattn/emmet-vim'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'anosillus/vim-ipynb'
-
-call vundle#end()            
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tell-k/vim-autopep8'
+Plug 'jparise/vim-graphql'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'morhetz/gruvbox'
+Plug 'pantharshit00/vim-prisma'
+Plug 'mattn/emmet-vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'easymotion/vim-easymotion'
+Plug 'anosillus/vim-ipynb'
+Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
+call plug#end()
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -208,7 +208,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add `:Prettier` command to format files; 
+" Add `:Prettier` command to format files;
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Add (Neo)Vim's native statusline support.
@@ -249,8 +249,10 @@ map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 
+"Open help in tabs
+cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+
 "Files closing
-nmap <leader>e :wq<cr>
 nmap <leader>r :qa!<cr>
 nmap <leader>w :w<cr>
 nmap <leader>g :Git<cr>
@@ -271,7 +273,7 @@ let g:lightline = {
 "Git config
 nnoremap <leader>gc :GBranches<CR>
 
-"COC extensions 
+"COC extensions
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
@@ -289,28 +291,16 @@ let g:coc_global_extensions = [
 
 " Netrw configs
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
-let g:NetrwIsOpen=0
-let g:netrw_list_hide = &wildignore
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-map <leader>t :call ToggleNetrw()<CR>
+let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,^\.\.\=/\=$'
+
+" Vim Lf configs
+let g:lf_map_keys = 0
+map <leader>F :Lf<CR>
+
+" Float term configs
+let g:floaterm_width = 0.9
+let g:floaterm_title = ""
+let g:floaterm_borderchars = "        "
 
 " AutoPep config
 let g:autopep8_disable_show_diff=1
@@ -322,6 +312,7 @@ let g:user_emmet_mode='n'
 
 " Fuzzy finds
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob=\!.git"
+let g:fzf_preview_window=[]
 nmap <leader>f :Files<cr>
 nmap <leader>b :Buffers<cr>
 nmap <leader>l :BLines<cr>
@@ -331,14 +322,11 @@ nmap <leader>p :Rg<cr>
 function! TogglePaste()
     if(&paste == 0)
         set paste
-        echo "Paste Mode Enabled"
     else
         set nopaste
-        echo "Paste Mode Disabled"
     endif
 endfunction
 map <leader>c :call TogglePaste()<cr>
 
-" Disable manual Page hit 
+" Disable manual Page hit
 map <S-k> <Nop>
-

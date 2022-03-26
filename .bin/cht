@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 selected=$(cat ~/.cht-languages ~/.cht-command | fzf)
 
 if [[ -z $selected ]]; then

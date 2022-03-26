@@ -89,6 +89,7 @@ map mm rename
 map R reload
 map C clear
 map U unselect
+map <c-c> quit
 
 map gd cd ~/Downloads
 map gp cd ~/Projects
