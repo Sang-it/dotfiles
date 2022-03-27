@@ -8,7 +8,6 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
-au BufWrite *.prisma :Format
 
 "Basic vim setup
 set nocompatible
@@ -68,8 +67,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tell-k/vim-autopep8'
 Plug 'jparise/vim-graphql'
@@ -77,7 +74,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'pantharshit00/vim-prisma'
 Plug 'mattn/emmet-vim'
 Plug 'elixir-editors/vim-elixir'

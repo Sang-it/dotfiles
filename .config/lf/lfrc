@@ -13,14 +13,14 @@ cmd open ${{
 
 cmd mkdir ${{
   printf "Directory Name: "
-  read ans
-  mkdir $ans
+  read folder
+  mkdir $folder
 }}
 
 cmd mkfile ${{
   printf "File Name: "
-  read ans
-  $EDITOR $ans
+  read file
+  touch $file
 }}
 
 cmd fzf_jump ${{
@@ -81,6 +81,7 @@ map md delete
 map p paste
 map x cut
 map y copy
+map <c-d> fzf_jump
 map <enter> open
 map ma mkdir
 map mf mkfile
