@@ -89,6 +89,8 @@ Plug 'anosillus/vim-ipynb'
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'keith/investigate.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 "Colorcheme setup
@@ -148,6 +150,22 @@ nmap <leader>f :Files<cr>
 nmap <leader>b :Buffers<cr>
 nmap <leader>l :BLines<cr>
 nmap <leader>p :Rg<cr>
+
+" YouCompleteMe Configs
+let g:ycm_auto_hover=""
+nmap gs <plug>(YCMHover)
+nmap gd :YcmCompleter GoToDefinition<cr>
+nmap gr :YcmCompleter GoToReferences<cr>
+nmap gf :YcmCompleter FixIt<cr>
+let g:ycm_add_preview_to_completeopt="popup"
+let g:ycm_autoclose_preview_window_after_completion=1
+
+" ALE Configs
+let g:ale_disable_lsp = 1
+let g:ale_linters = {
+ \ 'javascript': ['eslint'],
+ \ 'typescript': ['eslint']
+ \ }
 
 " Disable manual Page hit
 map <S-k> <Nop>
