@@ -70,9 +70,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'jayli/vim-easycomplete'
 Plug 'sbdchd/neoformat'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jparise/vim-graphql'
@@ -140,21 +140,6 @@ let g:floaterm_borderchars = "        "
 
 " Emmet configs
 let g:user_emmet_mode='n'
-
-" Easy Complete Mappings
-noremap gr :EasyCompleteReference<CR>
-noremap gd :EasyCompleteGotoDefinition<CR>
-noremap rn :EasyCompleteRename<CR>
-nnoremap <silent> <C-j> :EasyCompleteNextDiagnostic<CR>
-nnoremap <silent> <C-k> :EasyCompletePreviousDiagnostic<CR>
-let g:easycomplete_diagnostics_enable = 1
-let g:easycomplete_signature_enable = 1
-let g:easycomplete_tabnine_enable = 1
-let g:easycomplete_scheme = "dark"
-let g:easycomplete_tabnine_config = {
-        \ 'line_limit': 800,
-        \ 'max_num_result': 10,
-        \ }
 
 " Fuzzy finds
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob=\!.git"
