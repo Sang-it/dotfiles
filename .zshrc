@@ -25,6 +25,9 @@ alias kube="kubectl"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 
+# Path to llvm
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
 # Path to Pure
 fpath=("$HOME/.zsh" $fpath)
 
