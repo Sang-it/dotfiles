@@ -18,6 +18,8 @@ augroup END
 set nocompatible
 set signcolumn=number
 syntax on
+set mouse=a
+set completeopt+=popup
 filetype plugin indent on
 set clipboard=unnamed
 set encoding=utf-8
@@ -41,7 +43,7 @@ set nowrap
 set number
 set nobackup
 set nowritebackup
-set updatetime=300
+set updatetime=100
 set shortmess=Ic
 set cursorline
 
@@ -92,6 +94,9 @@ Plug 'keith/investigate.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
 call plug#end()
+
+" Custom LSPs
+source /Users/sangitmanandhar/.lsp/vimrc.generated
 
 "Colorcheme setup
 colorscheme gruvbox

@@ -20,6 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias tm="tmux"
 alias kube="kubectl"
+alias prismafmt="prisma format --schema"
 
 # Path to HomeBrew
 export PATH="/opt/homebrew/bin:$PATH"

@@ -77,13 +77,13 @@ map ss stripspace
 
 # Basic Functions
 map . set hidden!
-map md delete
+map mr delete
 map p paste
 map x cut
 map y copy
 map <c-d> fzf_jump
 map <enter> open
-map ma mkdir
+map md mkdir
 map mf mkfile
 map ch chmod
 map mm rename
@@ -93,6 +93,7 @@ map U unselect
 map <c-c> quit
 
 map gd cd ~/Downloads
+map gD cd ~/Desktop
 map gp cd ~/Projects
 map go cd ~/OpenSourceProjects
 map ge cd ~/Desktop
