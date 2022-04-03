@@ -1,9 +1,11 @@
 " StartUp Script
 autocmd BufWritePre * %s/\s\+$//e
 
-autocmd BufWritePre *.js,*.ts,*.jsx.*.tsx,*.json,*.md Neoformat denofmt
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+
+autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.json,*.md Neoformat denofmt
 autocmd BufWritePre *.graphql Neoformat prettierd
-autocmd BufWritePre *.rs Neoformat rustfmt
+autocmd BufWritePre *.rs RustFmt
 autocmd BufWritePre *.go Neoformat gofmt
 autocmd BufWritePre *.py Neoformat autopep8
 autocmd BufWritePre *.java,*.c,*.cpp,*.cs Neoformat clangformat
@@ -16,6 +18,7 @@ augroup END
 
 "Basic vim setup
 set nocompatible
+set wildmode=longest,list,full
 set signcolumn=number
 syntax on
 set mouse=a
@@ -72,7 +75,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'sbdchd/neoformat'
@@ -93,6 +95,10 @@ Plug 'voldikss/vim-floaterm'
 Plug 'keith/investigate.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'ycm-core/YouCompleteMe'
+Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Custom LSPs
@@ -129,6 +135,13 @@ let g:lightline = {
       \ }
       \ }
 
+" ALE Configs
+let g:ale_disable_lsp = 1
+let g:ale_linters = {
+ \ 'javascript': ['eslint'],
+ \ 'typescript': ['eslint']
+ \ }
+
 "Git config
 nnoremap <leader>gc :GBranches<CR>
 
@@ -161,16 +174,8 @@ let g:ycm_auto_hover=""
 nmap gs <plug>(YCMHover)
 nmap gd :YcmCompleter GoToDefinition<cr>
 nmap gr :YcmCompleter GoToReferences<cr>
-nmap gf :YcmCompleter FixIt<cr>
 let g:ycm_add_preview_to_completeopt="popup"
-let g:ycm_autoclose_preview_window_after_completion=1
-
-" ALE Configs
-let g:ale_disable_lsp = 1
-let g:ale_linters = {
- \ 'javascript': ['eslint'],
- \ 'typescript': ['eslint']
- \ }
+let g:ycm_show_detailed_diag_in_popup=1
 
 " Disable manual Page hit
 map <S-k> <Nop>

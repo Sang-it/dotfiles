@@ -77,14 +77,14 @@ map ss stripspace
 
 # Basic Functions
 map . set hidden!
-map mr delete
+map dd delete
 map p paste
 map x cut
 map y copy
 map <c-d> fzf_jump
 map <enter> open
-map md mkdir
-map mf mkfile
+map mk mkdir
+map mt mkfile
 map ch chmod
 map mm rename
 map R reload

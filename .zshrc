@@ -78,13 +78,13 @@ export PATH=/Users/sangitmanandhar/.bin:$PATH
 bindkey -s '^d' 'cd_with_fzf\n'
 
 # Fzf to cheatsheet
-bindkey -s '^e' 'cht\n'
+# bindkey -s '^e' 'cht\n'
 
-# Tmux new sessions
+# # Tmux new sessions
 bindkey -s '^f' 'tms\n'
 
 # Show Homebrew Cellar
-bindkey -s '^s' 'get_homebrew_package_sizes\n'
+# bindkey -s '^s' 'get_homebrew_package_sizes\n'
 
 cd_with_fzf() {
   cd $HOME && cd "$(fd -t d --exclude .git --exclude node_modules --exclude dist | fzf)"
