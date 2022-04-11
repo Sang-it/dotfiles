@@ -3,9 +3,9 @@ shell:
   args:
     - --login
 
-colors:
-  primary:
-    background: "#252525"
+# colors:
+#   primary:
+#     background: "#252525"
 
 window:
   decorations: buttonless

@@ -7,7 +7,7 @@ set drawbox true
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
         text/*|application/json) $EDITOR "$f";;
-        *) xdg-open "$f" ;;
+        *) open "$f" ;;
     esac
 }}
 
@@ -15,12 +15,14 @@ cmd mkdir ${{
   printf "Directory Name: "
   read folder
   mkdir $folder
+  clear
 }}
 
 cmd mkfile ${{
   printf "File Name: "
   read file
   touch $file
+  clear
 }}
 
 cmd fzf_jump ${{
@@ -51,6 +53,10 @@ cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 
 cmd stripspace %stripspace "$f"
 
+cmd yank_path ${{
+  echo $PWD | pbcopy
+}}
+
 # Bindings
 # Remove some defaults
 map m
@@ -79,6 +85,7 @@ map ss stripspace
 map . set hidden!
 map dd delete
 map p paste
+map Y yank_path
 map x cut
 map y copy
 map <c-d> fzf_jump
