@@ -6,6 +6,7 @@ autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.md Neoformat denofmt
 autocmd BufWritePre *.graphql,*.json Neoformat prettierd
 autocmd BufWritePre *.rs RustFmt
+" autocmd BufWritePre *.prisma !yarn prisma format
 autocmd BufWritePre *.go Neoformat gofmt
 autocmd BufWritePre *.py Neoformat autopep8
 autocmd BufWritePre *.java,*.c,*.cpp,*.cs Neoformat clangformat
@@ -18,10 +19,8 @@ augroup END
 
 "Basic vim setup
 set nocompatible
-set wildmode=longest,list,full
 set signcolumn=number
 syntax on
-set noswapfile
 set mouse=a
 set completeopt+=popup
 filetype plugin indent on
@@ -98,7 +97,9 @@ Plug 'voldikss/vim-floaterm'
 Plug 'keith/investigate.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 Plug 'rust-lang/rust.vim'
 
 Plug 'sheerun/vim-polyglot'
