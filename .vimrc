@@ -4,7 +4,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 
 autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.md Neoformat denofmt
-autocmd BufWritePre *.graphql,*.json Neoformat prettierd
+autocmd BufWritePre *.graphql,*.json,*.html Neoformat prettier
 autocmd BufWritePre *.rs RustFmt
 " autocmd BufWritePre *.prisma !yarn prisma format
 autocmd BufWritePre *.go Neoformat gofmt
@@ -184,3 +184,7 @@ let g:ycm_show_detailed_diag_in_popup=1
 
 " Disable manual Page hit
 map <S-k> <Nop>
+
+" Vim end of line bindings
+no - $
+no _ ^

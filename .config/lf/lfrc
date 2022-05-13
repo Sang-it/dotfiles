@@ -11,17 +11,14 @@ cmd open ${{
     esac
 }}
 
-cmd mkdir ${{
-  printf "Directory Name: "
-  read folder
-  mkdir $folder
-  clear
-}}
-
-cmd mkfile ${{
-  printf "File Name: "
-  read file
-  touch $file
+cmd mk ${{
+  printf "File/Folder: "
+  read path
+  if [[ $path =~ "/" ]]; then
+      mkdir ${path%?}
+  else
+      touch $path
+  fi
   clear
 }}
 
@@ -62,6 +59,7 @@ cmd yank_path ${{
 map m
 map o
 map n
+map r
 map "'"
 map '"'
 map d
@@ -90,8 +88,7 @@ map x cut
 map y copy
 map <c-d> fzf_jump
 map <enter> open
-map mk mkdir
-map mt mkfile
+map mk mk
 map ch chmod
 map mm rename
 map R reload

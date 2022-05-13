@@ -35,8 +35,14 @@ autoload -U promptinit
 promptinit
 prompt pure
 
+# Path to Python thing
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+
 # Path to JAVA
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# Path to Dotnet
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 # JAVA_HOME env
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
@@ -55,8 +61,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Path to OpenSSL
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
-# Path to Python
-export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+# Path to Dotnet
+export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
 # Path to zlib
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
@@ -70,7 +76,7 @@ eval "$(pyenv init -)"
 # alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # Path to custom binaries
-export PATH=/Users/sangitmanandhar/.bin:$PATH
+export PATH="/Users/sangitmanandhar/.bin:$PATH"
 
 # Fzf to search directories
 bindkey -s '^d' 'cd_with_fzf\n'
