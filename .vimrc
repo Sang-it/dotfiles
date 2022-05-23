@@ -9,7 +9,8 @@ autocmd BufWritePre *.rs RustFmt
 " autocmd BufWritePre *.prisma !yarn prisma format
 autocmd BufWritePre *.go Neoformat gofmt
 autocmd BufWritePre *.py Neoformat autopep8
-autocmd BufWritePre *.java,*.c,*.cpp,*.cs Neoformat clangformat
+autocmd BufWritePre *.java,*.c,*.cpp Neoformat clangformat
+autocmd BufWritePre *.cs OmniSharpCodeFormat
 
 augroup numbertoggle
   autocmd!
@@ -104,6 +105,11 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'ycm-core/YouCompleteMe'
+
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'nickspoons/vim-sharpenup'
+Plug 'prabirshrestha/asyncomplete.vim'
+
 call plug#end()
 
 " Custom LSPs
@@ -144,11 +150,47 @@ let g:lightline = {
 let g:ale_disable_lsp = 1
 let g:ale_linters = {
  \ 'javascript': ['eslint'],
- \ 'typescript': ['eslint']
+ \ 'typescript': ['eslint'],
+ \ 'cs': ['OmniSharp'],
+ \ 'cshtml': ['OmniSharp']
  \ }
 
 "Git config
 nnoremap <leader>gc :GBranches<CR>
+
+" OmniSharp {{
+let g:OmniSharp_server_use_net6 = 1
+augroup omnisharp_commands
+  autocmd!
+  autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfu <Plug>(omnisharp_find_usages)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>gd <Plug>(omnisharp_preview_definition)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
+  autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+  autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+  autocmd FileType cs nmap <silent> <buffer> [[ <Plug>(omnisharp_navigate_up)
+  autocmd FileType cs nmap <silent> <buffer> ]] <Plug>(omnisharp_navigate_down)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osgcc <Plug>(omnisharp_global_code_check)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>os= <Plug>(omnisharp_code_format)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osnm <Plug>(omnisharp_rename)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osre <Plug>(omnisharp_restart_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osst <Plug>(omnisharp_start_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
+augroup END
+" }}
+
+" AsyncComplete configs
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
 
 " Netrw configs
 let g:netrw_banner = 0
