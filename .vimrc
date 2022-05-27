@@ -93,6 +93,7 @@ Plug 'mattn/emmet-vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'easymotion/vim-easymotion'
 Plug 'anosillus/vim-ipynb'
+
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'keith/investigate.vim'

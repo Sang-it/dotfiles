@@ -1,0 +1,30 @@
+require("nvim-treesitter.configs").setup {
+    ensure_installed = {
+        "javascript",
+        "json",
+        "rust",
+        "comment",
+        "go",
+        "css",
+        "bash",
+        "typescript",
+        "c",
+        "c_sharp",
+        "elixir",
+        "vim",
+        "prisma",
+        "vue",
+        "svelte",
+        "python",
+        "java",
+        "dockerfile",
+        "cpp",
+        "scss",
+        "yaml",
+        "tsx",
+        "php"
+    },
+    highlight = {enable = true},
+    incremental_selection = {enable = true},
+    textobjects = {enable = true}
+}

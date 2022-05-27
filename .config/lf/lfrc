@@ -6,7 +6,7 @@ set drawbox true
 # Custom Functions
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
-        text/*|application/json) $EDITOR "$f";;
+        text/*|application/json) nvim "$f";;
         *) open "$f" ;;
     esac
 }}
@@ -68,7 +68,7 @@ map e
 map f
 
 # File Openers
-map ee $$EDITOR "$f"
+map ee nvim "$f"
 
 # Archive Mappings
 map az zip
