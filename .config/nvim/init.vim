@@ -11,13 +11,12 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
-Plug 'rust-lang/rust.vim'
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-dispatch'
+
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'nvim-lua/popup.nvim'

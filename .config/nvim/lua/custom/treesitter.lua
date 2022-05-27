@@ -13,6 +13,7 @@ require("nvim-treesitter.configs").setup {
         "elixir",
         "vim",
         "prisma",
+        "lua",
         "vue",
         "svelte",
         "python",

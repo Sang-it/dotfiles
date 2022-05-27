@@ -18,3 +18,4 @@ fun! ColorMyPencils()
     highlight Normal guibg=none
 endfun
 call ColorMyPencils()
+

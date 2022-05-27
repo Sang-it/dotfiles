@@ -9,7 +9,7 @@ augroup Formatters
     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
     autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.md Neoformat denofmt
     autocmd BufWritePre *.graphql,*.json,*.html Neoformat prettier
-    autocmd BufWritePre *.rs RustFmt
+    autocmd BufWritePre *.rs Neoformat rustfmt
     autocmd BufWritePre *.go Neoformat gofmt
     autocmd BufWritePre *.lua Neoformat luafmt
     autocmd BufWritePre *.py Neoformat autopep8
