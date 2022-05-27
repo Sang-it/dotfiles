@@ -16,6 +16,20 @@ require("telescope").setup(
                 }
             }
         },
+        pickers = {
+            buffers = {
+                theme = "ivy"
+            },
+            help_tags = {
+                theme = "ivy"
+            },
+            find_files = {
+                theme = "ivy"
+            },
+            current_buffer_fuzzy_find = {
+                theme = "ivy"
+            }
+        },
         extensions = {
             fzy_native = {
                 override_generic_sorter = false,

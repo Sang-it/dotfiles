@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias tm="tmux"
-alias v="nvim"
+alias n="nvim"
 alias kube="kubectl"
 alias prismafmt="prisma format --schema"
 

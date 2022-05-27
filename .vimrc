@@ -44,7 +44,6 @@ set number
 set guifont=Fira_Code_Nerd_Font:h14
 set smartindent
 set nowrap
-set number
 set nobackup
 set nowritebackup
 set updatetime=100
