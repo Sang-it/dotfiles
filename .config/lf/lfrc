@@ -1,7 +1,7 @@
 # Basic Settings
 set preview true
 set hidden true
-set drawbox true
+# set drawbox true
 
 # Custom Functions
 cmd open ${{

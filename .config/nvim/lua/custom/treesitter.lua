@@ -25,7 +25,10 @@ require("nvim-treesitter.configs").setup {
         "tsx",
         "php"
     },
-    highlight = {enable = true},
+    autopairs = {
+        enable = true
+    },
+    highlight = {enable = true, additional_vim_regex_highlighting = true},
     incremental_selection = {enable = true},
     textobjects = {enable = true}
 }

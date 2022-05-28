@@ -1,3 +1,17 @@
+require("custom.impatient")
+
+require("custom.lsp")
+
+require("custom.tree")
+
+require("custom.terminal")
+
+require("custom.autopairs")
+
+require("custom.telescope")
+
+require("custom.treesitter")
+
 function CreateNoremapGlobal(type, opts)
     return function(lhs, rhs)
         vim.api.nvim_set_keymap(type, lhs, rhs, opts)
@@ -19,10 +33,6 @@ NnoremapGlobal(
 
 Nnoremap = CreateNoremap("n", {noremap = true})
 Inoremap = CreateNoremap("i", {noremap = true})
-
-require("custom.telescope")
-require("custom.lsp")
-require("custom.treesitter")
 
 P = function(v)
     print(vim.inspect(v))

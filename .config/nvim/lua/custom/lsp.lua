@@ -16,6 +16,11 @@ local lspkind = require("lspkind")
 
 cmp.setup(
     {
+        snippet = {
+            expand = function(args)
+                require("luasnip").lsp_expand(args.body)
+            end
+        },
         mapping = cmp.mapping.preset.insert(
             {
                 ["<C-y>"] = cmp.mapping.confirm({select = true}),
@@ -41,7 +46,17 @@ cmp.setup(
         sources = {
             {name = "cmp_tabnine"},
             {name = "nvim_lsp"},
-            {name = "buffer"}
+            {name = "luasnip"},
+            {name = "buffer"},
+            {name = "path"}
+        },
+        experimental = {
+            native_menu = false,
+            ghost_text = false
+        },
+        confirm_opts = {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false
         }
     }
 )
@@ -51,7 +66,7 @@ local tabnine = require("cmp_tabnine.config")
 tabnine:setup(
     {
         max_lines = 1000,
-        max_num_results = 5,
+        max_num_results = 10,
         sort = true,
         run_on_every_keystroke = true,
         snippet_placeholder = ".."
@@ -88,23 +103,7 @@ require("lspconfig").pyright.setup(config())
 
 require("lspconfig").cssls.setup(config())
 
-require("lspconfig").jsonls.setup(config())
-
 require("lspconfig").vimls.setup(config())
-
--- require("lspconfig").dockerls.setup(config())
-
--- require("lspconfig").svelte.setup(config())
-
--- require("lspconfig").sqlls.setup(config())
-
--- require("lspconfig").ember.setup(config())
-
--- require("lspconfig").tailwindcss.setup(config())
-
--- require("lspconfig").vuels.setup(config())
-
--- require("lspconfig").angularls.setup(config())
 
 require("lspconfig").bashls.setup(config())
 
@@ -115,6 +114,21 @@ require("lspconfig").jdtls.setup(config())
 require("lspconfig").csharp_ls.setup(config())
 
 require("lspconfig").elixirls.setup(config())
+
+require("lspconfig").prismals.setup(config())
+
+require("lspconfig").jsonls.setup(
+    config(
+        {
+            settings = {
+                json = {
+                    schemas = require("schemastore").json.schemas(),
+                    validate = {enable = true}
+                }
+            }
+        }
+    )
+)
 
 require("lspconfig").gopls.setup(
     config(
@@ -164,9 +178,45 @@ require("lspconfig").sumneko_lua.setup(
     )
 )
 
+-- require("lspconfig").dockerls.setup(config())
+
+-- require("lspconfig").svelte.setup(config())
+
+-- require("lspconfig").sqlls.setup(config())
+
+-- require("lspconfig").ember.setup(config())
+
+-- require("lspconfig").tailwindcss.setup(config())
+
+-- require("lspconfig").vuels.setup(config())
+
+-- require("lspconfig").angularls.setup(config())
+
 local opts = {
     highlight_hovered_item = true,
     show_guides = true
 }
 
 require("symbols-outline").setup(opts)
+
+local snippets_paths = function()
+    local plugins = {"friendly-snippets"}
+    local paths = {}
+    local path
+    local root_path = vim.env.HOME .. "/.local/share/nvim/plugged/"
+    for _, plug in ipairs(plugins) do
+        path = root_path .. plug
+        if vim.fn.isdirectory(path) ~= 0 then
+            table.insert(paths, path)
+        end
+    end
+    return paths
+end
+
+require("luasnip.loaders.from_vscode").lazy_load(
+    {
+        paths = snippets_paths(),
+        include = nil,
+        exclude = {}
+    }
+)
