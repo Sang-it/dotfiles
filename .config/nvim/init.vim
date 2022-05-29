@@ -10,6 +10,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'tamago324/nlsp-settings.nvim'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+Plug 'lewis6991/impatient.nvim'
 Plug 'b0o/schemastore.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -39,14 +40,13 @@ Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'windwp/nvim-autopairs'
-Plug 'lewis6991/impatient.nvim'
 
 Plug 'tpope/vim-commentary'
 Plug 'simrat39/symbols-outline.nvim'
 
-Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
-
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/toggleterm.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'j-hui/fidget.nvim'
 call plug#end()
+
 lua require("custom")

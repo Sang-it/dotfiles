@@ -4,7 +4,13 @@ require("custom.lsp")
 
 require("custom.tree")
 
+require("custom.fidget")
+
+require("custom.symbols")
+
 require("custom.terminal")
+
+require("custom.snippets")
 
 require("custom.autopairs")
 

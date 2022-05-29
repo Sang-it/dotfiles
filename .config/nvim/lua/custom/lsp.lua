@@ -164,7 +164,7 @@ require("lspconfig").sumneko_lua.setup(
                         path = vim.split(package.path, ";")
                     },
                     diagnostics = {
-                        globals = {"vim"}
+                        globals = {"vim", "Nnoremap", "Inoremap"}
                     },
                     workspace = {
                         library = {
@@ -191,32 +191,3 @@ require("lspconfig").sumneko_lua.setup(
 -- require("lspconfig").vuels.setup(config())
 
 -- require("lspconfig").angularls.setup(config())
-
-local opts = {
-    highlight_hovered_item = true,
-    show_guides = true
-}
-
-require("symbols-outline").setup(opts)
-
-local snippets_paths = function()
-    local plugins = {"friendly-snippets"}
-    local paths = {}
-    local path
-    local root_path = vim.env.HOME .. "/.local/share/nvim/plugged/"
-    for _, plug in ipairs(plugins) do
-        path = root_path .. plug
-        if vim.fn.isdirectory(path) ~= 0 then
-            table.insert(paths, path)
-        end
-    end
-    return paths
-end
-
-require("luasnip.loaders.from_vscode").lazy_load(
-    {
-        paths = snippets_paths(),
-        include = nil,
-        exclude = {}
-    }
-)
