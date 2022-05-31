@@ -1,7 +1,9 @@
-let g:colorscheme = "ayu"
+let g:colorscheme = "gruvbox"
 
 fun! ColorMyPencils()
     call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:colorscheme])
+
+    let g:afterglow_inherit_background=1
 
     let ayucolor="dark"
 
@@ -11,10 +13,15 @@ fun! ColorMyPencils()
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-    highlight ColorColumn ctermbg=NONE guibg=NONE
-    hi SignColumn guibg=NONE
-    hi Normal ctermbg=NONE guibg=NONE
-    hi CursorLineNR guibg=NONE
+    hi ColorColumn guibg=NONE ctermbg=NONE
+    hi CursorLineNR guibg=NONE ctermbg=NONE
+    hi Normal guibg=NONE ctermbg=NONE
+    hi LineNr guibg=NONE ctermbg=NONE
+    hi SignColumn guibg=NONE ctermbg=NONE
+    hi EndOfBuffer guibg=NONE ctermbg=NONE
 
+    hi TabLine      guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+    hi TabLineSel   guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
+    hi TabLineFill  guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
 endfun
 call ColorMyPencils()

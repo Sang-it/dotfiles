@@ -23,9 +23,10 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-dispatch'
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'rebelot/kanagawa.nvim'
-Plug 'junegunn/seoul256.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'rakr/vim-two-firewatch'
+Plug 'mhartington/oceanic-next'
+Plug 'yunlingz/vsc-dark-plus-vim'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -45,8 +46,9 @@ Plug 'tpope/vim-commentary'
 Plug 'simrat39/symbols-outline.nvim'
 
 Plug 'akinsho/toggleterm.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
 Plug 'j-hui/fidget.nvim'
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
 
-lua require("custom")
+lua require("theenix")

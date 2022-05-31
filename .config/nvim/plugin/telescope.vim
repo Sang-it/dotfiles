@@ -1,4 +1,4 @@
-lua require("custom")
+lua require("theenix")
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>f :lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader>p :lua require('telescope.builtin').live_grep()<CR>
