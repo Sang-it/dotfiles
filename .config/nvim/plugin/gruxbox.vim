@@ -19,6 +19,6 @@ hi LineNr guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 
-hi TabLine      guifg=#333 guibg=#222 gui=NONE ctermfg=254 ctermbg=238 cterm=NONE
-hi TabLineSel   guifg=#666 guibg=#222 gui=BOLD ctermfg=231 ctermbg=235 cterm=BOLD
-hi TabLineFill  guifg=#999 guibg=#222 gui=NONE ctermfg=254 ctermbg=238 cterm=NONE
+" hi TabLine      guifg=#333 guibg=#222 gui=NONE ctermfg=254 ctermbg=238 cterm=NONE
+" hi TabLineSel   guifg=#666 guibg=#222 gui=BOLD ctermfg=231 ctermbg=235 cterm=BOLD
+" hi TabLineFill  guifg=#999 guibg=#222 gui=NONE ctermfg=254 ctermbg=238 cterm=NONE
