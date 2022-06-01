@@ -6,6 +6,7 @@ files=($(cat ~/.dot-files))
 
 for file in $files; do
 	if [[ $file == *.config/* ]]; then
+        rm -rf "~/.dotfiles/.config/$(basename $file)"
 		cp -r $file ~/.dotfiles/.config
 	else
 		cp -r $file ~/.dotfiles
