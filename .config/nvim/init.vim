@@ -41,6 +41,7 @@ Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'windwp/nvim-autopairs'
+Plug 'ThePrimeagen/harpoon'
 
 Plug 'tpope/vim-commentary'
 Plug 'simrat39/symbols-outline.nvim'

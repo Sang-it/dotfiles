@@ -4,11 +4,13 @@ require("theenix.lsp")
 
 require("theenix.fidget")
 
+require("theenix.harpoon")
+
 require("theenix.symbols")
 
-require("theenix.terminal")
-
 require("theenix.snippets")
+
+require("theenix.terminal")
 
 require("theenix.autopairs")
 
