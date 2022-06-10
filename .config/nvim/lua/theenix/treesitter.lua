@@ -6,6 +6,7 @@ require("nvim-treesitter.configs").setup {
         "comment",
         "go",
         "css",
+        "graphql",
         "bash",
         "typescript",
         "c",
@@ -25,10 +26,12 @@ require("nvim-treesitter.configs").setup {
         "tsx",
         "php"
     },
-    autopairs = {
-        enable = true
+    autopairs = { enable = true },
+    context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
     },
-    highlight = {enable = true, additional_vim_regex_highlighting = true},
-    incremental_selection = {enable = true},
-    textobjects = {enable = true}
+    highlight = { enable = true, additional_vim_regex_highlighting = true },
+    incremental_selection = { enable = true },
+    textobjects = { enable = true }
 }

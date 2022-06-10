@@ -6,7 +6,7 @@ require("nvim-autopairs").setup(
         },
         fast_wrap = {
             map = "<C-e>",
-            chars = {"{", "[", "(", '"', "'"},
+            chars = { "{", "[", "(", '"', "'" },
             pattern = [=[[%'%"%)%>%]%)%}%,]]=],
             end_key = "$",
             offset = 0,
@@ -20,4 +20,4 @@ require("nvim-autopairs").setup(
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))

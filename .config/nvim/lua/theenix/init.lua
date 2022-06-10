@@ -31,14 +31,14 @@ function CreateNoremap(type, opts)
     end
 end
 
-NnoremapGlobal = CreateNoremapGlobal("n", {noremap = true})
+NnoremapGlobal = CreateNoremapGlobal("n", { noremap = true })
 NnoremapGlobal(
     "<leader>nc",
     '<cmd>:lua require("tree-navigation.telescope").navigate_to(require("tree-navigation").get_class_nodes())<CR>'
 )
 
-Nnoremap = CreateNoremap("n", {noremap = true})
-Inoremap = CreateNoremap("i", {noremap = true})
+Nnoremap = CreateNoremap("n", { noremap = true })
+Inoremap = CreateNoremap("i", { noremap = true })
 
 P = function(v)
     print(vim.inspect(v))

@@ -23,7 +23,7 @@ cmp.setup(
         },
         mapping = cmp.mapping.preset.insert(
             {
-                ["<C-y>"] = cmp.mapping.confirm({select = true}),
+                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-a>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete()
@@ -44,11 +44,11 @@ cmp.setup(
             end
         },
         sources = {
-            {name = "cmp_tabnine"},
-            {name = "nvim_lsp"},
-            {name = "luasnip"},
-            {name = "buffer"},
-            {name = "path"}
+            { name = "cmp_tabnine" },
+            { name = "nvim_lsp" },
+            { name = "luasnip" },
+            { name = "buffer" },
+            { name = "path" }
         },
         experimental = {
             native_menu = false,
@@ -101,17 +101,19 @@ require("lspconfig").ccls.setup(config())
 
 require("lspconfig").pyright.setup(config())
 
--- require("lspconfig").cssls.setup(config())
+require("lspconfig").html.setup(config())
+
+require("lspconfig").cssls.setup(config())
 
 require("lspconfig").vimls.setup(config())
-
--- require("lspconfig").bashls.setup(config())
 
 -- require("lspconfig").graphql.setup(config())
 
 require("lspconfig").jdtls.setup(config())
 
 require("lspconfig").csharp_ls.setup(config())
+
+require("lspconfig").fsautocomplete.setup(config())
 
 require("lspconfig").elixirls.setup(config())
 
@@ -123,7 +125,7 @@ require("lspconfig").jsonls.setup(
             settings = {
                 json = {
                     schemas = require("schemastore").json.schemas(),
-                    validate = {enable = true}
+                    validate = { enable = true }
                 }
             }
         }
@@ -133,7 +135,7 @@ require("lspconfig").jsonls.setup(
 require("lspconfig").gopls.setup(
     config(
         {
-            cmd = {"gopls", "serve"},
+            cmd = { "gopls", "serve" },
             settings = {
                 gopls = {
                     analyses = {
@@ -148,9 +150,15 @@ require("lspconfig").gopls.setup(
 
 require("lspconfig").rust_analyzer.setup(
     config(
-        {
-            cmd = {"rustup", "run", "nightly", "rust-analyzer"}
+    --[[
+        settings = {
+            rust = {
+                unstable_features = true,
+                build_on_save = false,
+                all_features = true,
+            },
         }
+    --]]
     )
 )
 
@@ -164,7 +172,7 @@ require("lspconfig").sumneko_lua.setup(
                         path = vim.split(package.path, ";")
                     },
                     diagnostics = {
-                        globals = {"vim", "Nnoremap", "Inoremap"}
+                        globals = { "vim", "Nnoremap", "Inoremap" }
                     },
                     workspace = {
                         library = {
@@ -180,14 +188,4 @@ require("lspconfig").sumneko_lua.setup(
 
 -- require("lspconfig").dockerls.setup(config())
 
--- require("lspconfig").svelte.setup(config())
-
--- require("lspconfig").sqlls.setup(config())
-
--- require("lspconfig").ember.setup(config())
-
 -- require("lspconfig").tailwindcss.setup(config())
-
--- require("lspconfig").vuels.setup(config())
-
--- require("lspconfig").angularls.setup(config())
