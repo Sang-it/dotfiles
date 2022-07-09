@@ -2,6 +2,8 @@ require("theenix.impatient")
 
 require("theenix.lsp")
 
+require("theenix.zen")
+
 require("theenix.fidget")
 
 require("theenix.harpoon")

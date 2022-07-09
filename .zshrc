@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -18,8 +16,6 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias tm="tmux"
 alias n="nvim"
-alias kube="kubectl"
-alias prismafmt="prisma format --schema"
 
 # Path to HomeBrew
 export PATH="/opt/homebrew/bin:$PATH"
@@ -61,6 +57,12 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Path to OpenSSL
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+# Path to Ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Path to Sqlite
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # Path to Dotnet
 export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
@@ -106,5 +108,9 @@ pr() {
   hub pull-request --push --base $CURRENT_BRANCH --message $1
 }
 
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+# bun completions
+[ -s "/Users/sangitmanandhar/.bun/_bun" ] && source "/Users/sangitmanandhar/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/sangitmanandhar/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

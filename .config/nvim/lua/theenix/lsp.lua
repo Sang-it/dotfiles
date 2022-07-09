@@ -119,6 +119,12 @@ require("lspconfig").elixirls.setup(config())
 
 require("lspconfig").prismals.setup(config())
 
+require("lspconfig").hls.setup(config())
+
+require("lspconfig").emmet_ls.setup(config({
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact' }
+}))
+
 require("lspconfig").jsonls.setup(
     config(
         {
@@ -188,4 +194,4 @@ require("lspconfig").sumneko_lua.setup(
 
 -- require("lspconfig").dockerls.setup(config())
 
--- require("lspconfig").tailwindcss.setup(config())
+require("lspconfig").tailwindcss.setup(config())

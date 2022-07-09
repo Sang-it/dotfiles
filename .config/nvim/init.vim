@@ -30,6 +30,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'yunlingz/vsc-dark-plus-vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+Plug 'folke/zen-mode.nvim'
+
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
