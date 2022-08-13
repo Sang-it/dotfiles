@@ -12,7 +12,7 @@ augroup Formatters
     autocmd BufWritePre *.go Neoformat gofmt
     autocmd BufWritePre *.py Neoformat autopep8
     autocmd BufWritePre *.java,*.c,*.cpp Neoformat clangformat
-    autocmd BufWritePre *.prisma,*.cs,*.lua lua vim.lsp.buf.format()
+    autocmd BufWritePre *.prisma,*.cs,*.lua lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END
 
 augroup numbertoggle

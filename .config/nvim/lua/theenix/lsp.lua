@@ -115,7 +115,9 @@ require("lspconfig").csharp_ls.setup(config())
 
 require("lspconfig").fsautocomplete.setup(config())
 
-require("lspconfig").elixirls.setup(config())
+require("lspconfig").elixirls.setup(config({
+    cmd = { 'elixir-ls' }
+}))
 
 require("lspconfig").prismals.setup(config())
 

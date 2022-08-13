@@ -114,3 +114,5 @@ pr() {
 # Bun
 export BUN_INSTALL="/Users/sangitmanandhar/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(direnv hook zsh)"
