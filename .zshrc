@@ -76,7 +76,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 eval "$(pyenv init -)"
 
 # [[ DOESN'T WORK WELL WITH FIG ]]
-# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # Path to custom binaries
 export PATH="/Users/sangitmanandhar/.bin:$PATH"
