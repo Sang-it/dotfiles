@@ -77,7 +77,7 @@ local function config(_config)
     return vim.tbl_deep_extend(
         "force",
         {
-            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
             on_attach = function()
                 Nnoremap("gd", ":lua vim.lsp.buf.definition()<CR>")
                 Nnoremap("K", ":lua vim.lsp.buf.hover()<CR>")
@@ -105,15 +105,11 @@ require("lspconfig").html.setup(config())
 
 require("lspconfig").cssls.setup(config())
 
-require("lspconfig").vimls.setup(config())
-
--- require("lspconfig").graphql.setup(config())
-
 require("lspconfig").jdtls.setup(config())
 
-require("lspconfig").csharp_ls.setup(config())
+require("lspconfig").csharp_ls.setup{}
 
-require("lspconfig").fsautocomplete.setup(config())
+-- require("lspconfig").fsautocomplete.setup(config())
 
 require("lspconfig").elixirls.setup(config({
     cmd = { 'elixir-ls' }
@@ -193,6 +189,7 @@ require("lspconfig").sumneko_lua.setup(
         }
     )
 )
+
 
 -- require("lspconfig").dockerls.setup(config())
 

@@ -14,6 +14,7 @@ Plug 'lewis6991/impatient.nvim'
 Plug 'b0o/schemastore.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/playground'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -22,12 +23,14 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'mhartington/oceanic-next'
 Plug 'yunlingz/vsc-dark-plus-vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 Plug 'folke/zen-mode.nvim'

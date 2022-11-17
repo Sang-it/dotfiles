@@ -330,6 +330,16 @@
                             "key_code": "right_control"
                         }
                     ]
+                },
+                {
+                    "from": {
+                        "key_code": "comma"
+                    },
+                    "to": [
+                        {
+                            "key_code": "comma"
+                        }
+                    ]
                 }
             ],
             "virtual_hid_keyboard": {
