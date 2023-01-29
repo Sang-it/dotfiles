@@ -1,5 +1,5 @@
 local snippets_paths = function()
-    local plugins = {"friendly-snippets"}
+    local plugins = { "friendly-snippets" }
     local paths = {}
     local path
     local root_path = vim.env.HOME .. "/.local/share/nvim/plugged/"

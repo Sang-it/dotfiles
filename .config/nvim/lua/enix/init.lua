@@ -1,24 +1,16 @@
-require("theenix.impatient")
-
-require("theenix.lsp")
-
-require("theenix.zen")
-
-require("theenix.fidget")
-
-require("theenix.harpoon")
-
-require("theenix.symbols")
-
-require("theenix.snippets")
-
-require("theenix.terminal")
-
-require("theenix.autopairs")
-
-require("theenix.telescope")
-
-require("theenix.treesitter")
+require("enix.impatient")
+require("enix.remaps")
+require("enix.lsp")
+require("enix.zen")
+require("enix.fidget")
+require("enix.harpoon")
+require("enix.symbols")
+require("enix.snippets")
+require("enix.terminal")
+require("enix.autopairs")
+require("enix.telescope")
+require("enix.treesitter")
+require("enix.rose_pink")
 
 function CreateNoremapGlobal(type, opts)
     return function(lhs, rhs)

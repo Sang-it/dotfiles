@@ -1,6 +1,4 @@
-let g:colorscheme = "hybrid_material"
-
-call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:colorscheme])
+let g:colorscheme = "rose-pine"
 
 let g:afterglow_inherit_background=1
 
@@ -24,4 +22,6 @@ if colorscheme == "hybrid_material"
     hi DiagnosticError guifg=#cc6666
 endif
 
-hi TreesitterContext guibg=NONE ctermbg=NONE
+" hi TreesitterContext guibg=NONE ctermbg=NONE
+
+call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:colorscheme])

@@ -6,13 +6,6 @@ augroup END
 augroup Formatters
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
-    autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.md Neoformat denofmt
-    autocmd BufWritePre *.graphql,*.json,*.html,*.css Neoformat prettier
-    autocmd BufWritePre *.rs Neoformat rustfmt
-    autocmd BufWritePre *.go Neoformat gofmt
-    autocmd BufWritePre *.py Neoformat autopep8
-    autocmd BufWritePre *.java,*.c,*.cpp Neoformat clangformat
-    autocmd BufWritePre *.prisma,*.cs,*.lua lua vim.lsp.buf.format()
 augroup END
 
 augroup numbertoggle

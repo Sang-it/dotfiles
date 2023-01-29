@@ -8,22 +8,21 @@ set smartindent
 set nu
 set nowrap
 set noswapfile
-set mouse=a
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
+
 " set noshowmode
 set signcolumn=number
-set cmdheight=2
 set background=dark
 set updatetime=50
-set clipboard+=unnamedplus
 set shortmess+=c
 " set wildmode=longest,list,full
 " set wildmenu
+
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*

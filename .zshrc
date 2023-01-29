@@ -17,13 +17,17 @@ source $ZSH/oh-my-zsh.sh
 alias tm="tmux"
 alias n="nvim"
 
+# Editor set to nvim
+export EDITOR="nvim"
+
 # Path to llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+# Head installs for homebrew
+export HOMEBREW_NO_INSTALL_FROM_API=1
+
 # Path to Pure
 fpath=("$HOME/.zsh" $fpath)
-
-# Pure configs
 autoload -U promptinit
 promptinit
 prompt pure
@@ -38,6 +42,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 # Path to Dotnet
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 export MSBuildSDKsPATH="/opt/homebrew/Cellar/dotnet/6.0.110/libexec/sdk/6.0.110/Sdks"
+export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
 # JAVA_HOME env
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
@@ -54,22 +59,19 @@ export FZF_DEFAULT_OPTS="--height=50% --layout=reverse"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Path to OpenSSL
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 # Path to Ruby
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/Users/sangitmanandhar/.gem/ruby/3.1.0/bin:$PATH"
 
 # Path to Sqlite
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
-
-# Path to Dotnet
-export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
 # Zlib Flags
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
 
-# [[ DOESN'T WORK WELL WITH FIG ]]
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # Path to custom binaries

@@ -18,7 +18,7 @@ cmp.setup(
     {
         snippet = {
             expand = function(args)
-                require("luasnip").lsp_expand(args.body)
+                    require("luasnip").lsp_expand(args.body)
             end
         },
         mapping = cmp.mapping.preset.insert(
@@ -26,7 +26,9 @@ cmp.setup(
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-a>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete()
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<Tab>"] = nil,
+                ["<S-Tab>"] = nil
             }
         ),
         formatting = {
@@ -44,11 +46,11 @@ cmp.setup(
             end
         },
         sources = {
-            { name = "cmp_tabnine" },
             { name = "nvim_lsp" },
             { name = "luasnip" },
             { name = "buffer" },
-            { name = "path" }
+            { name = "path" },
+            { name = "cmp_tabnine" }
         },
         experimental = {
             native_menu = false,
@@ -107,7 +109,7 @@ require("lspconfig").cssls.setup(config())
 
 require("lspconfig").jdtls.setup(config())
 
-require("lspconfig").csharp_ls.setup{}
+require("lspconfig").csharp_ls.setup(config())
 
 -- require("lspconfig").fsautocomplete.setup(config())
 

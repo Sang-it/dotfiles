@@ -1,4 +1,4 @@
-lua require("theenix")
+lua require("enix")
 
 nnoremap <silent><leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent><leader>tc :lua require("harpoon.ui").toggle_quick_menu()<CR>
