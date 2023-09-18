@@ -13,6 +13,11 @@ plugins=(
 # Path to Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Path to Pure
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
+
 # Aliases
 alias tm="tmux"
 alias n="nvim"
@@ -23,26 +28,9 @@ export EDITOR="nvim"
 # Path to llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-# Head installs for homebrew
-export HOMEBREW_NO_INSTALL_FROM_API=1
-
-# Path to Pure
-fpath=("$HOME/.zsh" $fpath)
-autoload -U promptinit
-promptinit
-prompt pure
-
-# Path to Python thing
-# export PYTHON_CONFIGURE_OPTS="--enable-framework"
-
 # Path to JAVA
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-
-# Path to Dotnet
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-export MSBuildSDKsPATH="/opt/homebrew/Cellar/dotnet/6.0.110/libexec/sdk/6.0.110/Sdks"
-export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
 # JAVA_HOME env
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
@@ -58,20 +46,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -g '!.git' -g '!dist' -g '!node_
 export FZF_DEFAULT_OPTS="--height=50% --layout=reverse"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Path to OpenSSL
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-
-# Path to Ruby
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/Users/sangitmanandhar/.gem/ruby/3.1.0/bin:$PATH"
-
-# Path to Sqlite
-export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
-
-# Zlib Flags
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
-
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # Path to custom binaries
@@ -80,14 +54,8 @@ export PATH="/Users/sangitmanandhar/.bin:$PATH"
 # Fzf to search directories
 bindkey -s '^d' 'cd_with_fzf\n'
 
-# Fzf to cheatsheet
-# bindkey -s '^e' 'cht\n'
-
 # # Tmux new sessions
 bindkey -s '^f' 'tms\n'
-
-# Show Homebrew Cellar
-# bindkey -s '^s' 'get_homebrew_package_sizes\n'
 
 cd_with_fzf() {
   cd $HOME && cd "$(fd -t d --exclude .git --exclude node_modules --exclude dist | fzf)"
@@ -96,24 +64,4 @@ cd_with_fzf() {
 get_homebrew_package_sizes() {
   cd "/opt/homebrew/Cellar" && du -hs * | gsort -hr
 }
-
-pr() {
-  CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2-)
-  git checkout -b $1
-  git commit --allow-empty -m "Create branch"
-  hub pull-request --push --base $CURRENT_BRANCH --message $1
-}
-
-# bun completions
-[ -s "/Users/sangitmanandhar/.bun/_bun" ] && source "/Users/sangitmanandhar/.bun/_bun"
-
-# Bun
-export BUN_INSTALL="/Users/sangitmanandhar/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# eval "$(direnv hook zsh)"
-
-# pnpm
-export PNPM_HOME="/Users/sangitmanandhar/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

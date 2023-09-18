@@ -12,8 +12,6 @@ Plug 'rose-pine/neovim'
 Plug 'chriskempson/base16-vim'
 
 Plug 'onsails/lspkind-nvim'
-" Plug 'nvim-lua/lsp_extensions.nvim'
-" Plug 'glepnir/lspsaga.nvim'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rust-lang/rust.vim'
 
@@ -54,13 +52,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/impatient.nvim'
 Plug 'tpope/vim-commentary'
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 
-"Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
 
 lua require("enix")

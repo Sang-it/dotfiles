@@ -51,4 +51,4 @@ lctrl + alt + cmd - x : yabai -m space --create
 lctrl + alt + cmd + shift - x : yabai -m space --destroy
 
 # Restart Yabai
-lctrl + alt + cmd - q : brew services restart yabai
+lctrl + alt + cmd - q : yabai --restart-service

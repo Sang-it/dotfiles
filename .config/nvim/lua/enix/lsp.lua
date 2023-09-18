@@ -168,7 +168,7 @@ require("lspconfig").rust_analyzer.setup(
     )
 )
 
-require("lspconfig").sumneko_lua.setup(
+require("lspconfig").lua_ls.setup(
     config(
         {
             settings = {
@@ -195,4 +195,4 @@ require("lspconfig").sumneko_lua.setup(
 
 -- require("lspconfig").dockerls.setup(config())
 
-require("lspconfig").tailwindcss.setup(config())
+-- require("lspconfig").tailwindcss.setup(config())
