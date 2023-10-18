@@ -19,6 +19,7 @@ set scrolloff=8
 set signcolumn=number
 set background=dark
 set updatetime=50
+set clipboard+=unnamedplus
 set shortmess+=c
 " set wildmode=longest,list,full
 " set wildmenu

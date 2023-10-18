@@ -11,5 +11,8 @@ nmap <leader>w :w<cr>
 
 inoremap <C-c> <esc>
 
+" imap <silent><script><expr> <C-s> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
+
 no - $
 no _ ^

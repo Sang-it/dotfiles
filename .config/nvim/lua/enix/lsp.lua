@@ -18,7 +18,7 @@ cmp.setup(
     {
         snippet = {
             expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
+                require("luasnip").lsp_expand(args.body)
             end
         },
         mapping = cmp.mapping.preset.insert(
@@ -110,6 +110,8 @@ require("lspconfig").cssls.setup(config())
 require("lspconfig").jdtls.setup(config())
 
 require("lspconfig").csharp_ls.setup(config())
+
+require("lspconfig").hls.setup(config())
 
 -- require("lspconfig").fsautocomplete.setup(config())
 

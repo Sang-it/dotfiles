@@ -27,6 +27,14 @@ export EDITOR="nvim"
 
 # Path to llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+# Path to Ghcup
+export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
+
+# Path to ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # Path to JAVA
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -64,4 +72,6 @@ cd_with_fzf() {
 get_homebrew_package_sizes() {
   cd "/opt/homebrew/Cellar" && du -hs * | gsort -hr
 }
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+# opam configuration
+[[ ! -r /Users/sangitmanandhar/.opam/opam-init/init.zsh ]] || source /Users/sangitmanandhar/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

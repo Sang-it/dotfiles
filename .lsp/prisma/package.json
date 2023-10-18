@@ -1,6 +1,0 @@
-{
-  "description": "ycmd prisma-language-server",
-  "dependencies": {
-    "@prisma/language-server": "*"
-  }
-}

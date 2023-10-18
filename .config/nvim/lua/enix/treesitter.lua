@@ -1,31 +1,5 @@
 require("nvim-treesitter.configs").setup {
-    ensure_installed = {
-        "javascript",
-        "json",
-        "rust",
-        "comment",
-        "go",
-        "css",
-        "graphql",
-        "bash",
-        "typescript",
-        "c",
-        "c_sharp",
-        "elixir",
-        "vim",
-        "prisma",
-        "lua",
-        "vue",
-        "svelte",
-        "python",
-        "java",
-        "dockerfile",
-        "cpp",
-        "scss",
-        "yaml",
-        "tsx",
-        "php"
-    },
+    ensure_installed = "all",
     autopairs = { enable = true },
     context_commentstring = {
         enable = true,
@@ -35,7 +9,6 @@ require("nvim-treesitter.configs").setup {
     incremental_selection = { enable = true },
     textobjects = { enable = true }
 }
-
 
 require("treesitter-context").setup {
     enable = true,
