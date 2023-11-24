@@ -111,7 +111,6 @@ require("lspconfig").jdtls.setup(config())
 
 require("lspconfig").csharp_ls.setup(config())
 
-require("lspconfig").hls.setup(config())
 
 -- require("lspconfig").fsautocomplete.setup(config())
 
@@ -121,10 +120,20 @@ require("lspconfig").elixirls.setup(config({
 
 require("lspconfig").prismals.setup(config())
 
-require("lspconfig").hls.setup(config())
+require("lspconfig").ocamllsp.setup(config())
 
-require("lspconfig").emmet_ls.setup(config({
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact' }
+-- require("lspconfig").emmet_ls.setup(config({
+--     filetypes = { 'html', 'typescriptreact', 'javascriptreact' }
+-- }))
+
+require("lspconfig").hls.setup(config({
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+    settings = {
+        haskell = {
+            formattingProvider = 'stylish-haskell',
+            cabalFormattingProvider = "cabal-fmt",
+        },
+    }
 }))
 
 require("lspconfig").jsonls.setup(

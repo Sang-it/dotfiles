@@ -48,6 +48,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'mbbill/undotree'
 Plug 'ptzz/lf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 
 Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/impatient.nvim'

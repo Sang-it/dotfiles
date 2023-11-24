@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -21,17 +23,21 @@ prompt pure
 # Aliases
 alias tm="tmux"
 alias n="nvim"
+alias tn="tmux new-session -A -s "$(basename "$(PWD)")""
 
 # Editor set to nvim
 export EDITOR="nvim"
 
 # Path to llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Path to Ghcup
 export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
+
+# Path to Cabal
+export PATH="/Users/sangitmanandhar/.cabal/bin:$PATH"
 
 # Path to ruby
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -75,3 +81,6 @@ get_homebrew_package_sizes() {
 
 # opam configuration
 [[ ! -r /Users/sangitmanandhar/.opam/opam-init/init.zsh ]] || source /Users/sangitmanandhar/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
