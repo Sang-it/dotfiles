@@ -130,7 +130,7 @@ require("lspconfig").hls.setup(config({
     filetypes = { 'haskell', 'lhaskell', 'cabal' },
     settings = {
         haskell = {
-            formattingProvider = 'stylish-haskell',
+            formattingProvider = 'fourmolu',
             cabalFormattingProvider = "cabal-fmt",
         },
     }
