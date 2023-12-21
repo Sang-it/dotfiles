@@ -29,9 +29,9 @@ alias tn="tmux new-session -A -s "$(basename "$(PWD)")""
 export EDITOR="nvim"
 
 # Path to llvm
-# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Path to Ghcup
 export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"

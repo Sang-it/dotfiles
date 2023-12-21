@@ -22,7 +22,6 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/playground'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
-
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'rakr/vim-two-firewatch'
