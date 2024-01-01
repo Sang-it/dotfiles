@@ -58,6 +58,9 @@ Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 
+Plug 'rebelot/kanagawa.nvim'
+Plug 'RaafatTurki/hex.nvim'
+
 call plug#end()
 
 lua require("enix")
