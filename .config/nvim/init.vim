@@ -61,6 +61,8 @@ Plug 'tpope/vim-surround'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'RaafatTurki/hex.nvim'
 
+Plug 'godlygeek/tabular'
+
 call plug#end()
 
 lua require("enix")
