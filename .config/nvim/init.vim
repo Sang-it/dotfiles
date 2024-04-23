@@ -49,7 +49,6 @@ Plug 'ptzz/lf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 
-Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/impatient.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
@@ -62,6 +61,9 @@ Plug 'rebelot/kanagawa.nvim'
 Plug 'RaafatTurki/hex.nvim'
 
 Plug 'godlygeek/tabular'
+Plug 'dylon/vim-antlr'
+
+Plug 'stevearc/oil.nvim'
 
 call plug#end()
 

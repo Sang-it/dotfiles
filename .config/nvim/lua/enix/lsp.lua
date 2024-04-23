@@ -111,7 +111,6 @@ require("lspconfig").jdtls.setup(config())
 
 require("lspconfig").csharp_ls.setup(config())
 
-
 -- require("lspconfig").fsautocomplete.setup(config())
 
 require("lspconfig").elixirls.setup(config({
@@ -203,6 +202,11 @@ require("lspconfig").lua_ls.setup(
     )
 )
 
+require('lspconfig').v_analyzer.setup(config())
+
+require('lspconfig').zls.setup(config())
+
+require('lspconfig').metals.setup(config())
 
 -- require("lspconfig").dockerls.setup(config())
 

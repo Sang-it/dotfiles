@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# CodeWhisperer pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -79,7 +79,7 @@ bindkey -s '^d' 'cd_with_fzf\n'
 bindkey -s '^f' 'tms\n'
 
 cd_with_fzf() {
-  cd $HOME && cd "$(fd -t d --exclude .git --exclude node_modules --exclude dist | fzf)"
+  cd $HOME && cd "$(fd -t d --exclude .git --exclude node_modules --exclude dist --exclude Applications --exclude go | fzf)"
 }
 
 get_homebrew_package_sizes() {
@@ -92,5 +92,15 @@ get_homebrew_package_sizes() {
 # Required for sdl2 to work
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# Path to V-Analyzer
+export PATH="/Users/sangitmanandhar/.config/v-analyzer/bin:$PATH"
+
+# Path to Z
+. /opt/homebrew/etc/profile.d/z.sh
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/sangitmanandhar/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
+
+# CodeWhisperer post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
