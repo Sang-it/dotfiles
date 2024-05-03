@@ -64,6 +64,7 @@ Plug 'godlygeek/tabular'
 Plug 'dylon/vim-antlr'
 
 Plug 'stevearc/oil.nvim'
+Plug 'xiyaowong/transparent.nvim'
 
 call plug#end()
 

@@ -1,5 +1,5 @@
-# CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
+# Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -14,6 +14,9 @@ plugins=(
 
 # Path to Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Path to dotnet tools
+export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
 # Path to Pure
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
@@ -102,5 +105,5 @@ export PATH="/Users/sangitmanandhar/.config/v-analyzer/bin:$PATH"
 export PATH="$PATH:/Users/sangitmanandhar/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
 
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+# Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

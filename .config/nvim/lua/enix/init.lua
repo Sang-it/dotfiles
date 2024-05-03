@@ -11,6 +11,7 @@ require("enix.telescope")
 require("enix.treesitter")
 require("enix.rose_pink")
 require("enix.oil")
+require("enix.transparent")
 
 function CreateNoremapGlobal(type, opts)
     return function(lhs, rhs)

@@ -30,6 +30,7 @@ yabai -m config \
     window_gap 10
 
 # exclude apps
+yabai -m rule --add app="Logi Options" manage=off
 yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="Dictionary" manage=off
 yabai -m rule --add app="Fig" manage=off
