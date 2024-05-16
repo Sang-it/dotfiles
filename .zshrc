@@ -31,10 +31,22 @@ alias tn="tmux new-session -A -s "$(basename "$(PWD)")""
 # Editor set to nvim
 export EDITOR="nvim"
 
+  export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
 # Path to llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export LLVM_PATH="/opt/homebrew/opt/llvm"
+# export LLVM_VERSION="18"
+# export PATH="$LLVM_PATH/bin:$PATH"
+# export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+# # export LD_LIBRARY_PATH="$LLVM_PATH/lib/:$LD_LIBRARY_PATH"
+# # export DYLD_LIBRARY_PATH="$LLVM_PATH/lib/:$DYLD_LIBRARY_PATH"
+# export CPATH="$LLVM_PATH/lib/clang/$LLVM_VERSION/include/"
+# export LDFLAGS="-L$LLVM_PATH/lib"
+# export CPPFLAGS="-I$LLVM_PATH/include"
+# export CC="$LLVM_PATH/bin/clang"
+# export CXX="$LLVM_PATH/bin/clang++"
 
 # Path to Ghcup
 export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
@@ -100,6 +112,9 @@ export PATH="/Users/sangitmanandhar/.config/v-analyzer/bin:$PATH"
 
 # Path to Z
 . /opt/homebrew/etc/profile.d/z.sh
+
+# Path to RISCV
+export PATH="$PATH:/opt/riscv/bin"
 
 # >>> coursier install directory >>>
 export PATH="$PATH:/Users/sangitmanandhar/Library/Application Support/Coursier/bin"

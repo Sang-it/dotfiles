@@ -31,6 +31,7 @@ yabai -m config \
 
 # exclude apps
 yabai -m rule --add app="Logi Options" manage=off
+yabai -m rule --add app="Texts" manage=off
 yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="Dictionary" manage=off
 yabai -m rule --add app="Fig" manage=off
@@ -40,5 +41,6 @@ yabai -m rule --add app="Music" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Archive Utility" manage=off
 yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Alfred Preferences" manage=off
 yabai -m rule --add app="CleanMyMac X" manage=off

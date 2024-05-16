@@ -99,7 +99,9 @@ end
 
 require("lspconfig").tsserver.setup(config())
 
-require("lspconfig").ccls.setup(config())
+-- require("lspconfig").ccls.setup(config())
+
+require("lspconfig").clangd.setup(config())
 
 require("lspconfig").pyright.setup(config())
 
@@ -207,6 +209,8 @@ require('lspconfig').v_analyzer.setup(config())
 require('lspconfig').zls.setup(config())
 
 require('lspconfig').metals.setup(config())
+
+require('lspconfig').cmake.setup(config())
 
 -- require("lspconfig").dockerls.setup(config())
 
