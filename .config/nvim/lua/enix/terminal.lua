@@ -9,4 +9,5 @@ require("toggleterm").setup {
     insert_mappings = true,
     persist_size = true,
     close_on_exit = true,
+    auto_scroll = true,
 }

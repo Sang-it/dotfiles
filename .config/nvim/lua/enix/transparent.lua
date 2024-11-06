@@ -7,7 +7,7 @@ require("transparent").setup {
         'EndOfBuffer',
     },
     extra_groups = {
-        "NormalFloat"
+        -- "NormalFloat"
     },
 }
-require('transparent').clear_prefix('Telescope')
+-- require('transparent').clear_prefix('Telescope')

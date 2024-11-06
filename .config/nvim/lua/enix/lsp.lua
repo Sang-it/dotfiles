@@ -97,7 +97,7 @@ local function config(_config)
     )
 end
 
-require("lspconfig").tsserver.setup(config())
+require("lspconfig").ts_ls.setup(config())
 
 -- require("lspconfig").ccls.setup(config())
 
@@ -212,6 +212,6 @@ require('lspconfig').metals.setup(config())
 
 require('lspconfig').cmake.setup(config())
 
--- require("lspconfig").dockerls.setup(config())
+require("lspconfig").dockerls.setup(config())
 
 -- require("lspconfig").tailwindcss.setup(config())

@@ -1,0 +1,2 @@
+require('csvview').setup()
+

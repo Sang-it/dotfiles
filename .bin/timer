@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 2 ]; then
+    echo "Usage: timer <time> <message>"
+    exit 1
+fi
+
+TITLE="Timer"
+TIME=$(echo "$1 * 60" | bc)
+shift
+MESSAGE=$*
+
+(
+sleep $TIME
+terminal-notifier -group $TITILE  -title $TITLE -subtitle 'Done' -message "$MESSAGE" -sound default -sender 'com.apple.Terminal'
+) & >/dev/null

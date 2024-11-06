@@ -22,7 +22,7 @@ y = 1
 [scrolling]
 history = 5000
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/bin/zsh"
 
@@ -33,3 +33,5 @@ opacity = 0
 [window.padding]
 x = 10
 y = 10
+
+[terminal]

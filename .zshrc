@@ -18,6 +18,9 @@ source $ZSH/oh-my-zsh.sh
 # Path to dotnet tools
 export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
+# Path to go installed binaries
+export PATH="$PATH:/Users/sangitmanandhar/go/bin"
+
 # Path to Pure
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
@@ -31,22 +34,13 @@ alias tn="tmux new-session -A -s "$(basename "$(PWD)")""
 # Editor set to nvim
 export EDITOR="nvim"
 
-  export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# Path to Logger bin
+export PATH="$PATH:/Users/sangitmanandhar/Projects/OlympusObservatory/build"
 
 # Path to llvm
-# export LLVM_PATH="/opt/homebrew/opt/llvm"
-# export LLVM_VERSION="18"
-# export PATH="$LLVM_PATH/bin:$PATH"
-# export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
-# # export LD_LIBRARY_PATH="$LLVM_PATH/lib/:$LD_LIBRARY_PATH"
-# # export DYLD_LIBRARY_PATH="$LLVM_PATH/lib/:$DYLD_LIBRARY_PATH"
-# export CPATH="$LLVM_PATH/lib/clang/$LLVM_VERSION/include/"
-# export LDFLAGS="-L$LLVM_PATH/lib"
-# export CPPFLAGS="-I$LLVM_PATH/include"
-# export CC="$LLVM_PATH/bin/clang"
-# export CXX="$LLVM_PATH/bin/clang++"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Path to Ghcup
 export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"

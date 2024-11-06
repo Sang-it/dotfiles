@@ -1,7 +1,34 @@
 #!/usr/bin/env sh
 
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
+
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
+
+function setup_space {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+  yabai -m space "$idx" --label "$name"
+  echo yabai -m space "$idx" --label "$name"
+}
+
+setup_space 1 Web
+setup_space 2 Code
+setup_space 3 Mail
+setup_space 4 Reading
+setup_space 5 Music
+
+yabai -m rule --add app="^Arc$" space=^1
+yabai -m rule --add app="^(Alacritty|Zed)$" space=^2
+yabai -m rule --add app="^Spark$" space=^3
+yabai -m rule --add app="^(Preview|zathura|PDF Expert)$" space=^4
+yabai -m rule --add app="^Music$" space=^5
 
 yabai -m config \
     mouse_follows_focus off \
@@ -23,21 +50,22 @@ yabai -m config \
     mouse_action2 resize \
     mouse_drop_action swap \
     layout bsp \
-    top_padding 10 \
+    top_padding 20 \
     bottom_padding 10 \
     left_padding 10 \
     right_padding 10 \
     window_gap 10
 
+yabai -m rule --add app="zathura" label="zathura"
+
 # exclude apps
-yabai -m rule --add app="Logi Options" manage=off
 yabai -m rule --add app="Texts" manage=off
 yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="Dictionary" manage=off
 yabai -m rule --add app="Fig" manage=off
 yabai -m rule --add app="Calculator" manage=off
 yabai -m rule --add app="FaceTime" manage=off
-yabai -m rule --add app="Music" manage=off
+# yabai -m rule --add app="Music" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Archive Utility" manage=off
 yabai -m rule --add app="System Preferences" manage=off

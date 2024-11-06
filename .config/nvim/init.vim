@@ -66,6 +66,10 @@ Plug 'dylon/vim-antlr'
 Plug 'stevearc/oil.nvim'
 Plug 'xiyaowong/transparent.nvim'
 
+Plug 'hat0uma/csvview.nvim'
+Plug 'm4xshen/hardtime.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
 
 lua require("enix")
