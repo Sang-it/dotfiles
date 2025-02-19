@@ -28,8 +28,8 @@ prompt pure
 
 # Aliases
 alias tm="tmux"
-alias n="nvim"
-alias tn="tmux new-session -A -s "$(basename "$(PWD)")""
+# alias n="nvim"
+# alias tn="tmux new-session -A -s "$(basename "$(PWD)")" \; send-keys "nvim" C-m"
 
 # Editor set to nvim
 export EDITOR="nvim"
