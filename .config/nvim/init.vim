@@ -42,4 +42,4 @@ Plug 'hat0uma/csvview.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
-lua require("enix")
+lua require("config")

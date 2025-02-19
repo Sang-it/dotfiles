@@ -13,8 +13,9 @@ local source_mapping = {
 
 vim.diagnostic.config {
     virtual_text = false,
-    signs = false,
     underline = false,
+    severity_sort = true,
+    signs = true,
 }
 
 local lspkind = require("lspkind")
@@ -67,6 +68,7 @@ local function config(_config)
         {
             capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
             on_attach = function()
+                Nnoremap("<leader>f", ":lua vim.lsp.buf.format({async = true})<CR>")
                 Nnoremap("gd", ":lua vim.lsp.buf.definition()<CR>")
                 Nnoremap("K", ":lua vim.lsp.buf.hover()<CR>")
                 Nnoremap("<leader>vws", ":lua vim.lsp.buf.workspace_symbol()<CR>")

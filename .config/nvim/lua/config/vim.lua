@@ -16,7 +16,6 @@ vim.g.mapleader = " "
 vim.g.rg_derive_root = true
 vim.g.zig_fmt_autosave = 0
 
-
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" }
 
@@ -62,8 +61,6 @@ vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.vim<CR>")
 vim.keymap.set("n", "<leader>=", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 
-vim.keymap.set("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>")
-
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
@@ -85,7 +82,12 @@ vim.keymap.set("n", "<leader>pr", function() require('telescope.builtin').live_g
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 
--- Highlight yank
+vim.diagnostic.config {
+    virtual_text = false,
+    signs = false,
+    underline = false,
+}
+
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = "highlight_yank",
@@ -95,7 +97,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- Formatters (remove trailing spaces on save)
 vim.api.nvim_create_augroup("Formatters", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "Formatters",
@@ -103,7 +104,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     command = "%s/\\s\\+$//e",
 })
 
--- Antlr filetypes
 vim.api.nvim_create_augroup("antlr", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = "antlr",
@@ -116,15 +116,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     command = "set filetype=antlr4",
 })
 
--- -- C++ specific settings
--- vim.api.nvim_create_augroup("cpp", { clear = true })
--- vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
---     group = "cpp",
---     pattern = "*.cpp",
---     command = "set tabstop=2 shiftwidth=2 expandtab",
--- })
-
--- Number toggle (relative/absolute)
 vim.api.nvim_create_augroup("numbertoggle", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
     group = "numbertoggle",
@@ -144,3 +135,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
         end
     end,
 })
+-- -- C++ specific settings
+-- vim.api.nvim_create_augroup("cpp", { clear = true })
+-- vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+--     group = "cpp",
+--     pattern = "*.cpp",
+--     command = "set tabstop=2 shiftwidth=2 expandtab",
+-- })
