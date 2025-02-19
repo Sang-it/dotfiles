@@ -1,5 +1,5 @@
-# Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sangitmanandhar/.oh-my-zsh"
 
@@ -37,13 +37,14 @@ export EDITOR="nvim"
 # Path to Logger bin
 export PATH="$PATH:/Users/sangitmanandhar/Projects/OlympusObservatory/build"
 
+# Path to Cabal
+export PATH="$PATH:/Users/sangitmanandhar/.cabal/bin"
+
 # Path to llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-# Path to Ghcup
-export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
 
 # Path to Cabal
 export PATH="/Users/sangitmanandhar/.cabal/bin:$PATH"
@@ -58,10 +59,16 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 # JAVA_HOME env
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
 
-#Path to NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+#Path to FVM
+export PATH="/Users/sangitmanandhar/.local/state/fnm_multishells/39198_1732249238031/bin":$PATH
+export FNM_MULTISHELL_PATH="/Users/sangitmanandhar/.local/state/fnm_multishells/39198_1732249238031"
+export FNM_VERSION_FILE_STRATEGY="local"
+export FNM_DIR="/Users/sangitmanandhar/.local/share/fnm"
+export FNM_LOGLEVEL="info"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_COREPACK_ENABLED="false"
+export FNM_RESOLVE_ENGINES="true"
+export FNM_ARCH="arm64"
 
 # Default FZF configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -110,9 +117,11 @@ export PATH="/Users/sangitmanandhar/.config/v-analyzer/bin:$PATH"
 # Path to RISCV
 export PATH="$PATH:/opt/riscv/bin"
 
+# Path to Ghcup
+export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
+
 # >>> coursier install directory >>>
 export PATH="$PATH:/Users/sangitmanandhar/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
 
-# Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+# zprof
