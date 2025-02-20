@@ -11,6 +11,7 @@ require("config.oil")
 require("config.transparent")
 require("config.csv_lens")
 
+
 function CreateNoremapGlobal(type, opts)
     return function(lhs, rhs)
         vim.api.nvim_set_keymap(type, lhs, rhs, opts)

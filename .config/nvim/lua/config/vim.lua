@@ -57,7 +57,7 @@ vim.keymap.set("n", "<leader>grum", ":Git rebase upstream/master<CR>")
 vim.keymap.set("n", "<leader>grom", ":Git rebase origin/master<CR>")
 vim.keymap.set("n", "<leader>g", ":Git<CR>")
 
-vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.vim<CR>")
+-- vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<leader>=", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 

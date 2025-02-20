@@ -3,13 +3,16 @@ vim.g.skip_ts_context_commentstring_module = true
 require("nvim-treesitter.configs").setup {
     ensure_installed = "all",
     autopairs = { enable = true },
-    context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-    },
     highlight = { enable = true, additional_vim_regex_highlighting = true },
     incremental_selection = { enable = true },
     textobjects = { enable = true }
+}
+
+require('ts_context_commentstring').setup {
+    enable_autocmd = false,
+    languages = {
+        typescript = '// %s',
+    },
 }
 
 require("treesitter-context").setup {

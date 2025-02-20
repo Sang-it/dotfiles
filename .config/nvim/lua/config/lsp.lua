@@ -101,7 +101,7 @@ require("lspconfig").pyright.setup(config())
 --     },
 -- }))
 
-require 'lspconfig'.sourcekit.setup(config())
+-- require 'lspconfig'.sourcekit.setup(config())
 
 require("lspconfig").html.setup(config())
 

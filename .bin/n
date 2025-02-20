@@ -13,7 +13,6 @@ if ! tmux has-session -t=$selected_name 2>/dev/null; then
 fi
 
 if [[ -z $TMUX ]]; then
-    echo "attach"
 	tmux attach -t $selected_name
 else
     nvim
