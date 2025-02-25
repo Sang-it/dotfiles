@@ -5,8 +5,3 @@ require("zen-mode").setup {
     }
 }
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        require("zen-mode").toggle()
-    end
-})

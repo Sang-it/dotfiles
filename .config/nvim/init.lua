@@ -32,7 +32,7 @@ require("lazy").setup({
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope.nvim" },
     { "nvim-telescope/telescope-fzy-native.nvim" },
-    { "L3MON4D3/LuaSnip" },
+    { "MunifTanjim/nui.nvim" },
     { "rafamadriz/friendly-snippets" },
     { "simrat39/symbols-outline.nvim" },
     { "mbbill/undotree" },
@@ -51,6 +51,8 @@ require("lazy").setup({
     { "stevearc/oil.nvim" },
     { "xiyaowong/transparent.nvim" },
     { "hat0uma/csvview.nvim" },
+    { "kawre/leetcode.nvim" },
+
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

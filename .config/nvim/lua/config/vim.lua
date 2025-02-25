@@ -135,10 +135,3 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
         end
     end,
 })
--- -- C++ specific settings
--- vim.api.nvim_create_augroup("cpp", { clear = true })
--- vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
---     group = "cpp",
---     pattern = "*.cpp",
---     command = "set tabstop=2 shiftwidth=2 expandtab",
--- })
