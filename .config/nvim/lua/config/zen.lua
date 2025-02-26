@@ -4,4 +4,3 @@ require("zen-mode").setup {
         backdrop = 0,
     }
 }
-

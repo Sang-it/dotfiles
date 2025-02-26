@@ -1,4 +1,5 @@
-vim.g.colorscheme = "rose-pine"
+-- vim.g.colorscheme = "rose-pine"
+vim.g.colorscheme = "warlock"
 vim.cmd("colorscheme " .. vim.g.colorscheme)
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -63,7 +64,7 @@ vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>q", ":q!<CR>")
+vim.keymap.set("n", "<leader>q", ":q!<CR>:q!<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
