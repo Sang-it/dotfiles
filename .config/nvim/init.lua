@@ -54,6 +54,12 @@ require("lazy").setup({
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "OXY2DEV/markview.nvim" },
+
+    { "nvim-neotest/nvim-nio" },
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui" },
+    { "jay-babu/mason-nvim-dap.nvim" }
+
 })
 
 require("config")

@@ -64,15 +64,24 @@ vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>q", ":q!<CR>:q!<CR>")
-vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "<leader>q", function()
+    local win_count = #vim.api.nvim_tabpage_list_wins(0)
+    print(win_count)
+    if win_count == 2 then
+        vim.cmd("q!")
+    else
+        vim.cmd("q!")
+        vim.cmd("q!")
+    end
+end)
+vim.keymap.set("n", "<leader>w", ":w!<CR>")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "gh", "<C-W><C-H>")
+vim.keymap.set("n", "H", "<C-W><C-H>")
+vim.keymap.set("n", "L", "<C-W><C-L>")
 vim.keymap.set("n", "gj", "<C-W><C-J>")
 vim.keymap.set("n", "gk", "<C-W><C-K>")
-vim.keymap.set("n", "gl", "<C-W><C-L>")
 
 vim.keymap.set("n", "-", "$", { remap = true })
 vim.keymap.set("n", "_", "^", { remap = true })
