@@ -22,7 +22,6 @@ require("lazy").setup({
     { "rose-pine/neovim" },
     { "onsails/lspkind-nvim" },
     { "saadparwaiz1/cmp_luasnip" },
-    { "rust-lang/rust.vim" },
     { "b0o/schemastore.nvim" },
     { "folke/zen-mode.nvim" },
     { "nvim-treesitter/nvim-treesitter" },
@@ -54,15 +53,7 @@ require("lazy").setup({
     { "kawre/leetcode.nvim" },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
+    { "OXY2DEV/markview.nvim" },
 })
 
 require("config")
