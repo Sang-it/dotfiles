@@ -77,7 +77,7 @@ vim.keymap.set("n", "gl", "<C-W><C-L>")
 vim.keymap.set("n", "-", "$", { remap = true })
 vim.keymap.set("n", "_", "^", { remap = true })
 
-vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+vim.keymap.set("n", "<leader>e", ":Oil<CR>", { silent = true })
 vim.keymap.set("n", "<leader>pf", function() require('telescope.builtin').find_files() end)
 vim.keymap.set("n", "<leader>pr", function() require('telescope.builtin').live_grep() end)
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")

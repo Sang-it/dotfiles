@@ -25,7 +25,7 @@ require("lazy").setup({
     { "rust-lang/rust.vim" },
     { "b0o/schemastore.nvim" },
     { "folke/zen-mode.nvim" },
-    { "nvim-treesitter/nvim-treesitter",            build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter" },
     { "nvim-treesitter/nvim-treesitter-context" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "nvim-lua/popup.nvim" },
@@ -52,7 +52,8 @@ require("lazy").setup({
     { "xiyaowong/transparent.nvim" },
     { "hat0uma/csvview.nvim" },
     { "kawre/leetcode.nvim" },
-
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

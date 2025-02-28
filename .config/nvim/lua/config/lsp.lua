@@ -1,3 +1,29 @@
+require("mason").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = {
+        "ts_ls",
+        "clangd",
+        "pyright",
+        "html",
+        "cssls",
+        "jdtls",
+        "csharp_ls",
+        "elixirls",
+        "prismals",
+        "hls",
+        "jsonls",
+        "gopls",
+        "rust_analyzer",
+        "lua_ls",
+        "v_analyzer",
+        "zls",
+        "cmake",
+        "dockerls",
+        "ruff"
+    },
+    automatic_installation = true
+}
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -47,9 +73,9 @@ cmp.setup(
         },
         sources = {
             { name = "nvim_lsp" },
-            { name = "luasnip" },
             { name = "buffer" },
             { name = "path" },
+            { name = "luasnip" },
         },
         experimental = {
             native_menu = false,
@@ -119,7 +145,7 @@ require("lspconfig").elixirls.setup(config({
 
 require("lspconfig").prismals.setup(config())
 
-require("lspconfig").ocamllsp.setup(config())
+-- require("lspconfig").ocamllsp.setup(config())
 
 -- require("lspconfig").emmet_ls.setup(config({
 --     filetypes = { 'html', 'typescriptreact', 'javascriptreact' }
@@ -206,7 +232,7 @@ require('lspconfig').v_analyzer.setup(config())
 
 require('lspconfig').zls.setup(config())
 
-require('lspconfig').metals.setup(config())
+-- require('lspconfig').metals.setup(config())
 
 require('lspconfig').cmake.setup(config())
 
