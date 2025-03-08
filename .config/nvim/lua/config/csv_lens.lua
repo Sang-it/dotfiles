@@ -1,2 +1,1 @@
-require('csvview').setup()
-
+require("csvview").setup()

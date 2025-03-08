@@ -1,28 +1,27 @@
 require("config.impatient")
 require("config.vim")
 require("config.lsp")
-require("config.zen")
 require("config.fidget")
 require("config.telescope")
 require("config.treesitter")
-require("config.rose_pink")
 require("config.oil")
 require("config.transparent")
 require("config.csv_lens")
 require("config.leetcode")
-
+require("config.zen")
+require("config.conform")
 
 function CreateNoremapGlobal(type, opts)
-    return function(lhs, rhs)
-        vim.api.nvim_set_keymap(type, lhs, rhs, opts)
-    end
+	return function(lhs, rhs)
+		vim.api.nvim_set_keymap(type, lhs, rhs, opts)
+	end
 end
 
 function CreateNoremap(type, opts)
-    return function(lhs, rhs, bufnr)
-        bufnr = bufnr or 0
-        vim.api.nvim_buf_set_keymap(bufnr, type, lhs, rhs, opts)
-    end
+	return function(lhs, rhs, bufnr)
+		bufnr = bufnr or 0
+		vim.api.nvim_buf_set_keymap(bufnr, type, lhs, rhs, opts)
+	end
 end
 
 NnoremapGlobal = CreateNoremapGlobal("n", { noremap = true })

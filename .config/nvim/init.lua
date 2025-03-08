@@ -1,65 +1,49 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-    if vim.v.shell_error ~= 0 then
-        vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out,                            "WarningMsg" },
-            { "\nPress any key to exit..." },
-        }, true, {})
-        vim.fn.getchar()
-        os.exit(1)
-    end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "neovim/nvim-lspconfig" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/nvim-cmp" },
-    { "rose-pine/neovim" },
-    { "onsails/lspkind-nvim" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "b0o/schemastore.nvim" },
-    { "folke/zen-mode.nvim" },
-    { "nvim-treesitter/nvim-treesitter" },
-    { "nvim-treesitter/nvim-treesitter-context" },
-    { "JoosepAlviste/nvim-ts-context-commentstring" },
-    { "nvim-lua/popup.nvim" },
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim" },
-    { "nvim-telescope/telescope-fzy-native.nvim" },
-    { "MunifTanjim/nui.nvim" },
-    { "rafamadriz/friendly-snippets" },
-    { "simrat39/symbols-outline.nvim" },
-    { "mbbill/undotree" },
-    { "tpope/vim-fugitive" },
-    { "tpope/vim-repeat" },
-    { "lewis6991/impatient.nvim" },
-    { "tpope/vim-commentary" },
-    { "j-hui/fidget.nvim" },
-    { "tpope/vim-rhubarb" },
-    { "junegunn/gv.vim" },
-    { "tpope/vim-dispatch" },
-    { "tpope/vim-surround" },
-    { "RaafatTurki/hex.nvim" },
-    { "godlygeek/tabular" },
-    { "dylon/vim-antlr" },
-    { "stevearc/oil.nvim" },
-    { "xiyaowong/transparent.nvim" },
-    { "hat0uma/csvview.nvim" },
-    { "kawre/leetcode.nvim" },
-    { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim" },
-    { "OXY2DEV/markview.nvim" },
-
-    { "nvim-neotest/nvim-nio" },
-    { "mfussenegger/nvim-dap" },
-    { "rcarriga/nvim-dap-ui" },
-    { "jay-babu/mason-nvim-dap.nvim" }
-
+	{ "neovim/nvim-lspconfig" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/nvim-cmp" },
+	{ "onsails/lspkind-nvim" },
+	{ "nvim-lua/popup.nvim" },
+	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-treesitter/nvim-treesitter" },
+	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope-fzy-native.nvim" },
+	{ "tpope/vim-commentary" },
+	{ "tpope/vim-dispatch" },
+	{ "tpope/vim-surround" },
+	{ "tpope/vim-fugitive" },
+	{ "tpope/vim-repeat" },
+	{ "tpope/vim-rhubarb" },
+	{ "MunifTanjim/nui.nvim" },
+	{ "lewis6991/impatient.nvim" },
+	{ "j-hui/fidget.nvim" },
+	{ "junegunn/gv.vim" },
+	{ "stevearc/oil.nvim" },
+	{ "xiyaowong/transparent.nvim" },
+	{ "hat0uma/csvview.nvim" },
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "OXY2DEV/markview.nvim" },
+	{ "kawre/leetcode.nvim" },
+	{ "folke/zen-mode.nvim" },
+	{ "stevearc/conform.nvim" },
 })
 
 require("config")

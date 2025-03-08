@@ -46,11 +46,11 @@ vim.opt.shortmess:append("c")
 -- vim.opt.wildmode = "longest,list,full"
 -- vim.opt.wildmenu = true
 vim.opt.wildignore:append({
-    "*.pyc",
-    "*_build/*",
-    "**/coverage/*",
-    "**/node_modules/*",
-    "**/.git/*",
+	"*.pyc",
+	"*_build/*",
+	"**/coverage/*",
+	"**/node_modules/*",
+	"**/.git/*",
 })
 
 vim.keymap.set("n", "<leader>ga", ":Git fetch --all<CR>")
@@ -64,22 +64,29 @@ vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>q", function()
-    local win_count = #vim.api.nvim_tabpage_list_wins(0)
-    print(win_count)
-    if win_count == 2 then
-        vim.cmd("q!")
-    else
-        vim.cmd("q!")
-        vim.cmd("q!")
-    end
-end)
+vim.keymap.set("n", "<leader>f", ":Conform<CR>")
 vim.keymap.set("n", "<leader>w", ":w!<CR>")
+vim.keymap.set("n", "<leader>q", function()
+	local zen_active = require("zen-mode.view").is_open()
+	if zen_active then
+		vim.cmd("close")
+	end
+	vim.cmd("q!")
+end)
+vim.keymap.set("n", "<leader>d", function()
+	local zen_active = require("zen-mode.view").is_open()
+	if zen_active then
+		vim.cmd("close")
+	end
+	local args = vim.fn.input("Dispatch ")
+	local final_command = ":Dispatch " .. args
+	vim.api.nvim_command(final_command)
+end)
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "H", "<C-W><C-H>")
-vim.keymap.set("n", "L", "<C-W><C-L>")
+vim.keymap.set("n", "gh", "<C-W><C-H>")
+vim.keymap.set("n", "gl", "<C-W><C-L>")
 vim.keymap.set("n", "gj", "<C-W><C-J>")
 vim.keymap.set("n", "gk", "<C-W><C-K>")
 
@@ -87,61 +94,52 @@ vim.keymap.set("n", "-", "$", { remap = true })
 vim.keymap.set("n", "_", "^", { remap = true })
 
 vim.keymap.set("n", "<leader>e", ":Oil<CR>", { silent = true })
-vim.keymap.set("n", "<leader>pf", function() require('telescope.builtin').find_files() end)
-vim.keymap.set("n", "<leader>pr", function() require('telescope.builtin').live_grep() end)
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>pf", function()
+	require("telescope.builtin").find_files()
+end)
+vim.keymap.set("n", "<leader>pr", function()
+	require("telescope.builtin").live_grep()
+end)
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
 
-vim.diagnostic.config {
-    virtual_text = false,
-    signs = false,
-    underline = false,
-}
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = false,
+	underline = false,
+})
 
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = "highlight_yank",
-    pattern = "*",
-    callback = function()
-        vim.highlight.on_yank({ timeout = 40 })
-    end,
+	group = "highlight_yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ timeout = 40 })
+	end,
 })
 
-vim.api.nvim_create_augroup("Formatters", { clear = true })
+vim.api.nvim_create_augroup("no_trailing_whitespace", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "Formatters",
-    pattern = "*",
-    command = "%s/\\s\\+$//e",
-})
-
-vim.api.nvim_create_augroup("antlr", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    group = "antlr",
-    pattern = "*.g",
-    command = "set filetype=antlr3",
-})
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    group = "antlr",
-    pattern = "*.g4",
-    command = "set filetype=antlr4",
+	group = "no_trailing_whitespace",
+	pattern = "*",
+	command = "%s/\\s\\+$//e",
 })
 
 vim.api.nvim_create_augroup("numbertoggle", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-    group = "numbertoggle",
-    pattern = "*",
-    callback = function()
-        if vim.wo.nu and vim.fn.mode() ~= "i" then
-            vim.wo.rnu = true
-        end
-    end,
+	group = "numbertoggle",
+	pattern = "*",
+	callback = function()
+		if vim.wo.nu and vim.fn.mode() ~= "i" then
+			vim.wo.rnu = true
+		end
+	end,
 })
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-    group = "numbertoggle",
-    pattern = "*",
-    callback = function()
-        if vim.wo.nu then
-            vim.wo.rnu = false
-        end
-    end,
+	group = "numbertoggle",
+	pattern = "*",
+	callback = function()
+		if vim.wo.nu then
+			vim.wo.rnu = false
+		end
+	end,
 })
