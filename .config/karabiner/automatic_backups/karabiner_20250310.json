@@ -96,7 +96,7 @@
                     ]
                 }
             ],
-            "name": "Default",
+            "name": "Default profile",
             "selected": true,
             "simple_modifications": [
                 {
@@ -106,6 +106,10 @@
                 {
                     "from": { "key_code": "delete_or_backspace" },
                     "to": [{ "consumer_key_code": "mute" }]
+                },
+                {
+                    "from": { "key_code": "right_command" },
+                    "to": [{ "key_code": "6" }]
                 },
                 {
                     "from": { "key_code": "right_shift" },
