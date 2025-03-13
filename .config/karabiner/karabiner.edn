@@ -1,0 +1,69 @@
+{
+ :profiles {
+    :Default { :default true
+        :sim     10
+        :delay   300
+        :alone   300
+        :held    500
+    }
+  }
+
+ :simlayers {
+             :f-mode {:key :f} ;; (){}[]
+             :a-mode {:key :a} ;; !$~+&=*%|`
+             :j-mode {:key :j} ;; 0123456789
+             }
+
+ :main [
+        {:des "left_control to left_control + left_command + left_option"
+         :rules [[:##left_control :!COleft_control ]]
+         }
+
+        {:des "f-mode for delimeters"
+         :rules [:f-mode
+                 [:##u :4]
+                 [:##i :7]
+
+                 [:##j :3]
+                 [:##k :8]
+
+                 [:##m :2]
+                 [:##comma :9]
+                 ]
+         }
+
+        {:des "a-mode for arithmetic"
+         :rules [:a-mode
+                 [:##j :1]
+                 [:##k :6]
+                 [:##l :0]
+                 [:##semicolon :!Shyphen]
+
+                 [:##s :5]
+                 [:##d :equal_sign]
+                 [:##f :hyphen]
+
+                 [:##u :grave_accent_and_tilde]
+                 [:##i :!Sgrave_accent_and_tilde]
+                 [:##o :!Sequal_sign]
+                 ]
+         }
+
+        {:des "j-mode for numbers"
+         :rules [:j-mode
+                 [:##a :!S0]
+                 [:##s :!S1]
+                 [:##d :!S2]
+                 [:##f :!S3]
+
+                 [:##k :!S4]
+                 [:##l :!S5]
+                 [:##semicolon :!S6]
+
+                 [:##w :!S7]
+                 [:##e :!S8]
+                 [:##r :!S9]
+                 ]
+         }
+        ]
+ }
