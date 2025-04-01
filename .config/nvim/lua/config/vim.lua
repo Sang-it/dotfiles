@@ -59,24 +59,17 @@ vim.keymap.set("n", "<leader>grom", ":Git rebase origin/master<CR>")
 vim.keymap.set("n", "<leader>g", ":Git<CR>")
 
 -- vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
-vim.keymap.set("n", "<leader>=", ":vertical resize +5<CR>")
+vim.keymap.set("n", "<leader>_", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>f", ":Conform<CR>")
-vim.keymap.set("n", "<leader>w", ":w!<CR>")
-vim.keymap.set("n", "<leader>q", function()
-	local zen_active = require("zen-mode.view").is_open()
-	if zen_active then
-		vim.cmd("close")
-	end
-	vim.cmd("q!")
-end)
+
 vim.keymap.set("n", "<leader>d", function()
 	local zen_active = require("zen-mode.view").is_open()
 	if zen_active then
-		vim.cmd("close")
+		require("zen-mode.view").toggle()
 	end
 	local args = vim.fn.input("Dispatch ")
 	local final_command = ":Dispatch " .. args
@@ -90,8 +83,8 @@ vim.keymap.set("n", "gl", "<C-W><C-L>")
 vim.keymap.set("n", "gj", "<C-W><C-J>")
 vim.keymap.set("n", "gk", "<C-W><C-K>")
 
-vim.keymap.set("n", "-", "$", { remap = true })
-vim.keymap.set("n", "_", "^", { remap = true })
+vim.keymap.set({ "n", "v" }, "-", "$")
+vim.keymap.set({ "n", "v" }, "_", "^")
 
 vim.keymap.set("n", "<leader>e", ":Oil<CR>", { silent = true })
 vim.keymap.set("n", "<leader>pf", function()

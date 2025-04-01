@@ -21,14 +21,12 @@ function setup_space {
 setup_space 1 Web
 setup_space 2 Code
 setup_space 3 Mail
-setup_space 4 Reading
-setup_space 5 Music
+setup_space 4 Music&Reading
 
 yabai -m rule --add app="^Arc$" space=^1
 yabai -m rule --add app="^(Alacritty|Zed)$" space=^2
 yabai -m rule --add app="^Spark$" space=^3
-yabai -m rule --add app="^(Preview|zathura|PDF Expert)$" space=^4
-yabai -m rule --add app="^Music$" space=^5
+yabai -m rule --add app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4
 
 yabai -m config \
     mouse_follows_focus off \
