@@ -549,7 +549,7 @@
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "5" }],
+                                "to": [{ "key_code": "equal_sign" }],
                                 "type": "basic"
                             },
                             {
@@ -581,7 +581,7 @@
                                             "value": 1
                                         }
                                     },
-                                    { "key_code": "5" }
+                                    { "key_code": "equal_sign" }
                                 ],
                                 "type": "basic"
                             },
@@ -597,7 +597,7 @@
                                     "key_code": "d",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "equal_sign" }],
+                                "to": [{ "key_code": "5" }],
                                 "type": "basic"
                             },
                             {
@@ -629,7 +629,7 @@
                                             "value": 1
                                         }
                                     },
-                                    { "key_code": "equal_sign" }
+                                    { "key_code": "5" }
                                 ],
                                 "type": "basic"
                             },
@@ -1504,7 +1504,7 @@
                 },
                 {
                     "from": { "key_code": "right_command" },
-                    "to": [{ "key_code": "delete_or_backspace" }]
+                    "to": [{ "key_code": "escape" }]
                 },
                 {
                     "from": { "key_code": "right_shift" },

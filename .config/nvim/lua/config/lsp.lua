@@ -174,6 +174,8 @@ require("lspconfig").v_analyzer.setup(config())
 
 require("lspconfig").zls.setup(config())
 
+require("lspconfig").svelte.setup(config())
+
 -- require('lspconfig').metals.setup(config())
 
 require("lspconfig").cmake.setup(config())

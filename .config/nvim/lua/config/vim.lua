@@ -65,6 +65,7 @@ vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>f", ":Conform<CR>")
+vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
 vim.keymap.set("n", "<leader>d", function()
 	local zen_active = require("zen-mode.view").is_open()
