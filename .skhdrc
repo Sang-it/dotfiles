@@ -1,8 +1,8 @@
 # Open Alactritty
+lctrl + alt + cmd - 0x06 : open -a Zen
 lctrl + alt + cmd - 0x07 : open -a Music
-lctrl + alt + cmd - 0x06 : open -a Arc
-lctrl + alt + cmd - return : open -a Alacritty
-lctrl + alt + cmd + shift - return : open -n -a Alacritty
+lctrl + alt + cmd - space : open -a Alacritty
+lctrl + alt + cmd + shift - space : open -n -a Alacritty
 
 # Switch window focus
 lctrl + alt + cmd - h : yabai -m window --focus west
@@ -39,4 +39,4 @@ lctrl + alt + cmd - x : yabai -m space --create
 lctrl + alt + cmd + shift - x : yabai -m space --destroy
 
 # Restart Yabai
-lctrl + alt + cmd - q : yabai --restart-service
+lctrl + alt + cmd - q : yabai --restart-service:

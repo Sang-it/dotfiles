@@ -1434,22 +1434,6 @@
                         {
                             "from": { "apple_vendor_top_case_key_code": "keyboard_fn" },
                             "to": [{ "key_code": "left_control" }]
-                        },
-                        {
-                            "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "right_control" }]
-                        },
-                        {
-                            "from": { "key_code": "right_command" },
-                            "to": [{ "key_code": "escape" }]
-                        },
-                        {
-                            "from": { "key_code": "right_shift" },
-                            "to": [{ "key_code": "tab" }]
-                        },
-                        {
-                            "from": { "key_code": "tab" },
-                            "to": [{ "key_code": "up_arrow" }]
                         }
                     ]
                 },
@@ -1509,47 +1493,48 @@
                         "vendor_id": 1133
                     },
                     "ignore": true
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "escape" }]
-                        },
-                        {
-                            "from": { "key_code": "delete_forward" },
-                            "to": [{ "key_code": "delete_or_backspace" }]
-                        },
-                        {
-                            "from": { "key_code": "delete_or_backspace" },
-                            "to": [{ "key_code": "left_command" }]
-                        },
-                        {
-                            "from": { "key_code": "end" },
-                            "to": [{ "key_code": "left_control" }]
-                        },
-                        {
-                            "from": { "key_code": "escape" },
-                            "to": [{ "key_code": "right_control" }]
-                        },
-                        {
-                            "from": { "key_code": "right_shift" },
-                            "to": [{ "key_code": "tab" }]
-                        },
-                        {
-                            "from": { "key_code": "page_down" },
-                            "to": [{ "key_code": "left_option" }]
-                        }
-                    ]
                 }
             ],
             "name": "Default",
             "selected": true,
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "caps_lock" },
+                    "to": [{ "key_code": "escape" }]
+                },
+                {
+                    "from": { "key_code": "delete_forward" },
+                    "to": [{ "key_code": "return_or_enter" }]
+                },
+                {
+                    "from": { "key_code": "delete_or_backspace" },
+                    "to": [{ "key_code": "left_command" }]
+                },
+                {
+                    "from": { "key_code": "escape" },
+                    "to": [{ "key_code": "right_control" }]
+                },
+                {
+                    "from": { "key_code": "page_down" },
+                    "to": [{ "key_code": "delete_or_backspace" }]
+                },
+                {
+                    "from": { "key_code": "right_shift" },
+                    "to": [{ "key_code": "tab" }]
+                },
+                {
+                    "from": { "key_code": "tab" },
+                    "to": [{ "key_code": "left_option" }]
+                },
+                {
+                    "from": { "key_code": "end" },
+                    "to": [{ "key_code": "left_control" }]
+                },
+                {
+                    "from": { "key_code": "return_or_enter" },
+                    "to": [{ "key_code": "left_shift" }]
+                }
+            ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "keyboard_type_v2": "ansi"
