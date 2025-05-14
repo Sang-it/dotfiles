@@ -40,10 +40,10 @@ require("lazy").setup({
 	{ "hat0uma/csvview.nvim" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "OXY2DEV/markview.nvim" },
 	{ "kawre/leetcode.nvim" },
 	{ "folke/zen-mode.nvim" },
 	{ "stevearc/conform.nvim" },
+	{ "chomosuke/typst-preview.nvim" },
 })
 
 require("config")

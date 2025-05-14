@@ -70,118 +70,132 @@ local function config(_config)
 	}, _config or {})
 end
 
-require("lspconfig").ts_ls.setup(config())
+vim.lsp.enable({
+	"ts_ls",
+	"clangd",
+	"pyright",
+	"html",
+	"cssls",
+	"jdtls",
+	"csharp_ls",
+	"prismals",
+	"elixirls",
+	"hls",
+	"jsonls",
+	"gopls",
+	"rust_analyzer",
+	"lua_ls",
+	"v_analyzer",
+	"zls",
+	"cmake",
+	"dockerls",
+	"ruff",
+})
 
--- require("lspconfig").ccls.setup(config())
+vim.lsp.config("ts_ls", config())
 
-require("lspconfig").clangd.setup(config())
+vim.lsp.config("clangd", config())
 
-require("lspconfig").pyright.setup(config())
+vim.lsp.config("pyright", config())
 
--- require("lspconfig").pylyzer.setup(config({
---     settings = {
---         python = {
---             inlayHints = false,
---         },
---     },
--- }))
+vim.lsp.config("html", config())
 
--- require 'lspconfig'.sourcekit.setup(config())
+vim.lsp.config("cssls", config())
 
-require("lspconfig").html.setup(config())
+vim.lsp.config("jdtls", config())
 
-require("lspconfig").cssls.setup(config())
+vim.lsp.config("csharp_ls", config())
 
-require("lspconfig").jdtls.setup(config())
+vim.lsp.config("prismals", config())
 
-require("lspconfig").csharp_ls.setup(config())
+vim.lsp.config(
+	"elixirls",
+	config({
+		cmd = { "elixir-ls" },
+	})
+)
 
--- require("lspconfig").fsautocomplete.setup(config())
-
-require("lspconfig").elixirls.setup(config({
-	cmd = { "elixir-ls" },
-}))
-
-require("lspconfig").prismals.setup(config())
-
--- require("lspconfig").ocamllsp.setup(config())
-
--- require("lspconfig").emmet_ls.setup(config({
---     filetypes = { 'html', 'typescriptreact', 'javascriptreact' }
--- }))
-
-require("lspconfig").hls.setup(config({
-	filetypes = { "haskell", "lhaskell", "cabal" },
-	settings = {
-		haskell = {
-			formattingProvider = "fourmolu",
-			cabalFormattingProvider = "cabal-fmt",
-		},
-	},
-}))
-
-require("lspconfig").jsonls.setup(config({
-	settings = {
-		json = {
-			validate = { enable = true },
-		},
-	},
-}))
-
-require("lspconfig").gopls.setup(config({
-	cmd = { "gopls", "serve" },
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
-}))
-
-require("lspconfig").rust_analyzer.setup(config({
-	settings = {
-		["rust-analyzer"] = {
-			checkOnSave = {
-				command = "clippy",
+vim.lsp.config(
+	"hls",
+	config({
+		filetypes = { "haskell", "lhaskell", "cabal" },
+		settings = {
+			haskell = {
+				formattingProvider = "fourmolu",
+				cabalFormattingProvider = "cabal-fmt",
 			},
 		},
-	},
-}))
+	})
+)
 
-require("lspconfig").lua_ls.setup(config({
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-				path = vim.split(package.path, ";"),
+vim.lsp.config(
+	"jsonls",
+	config({
+		settings = {
+			json = {
+				validate = { enable = true },
 			},
-			diagnostics = {
-				globals = { "vim", "Nnoremap", "Inoremap" },
+		},
+	})
+)
+
+vim.lsp.config(
+	"gopls",
+	config({
+		cmd = { "gopls", "serve" },
+		settings = {
+			gopls = {
+				analyses = {
+					unusedparams = true,
+				},
+				staticcheck = true,
 			},
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+		},
+	})
+)
+
+vim.lsp.config(
+	"rust_analyzer",
+	config({
+		settings = {
+			["rust-analyzer"] = {
+				checkOnSave = {
+					command = "clippy",
 				},
 			},
 		},
-	},
-}))
+	})
+)
 
-require("lspconfig").v_analyzer.setup(config())
+vim.lsp.config(
+	"lua_ls",
+	config({
+		settings = {
+			Lua = {
+				runtime = {
+					version = "LuaJIT",
+					path = vim.split(package.path, ";"),
+				},
+				diagnostics = {
+					globals = { "vim", "Nnoremap", "Inoremap" },
+				},
+				workspace = {
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+					},
+				},
+			},
+		},
+	})
+)
 
-require("lspconfig").zls.setup(config())
+vim.lsp.config("v_analyzer", config())
 
--- require("lspconfig").svelte.setup(config())
+vim.lsp.config("zls", config())
 
--- require('lspconfig').metals.setup(config())
+vim.lsp.config("cmake", config())
 
-require("lspconfig").cmake.setup(config())
+vim.lsp.config("dockerls", config())
 
-require("lspconfig").dockerls.setup(config())
-
-require("lspconfig").ruff.setup(config())
-
--- require("lspconfig").tailwindcss.setup(config())
+vim.lsp.config("ruff", config())

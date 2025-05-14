@@ -1363,7 +1363,7 @@
           "key_code" : "right_command"
         },
         "to" : [ {
-          "key_code" : "delete_or_backspace"
+          "key_code" : "escape"
         } ]
       }, {
         "from" : {
@@ -1441,10 +1441,10 @@
         } ]
       }, {
         "from" : {
-          "key_code" : "right_command"
+          "key_code" : "tab"
         },
         "to" : [ {
-          "key_code" : "escape"
+          "key_code" : "up_arrow"
         } ]
       }, {
         "from" : {
@@ -1455,10 +1455,10 @@
         } ]
       }, {
         "from" : {
-          "key_code" : "tab"
+          "key_code" : "right_command"
         },
         "to" : [ {
-          "key_code" : "up_arrow"
+          "key_code" : "escape"
         } ]
       } ]
     }, {
