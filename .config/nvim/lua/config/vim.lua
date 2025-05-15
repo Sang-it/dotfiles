@@ -40,6 +40,7 @@ vim.opt.scrolloff = 8
 -- vim.opt.showmode = false
 vim.opt.signcolumn = "number"
 vim.opt.background = "dark"
+vim.opt.cmdheight = 0
 vim.opt.updatetime = 50
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.shortmess:append("c")
@@ -67,16 +68,6 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", ":Conform<CR>")
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
--- vim.keymap.set("n", "<leader>d", function()
--- 	local zen_active = require("zen-mode.view").is_open()
--- 	if zen_active then
--- 		require("zen-mode.view").toggle()
--- 	end
--- 	local args = vim.fn.input("Dispatch ")
--- 	local final_command = ":Dispatch " .. args
--- 	vim.api.nvim_command(final_command)
--- end)
-
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "gh", "<C-W><C-H>")
@@ -95,12 +86,6 @@ vim.keymap.set("n", "<leader>pr", function()
 	require("telescope.builtin").live_grep()
 end)
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
-
-vim.diagnostic.config({
-	virtual_text = false,
-	signs = false,
-	underline = false,
-})
 
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -128,7 +113,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnte
 		end
 	end,
 })
-
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
 	group = "numbertoggle",
 	pattern = "*",

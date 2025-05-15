@@ -16,5 +16,5 @@ vim.api.nvim_create_user_command("Conform", function(args)
 		}
 	end
 	require("conform").format({ lsp_format = "fallback", range = range })
-	vim.cmd("w")
+	vim.cmd("w", { async = true })
 end, { range = true })
