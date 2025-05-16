@@ -11,6 +11,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+
 vim.g.loaded_matchparen = 1
 vim.g.loaded_perl_provider = 0
 vim.g.mapleader = " "
@@ -29,7 +32,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.number = true
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.whichwrap = "<,>,h,l"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
@@ -40,7 +44,7 @@ vim.opt.scrolloff = 8
 -- vim.opt.showmode = false
 vim.opt.signcolumn = "number"
 vim.opt.background = "dark"
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.shortmess:append("c")
@@ -68,12 +72,14 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", ":Conform<CR>")
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
+vim.keymap.set("n", "<leader>d", ":!date<CR>")
+
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "gh", "<C-W><C-H>")
-vim.keymap.set("n", "gl", "<C-W><C-L>")
-vim.keymap.set("n", "gj", "<C-W><C-J>")
-vim.keymap.set("n", "gk", "<C-W><C-K>")
+vim.keymap.set("n", "<C-h>", "<C-W><C-H>")
+vim.keymap.set("n", "<C-l>", "<C-W><C-L>")
+vim.keymap.set("n", "<C-j>", "<C-W><C-J>")
+vim.keymap.set("n", "<C-k>", "<C-W><C-K>")
 
 vim.keymap.set({ "n", "v" }, "-", "$")
 vim.keymap.set({ "n", "v" }, "_", "^")

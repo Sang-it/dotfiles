@@ -1,6 +1,6 @@
 require("zen-mode").setup({
 	window = {
-		width = 0.60,
+		width = 0.65,
 	},
 	plugin = {
 		options = {
