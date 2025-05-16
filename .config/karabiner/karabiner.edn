@@ -1,17 +1,18 @@
 {
  :profiles {
     :Default { :default true
-        :sim     10
-        :delay   300
-        :alone   300
-        :held    500
+        :sim     0
+        :alone   10
+        :delay   10
+        :held    10
     }
   }
 
  :simlayers {
-             :f-mode {:key :f} ;; (){}[]
-             :a-mode {:key :a} ;; !$~+&=*%|`
-             :j-mode {:key :j} ;; 0123456789
+             :paren-mode {:key :f} ;; (){}[]
+             :symbol-mode {:key :a} ;; &|!+=*%$~`
+             :num-mode {:key :d} ;; 0123456789
+             :mouse-mode {:key :s} ;; mouse-movements
              }
 
  :main [
@@ -19,8 +20,12 @@
          :rules [[:##left_control :!COleft_control ]]
          }
 
-        {:des "f-mode for delimeters"
-         :rules [:f-mode
+        {:des "shift + tab to down_arrow"
+         :rules [[:!Sup_arrow :down_arrow ]]
+         }
+
+        {:des "paren-mode"
+         :rules [:paren-mode
                  [:##u :4]
                  [:##i :7]
 
@@ -32,15 +37,15 @@
                  ]
          }
 
-        {:des "a-mode for arithmetic"
-         :rules [:a-mode
+        {:des "symbol-mode"
+         :rules [:symbol-mode
                  [:##j :1]
                  [:##k :6]
                  [:##l :0]
                  [:##semicolon :!Shyphen]
 
-                 [:##s :5]
-                 [:##d :equal_sign]
+                 [:##s :equal_sign]
+                 [:##d :5]
                  [:##f :hyphen]
 
                  [:##u :grave_accent_and_tilde]
@@ -49,20 +54,37 @@
                  ]
          }
 
-        {:des "j-mode for numbers"
-         :rules [:j-mode
-                 [:##a :!S0]
-                 [:##s :!S1]
-                 [:##d :!S2]
-                 [:##f :!S3]
+        {:des "num-mode"
+         :rules [:num-mode
+                 [:##semicolon :!S0]
 
-                 [:##k :!S4]
-                 [:##l :!S5]
-                 [:##semicolon :!S6]
+                 [:##u :!S1]
+                 [:##i :!S2]
+                 [:##o :!S3]
 
-                 [:##w :!S7]
-                 [:##e :!S8]
-                 [:##r :!S9]
+                 [:##j :!S4]
+                 [:##k :!S5]
+                 [:##l :!S6]
+
+                 [:##m :!S7]
+                 [:##comma :!S8]
+                 [:##period :!S9]
+                 ]
+         }
+
+
+        {:des "mouse-mode"
+         :rules [:mouse-mode
+                 [:##v {:mkey {:y -1536}}]
+                 [:##c {:mkey {:y 1536}}]
+                 [:##j {:mkey {:x -1536}}]
+                 [:##p {:mkey {:x 1536}}]
+
+                 [:##l {:mkey {:vwheel -32}}]
+                 [:##o {:mkey {:vwheel 32}}]
+
+                 [:##u {:pkey :button1}]
+                 [:##i {:pkey :button2}]
                  ]
          }
         ]
