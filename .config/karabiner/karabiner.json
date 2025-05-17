@@ -1638,7 +1638,7 @@
           }
         }, {
           "from" : {
-            "key_code" : "u",
+            "key_code" : "d",
             "modifiers" : {
               "optional" : [ "any" ]
             }
@@ -1669,7 +1669,7 @@
             "simultaneous" : [ {
               "key_code" : "s"
             }, {
-              "key_code" : "u"
+              "key_code" : "d"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -1686,7 +1686,7 @@
           }
         }, {
           "from" : {
-            "key_code" : "i",
+            "key_code" : "f",
             "modifiers" : {
               "optional" : [ "any" ]
             }
@@ -1717,7 +1717,7 @@
             "simultaneous" : [ {
               "key_code" : "s"
             }, {
-              "key_code" : "i"
+              "key_code" : "f"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,

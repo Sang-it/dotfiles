@@ -1,0 +1,91 @@
+{
+ :profiles {
+    :Default { :default true
+        :sim     0
+        :alone   10
+        :delay   10
+        :held    10
+    }
+  }
+
+ :simlayers {
+             :paren-mode {:key :f} ;; (){}[]
+             :symbol-mode {:key :a} ;; &|!+=*%$~`
+             :num-mode {:key :d} ;; 0123456789
+             :mouse-mode {:key :s} ;; mouse-movements
+             }
+
+ :main [
+        {:des "left_control to left_control + left_command + left_option"
+         :rules [[:##left_control :!COleft_control ]]
+         }
+
+        {:des "shift + tab to down_arrow"
+         :rules [[:!Sup_arrow :down_arrow ]]
+         }
+
+        {:des "paren-mode"
+         :rules [:paren-mode
+                 [:##u :4]
+                 [:##i :7]
+
+                 [:##j :3]
+                 [:##k :8]
+
+                 [:##m :2]
+                 [:##comma :9]
+                 ]
+         }
+
+        {:des "symbol-mode"
+         :rules [:symbol-mode
+                 [:##j :1]
+                 [:##k :6]
+                 [:##l :0]
+                 [:##semicolon :!Shyphen]
+
+                 [:##s :equal_sign]
+                 [:##d :5]
+                 [:##f :hyphen]
+
+                 [:##u :grave_accent_and_tilde]
+                 [:##i :!Sgrave_accent_and_tilde]
+                 [:##o :!Sequal_sign]
+                 ]
+         }
+
+        {:des "num-mode"
+         :rules [:num-mode
+                 [:##semicolon :!S0]
+
+                 [:##u :!S1]
+                 [:##i :!S2]
+                 [:##o :!S3]
+
+                 [:##j :!S4]
+                 [:##k :!S5]
+                 [:##l :!S6]
+
+                 [:##m :!S7]
+                 [:##comma :!S8]
+                 [:##period :!S9]
+                 ]
+         }
+
+
+        {:des "mouse-mode"
+         :rules [:mouse-mode
+                 [:##v {:mkey {:y -1536}}]
+                 [:##c {:mkey {:y 1536}}]
+                 [:##j {:mkey {:x -1536}}]
+                 [:##p {:mkey {:x 1536}}]
+
+                 [:##l {:mkey {:vwheel -32}}]
+                 [:##o {:mkey {:vwheel 32}}]
+
+                 [:##d {:pkey :button1}]
+                 [:##f {:pkey :button2}]
+                 ]
+         }
+        ]
+ }
