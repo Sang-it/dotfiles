@@ -5,28 +5,21 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-function setup_space {
+setup_space() {
   local idx="$1"
   local name="$2"
-  local space=
-  echo "setup space $idx : $name"
-  space=$(yabai -m query --spaces --space "$idx")
-  if [ -z "$space" ]; then
+
+  if ! yabai -m query --spaces --space "$idx" &>/dev/null; then
     yabai -m space --create
   fi
+
   yabai -m space "$idx" --label "$name"
-  echo yabai -m space "$idx" --label "$name"
 }
 
 setup_space 1 Web
 setup_space 2 Code
 setup_space 3 Mail
 setup_space 4 Music&Reading
-
-yabai -m rule --add app="^(Arc|Zen)$" space=^1
-yabai -m rule --add app="^(Alacritty|Zed)$" space=^2
-yabai -m rule --add app="^Spark$" space=^3
-yabai -m rule --add app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4
 
 yabai -m config \
     mouse_follows_focus off \

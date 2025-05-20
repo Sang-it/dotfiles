@@ -12,7 +12,7 @@
              :paren-mode {:key :f} ;; (){}[]
              :symbol-mode {:key :a} ;; &|!+=*%$~`
              :num-mode {:key :d} ;; 0123456789
-             :mouse-mode {:key :s} ;; mouse-movements
+             :mouse-mode {:key :i} ;; mouse-movements
              }
 
  :main [

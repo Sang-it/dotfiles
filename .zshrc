@@ -45,7 +45,6 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-
 # Path to Cabal
 export PATH="/Users/sangitmanandhar/.cabal/bin:$PATH"
 
@@ -80,12 +79,6 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 # Path to custom binaries
 export PATH="/Users/sangitmanandhar/.bin:$PATH"
 
-# Fzf to search directories
-bindkey -s '^d' 'cd_with_fzf\n'
-
-# # Tmux new sessions
-bindkey -s '^f' 'tms\n'
-
 cd_with_fzf() {
   cd $HOME && cd "$(fd -t d --exclude .git --exclude node_modules --exclude dist --exclude Applications --exclude go | fzf)"
 }
@@ -115,5 +108,20 @@ export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
 # >>> coursier install directory >>>
 export PATH="$PATH:/Users/sangitmanandhar/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
+
+# Vim-mode for zsh
+function zvm_config() {
+    ZVM_CURSOR_STYLE_ENABLED=false
+    ZVM_VI_INSERT_ESCAPE_BINDKEY=^c
+}
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+function zvm_after_init() {
+    # Fzf to search directories
+    bindkey -s '^d' 'cd_with_fzf\n'
+
+    # # Tmux new sessions
+    bindkey -s '^f' 'tms\n'
+}
 
 # zprof

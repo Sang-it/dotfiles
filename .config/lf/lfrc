@@ -102,4 +102,5 @@ map gp cd ~/Projects
 map go cd ~/OpenSourceProjects
 map ge cd ~/Desktop
 map gc cd ~/.config
+map gC cd "~/Library/Mobile Documents/com~apple~CloudDocs"
 map gH cd /opt/homebrew

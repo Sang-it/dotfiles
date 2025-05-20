@@ -1359,7 +1359,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "v"
             } ],
@@ -1411,7 +1411,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "c"
             } ],
@@ -1463,7 +1463,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "j"
             } ],
@@ -1515,7 +1515,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "p"
             } ],
@@ -1567,7 +1567,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "l"
             } ],
@@ -1619,7 +1619,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "o"
             } ],
@@ -1667,7 +1667,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "d"
             } ],
@@ -1715,7 +1715,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "s"
+              "key_code" : "i"
             }, {
               "key_code" : "f"
             } ],

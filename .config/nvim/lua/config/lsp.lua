@@ -65,7 +65,7 @@ local function config(_config)
 			Nnoremap("<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
 			Nnoremap("<leader>rr", ":lua vim.lsp.buf.references()<CR>")
 			Nnoremap("<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
-			-- Inoremap("<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+			Inoremap("<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 		end,
 	}, _config or {})
 end
