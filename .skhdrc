@@ -11,16 +11,13 @@ lctrl + alt + cmd - k : yabai -m window --focus north
 lctrl + alt + cmd - l : yabai -m window --focus east
 
 # Organize windows
-lctrl + alt + cmd - f : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4; yabai -m space --focus 1
+lctrl + alt + cmd - b : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4; yabai -m space --focus 1
 
 # Swap managed window
 lctrl + alt + cmd + shift - k : yabai -m window --swap north
 lctrl + alt + cmd + shift - h : yabai -m window --swap west
 lctrl + alt + cmd + shift - j : yabai -m window --swap south
 lctrl + alt + cmd + shift - l : yabai -m window --swap east
-
-# Balance size of windows
-lctrl + alt + cmd - b : yabai -m space --balance
 
 # Select desktop
 lctrl + alt + cmd - 0x00 : yabai -m space --focus 1

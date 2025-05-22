@@ -8,7 +8,6 @@ ZSH_THEME=""
 
 # Plugins
 plugins=(
-  git
   zsh-syntax-highlighting
 )
 
@@ -21,8 +20,12 @@ export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 # Path to go installed binaries
 export PATH="$PATH:/Users/sangitmanandhar/go/bin"
 
+# Enable completion system
+autoload -Uz compinit
+fpath=("/opt/homebrew/share/zsh/site-functions" $fpath)
+compinit
+
 # Path to Pure
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
