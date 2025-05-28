@@ -59,8 +59,8 @@ vim.opt.wildignore:append({
 })
 
 vim.keymap.set("n", "<leader>ga", ":Git fetch --all<CR>")
-vim.keymap.set("n", "<leader>grum", ":Git rebase upstream/master<CR>")
-vim.keymap.set("n", "<leader>grom", ":Git rebase origin/master<CR>")
+vim.keymap.set("n", "<leader>grum", ":Git rebase upstream/main<CR>")
+vim.keymap.set("n", "<leader>grom", ":Git rebase origin/main<CR>")
 vim.keymap.set("n", "<leader>g", ":Git<CR>")
 
 -- vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
@@ -73,6 +73,7 @@ vim.keymap.set("n", "<leader>f", ":Conform<CR>")
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
 vim.keymap.set("n", "<leader>d", ":!date<CR>")
+vim.keymap.set("n", "<leader>;", "q:")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 

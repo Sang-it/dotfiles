@@ -8,7 +8,8 @@ ZSH_THEME=""
 
 # Plugins
 plugins=(
-  zsh-syntax-highlighting
+    zig-shell-completions
+    zsh-syntax-highlighting
 )
 
 # Path to Oh-my-zsh
@@ -126,5 +127,8 @@ function zvm_after_init() {
     # # Tmux new sessions
     bindkey -s '^f' 'tms\n'
 }
+
+# Run Feed
+( nohup feed > /dev/null 2>&1 & ) > /dev/null 2>&1
 
 # zprof

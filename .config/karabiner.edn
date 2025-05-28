@@ -12,7 +12,7 @@
              :paren-mode {:key :f} ;; (){}[]
              :symbol-mode {:key :a} ;; &|!+=*%$~`
              :num-mode {:key :d} ;; 0123456789
-             :mouse-mode {:key :i} ;; mouse-movements
+             :mouse-mode {:key :k} ;; mouse-movements
              }
 
  :main [
@@ -77,14 +77,18 @@
          :rules [:mouse-mode
                  [:##v {:mkey {:y -1536}}]
                  [:##c {:mkey {:y 1536}}]
+
                  [:##j {:mkey {:x -1536}}]
-                 [:##p {:mkey {:x 1536}}]
+                 [:##l {:mkey {:x 1536}}]
 
-                 [:##l {:mkey {:vwheel -32}}]
-                 [:##o {:mkey {:vwheel 32}}]
+                 [:##n {:mkey {:vwheel -32}}]
+                 [:##h {:mkey {:vwheel 32}}]
 
-                 [:##d {:pkey :button1}]
-                 [:##f {:pkey :button2}]
+                 [:##a {:mkey {:hwheel -32}}]
+                 [:##f {:mkey {:hwheel 32}}]
+
+                 [:##s {:pkey :button1}]
+                 [:##d {:pkey :button2}]
                  ]
          }
         ]

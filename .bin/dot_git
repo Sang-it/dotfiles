@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+autoload colors
+colors
+
+files=($(cat ~/.dot-files))
+
+for file in $files; do
+	if [[ $file == *.config/* ]]; then
+        rm -rf "$HOME/.dotfiles/.config/$(basename $file)"
+		cp -r $file ~/.dotfiles/.config
+	else
+        rm -rf "$HOME/.dotfiles/$(basename $file)"
+		cp -r $file ~/.dotfiles
+	fi
+done
+
+cd ~/.dotfiles
+git add .
+vared -p 'Commit message: ' -c message
+branch=$(git branch -r --list | fzf)
+git commit -m "$message"
+echo $fg[blue]$branch$fg[default]
+git push origin $(basename $branch)

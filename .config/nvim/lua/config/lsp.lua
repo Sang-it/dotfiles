@@ -90,6 +90,7 @@ vim.lsp.enable({
 	"cmake",
 	"dockerls",
 	"ruff",
+	"sourcekit",
 })
 
 vim.lsp.config("ts_ls", config())
@@ -199,3 +200,12 @@ vim.lsp.config("cmake", config())
 vim.lsp.config("dockerls", config())
 
 vim.lsp.config("ruff", config())
+
+vim.lsp.config(
+	"sourcekit",
+	config({
+		settings = {
+			filetypes = { "swift" },
+		},
+	})
+)

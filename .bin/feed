@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+STATE_FILE="$HOME/.last_run"
+TODAY=$(date +%Y-%m-%d)
+WEEKDAY=$(date +%u)  # Monday=1 ... Sunday=7
+
+if [ "$WEEKDAY" -eq 3 ]; then
+    if [ ! -f "$STATE_FILE" ] || [ "$(cat $STATE_FILE)" != "$TODAY" ]; then
+        cd "$HOME/Projects/feeder"
+        python contribute.py
+        echo "$TODAY" > "$STATE_FILE"
+    fi
+fi
