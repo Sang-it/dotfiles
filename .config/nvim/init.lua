@@ -48,9 +48,21 @@ require("lazy").setup({
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "kawre/leetcode.nvim" },
-	{ "folke/zen-mode.nvim" },
 	{ "stevearc/conform.nvim" },
 	{ "chomosuke/typst-preview.nvim" },
+	{ "glacambre/firenvim", build = ":call firenvim#install(0)" },
+	{ "m4xshen/hardtime.nvim" },
+	{ "rubiin/fortune.nvim" },
+	{ "nicksergeant/goyo.vim" },
+	{
+		"mfussenegger/nvim-dap",
+		event = "VeryLazy",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+			"theHamsta/nvim-dap-virtual-text",
+		},
+	},
 })
 
 require("config")

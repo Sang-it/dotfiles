@@ -60,8 +60,8 @@ local function config(_config)
 			Nnoremap("K", ":lua vim.lsp.buf.hover()<CR>")
 			Nnoremap("<leader>vws", ":lua vim.lsp.buf.workspace_symbol()<CR>")
 			Nnoremap("<leader>vd", ":lua vim.diagnostic.open_float()<CR>")
-			Nnoremap("[d", ":lua vim.diagnostic.goto_next()<cr>")
-			Nnoremap("]d", ":lua vim.diagnostic.goto_prev()<CR>")
+			Nnoremap("<leader>t", ":lua vim.diagnostic.goto_next()<cr>")
+			Nnoremap("<leader>T", ":lua vim.diagnostic.goto_prev()<CR>")
 			Nnoremap("<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
 			Nnoremap("<leader>rr", ":lua vim.lsp.buf.references()<CR>")
 			Nnoremap("<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
@@ -91,6 +91,7 @@ vim.lsp.enable({
 	"dockerls",
 	"ruff",
 	"sourcekit",
+	"arduino_language_server",
 })
 
 vim.lsp.config("ts_ls", config())
@@ -200,6 +201,20 @@ vim.lsp.config("cmake", config())
 vim.lsp.config("dockerls", config())
 
 vim.lsp.config("ruff", config())
+
+vim.lsp.config("ruff", config())
+
+local home = os.getenv("HOME")
+vim.lsp.config(
+	"arduino_language_server",
+	config({
+		cmd = {
+			vim.fn.expand("$MASON/packages/arduino-language-server/arduino-language-server"),
+			"-cli-config",
+			home .. "/Library/Arduino15/arduino-cli.yaml",
+		},
+	})
+)
 
 vim.lsp.config(
 	"sourcekit",

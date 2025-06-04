@@ -10,6 +10,7 @@ ZSH_THEME=""
 plugins=(
     zig-shell-completions
     zsh-syntax-highlighting
+    arduino-cli
 )
 
 # Path to Oh-my-zsh
@@ -113,20 +114,34 @@ export PATH="/Users/sangitmanandhar/.ghcup/bin:$PATH"
 export PATH="$PATH:/Users/sangitmanandhar/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
 
-# Vim-mode for zsh
-function zvm_config() {
-    ZVM_CURSOR_STYLE_ENABLED=false
-    ZVM_VI_INSERT_ESCAPE_BINDKEY=^c
-}
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Enable vi mode
+bindkey -v
 
-function zvm_after_init() {
-    # Fzf to search directories
-    bindkey -s '^d' 'cd_with_fzf\n'
-
-    # # Tmux new sessions
-    bindkey -s '^f' 'tms\n'
+# Define custom zle widgets
+cd_with_fzf_widget() {
+    cd_with_fzf
+    zle reset-prompt
 }
+zle -N cd_with_fzf_widget
+
+tms_widget() {
+    tms
+    zle reset-prompt
+}
+zle -N tms_widget
+
+# Bind the widgets to keys in both modes
+bindkey -M viins '^r' history-incremental-search-backward
+bindkey -M vicmd '^r' history-incremental-search-backward
+bindkey -M viins '^d' cd_with_fzf_widget
+bindkey -M vicmd '^d' cd_with_fzf_widget
+bindkey -M viins '^t' tms_widget
+bindkey -M vicmd '^t' tms_widget
+
+# Fzf to search directories
+bindkey -s '^d' 'cd_with_fzf\n'
+# Tmux new sessions
+bindkey -s '^t' 'tms\n'
 
 # Run Feed
 ( nohup feed > /dev/null 2>&1 & ) > /dev/null 2>&1

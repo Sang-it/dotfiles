@@ -1,6 +1,7 @@
 -- vim.g.colorscheme = "rose-pine"
 vim.g.colorscheme = "warlock"
 vim.cmd("colorscheme " .. vim.g.colorscheme)
+vim.opt.shada = ""
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -41,6 +42,7 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
+vim.opt.scroll = 8
 -- vim.opt.showmode = false
 vim.opt.signcolumn = "number"
 vim.opt.background = "dark"
@@ -66,14 +68,13 @@ vim.keymap.set("n", "<leader>g", ":Git<CR>")
 -- vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<leader>_", ":vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
-
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>f", ":Conform<CR>")
-vim.keymap.set("n", "<leader>q", ":q!<CR>")
+vim.keymap.set("n", "<leader>h", ":Conform<CR>")
+vim.keymap.set("n", "<leader>u", ":q!<CR>")
 
-vim.keymap.set("n", "<leader>d", ":!date<CR>")
-vim.keymap.set("n", "<leader>;", "q:")
+-- vim.keymap.set("n", "<leader>d", ":!date<CR>")
+vim.keymap.set("n", "<leader>o", "q:")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
@@ -86,13 +87,13 @@ vim.keymap.set({ "n", "v" }, "-", "$")
 vim.keymap.set({ "n", "v" }, "_", "^")
 
 vim.keymap.set("n", "<leader>e", ":Oil<CR>", { silent = true })
-vim.keymap.set("n", "<leader>pf", function()
+vim.keymap.set("n", "<leader>.r", function()
 	require("telescope.builtin").find_files()
 end)
-vim.keymap.set("n", "<leader>pr", function()
+vim.keymap.set("n", "<leader>.c", function()
 	require("telescope.builtin").live_grep()
 end)
-vim.keymap.set("n", "<leader>z", ":ZenMode<CR>")
+vim.keymap.set("n", "<leader>z", ":Goyo<CR>")
 
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -126,6 +127,27 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 	callback = function()
 		if vim.wo.nu then
 			vim.wo.rnu = false
+		end
+	end,
+})
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local ok, fortune = pcall(require, "fortune")
+		if not ok then
+			return
+		end
+
+		local lines = fortune.get_fortune()
+		if type(lines) == "table" then
+			local message = table.concat(lines, " ")
+			local words = {}
+			for word in message:gmatch("%S+") do
+				table.insert(words, word)
+			end
+			local cleaned = table.concat(words, " ")
+			vim.schedule(function()
+				vim.api.nvim_echo({ { cleaned, "None" } }, false, {})
+			end)
 		end
 	end,
 })
