@@ -146,4 +146,7 @@ bindkey -s '^t' 'tms\n'
 # Run Feed
 ( nohup feed > /dev/null 2>&1 & ) > /dev/null 2>&1
 
+# Run tmux
+tmc
+
 # zprof

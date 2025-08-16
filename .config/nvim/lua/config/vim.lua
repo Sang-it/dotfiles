@@ -1,7 +1,7 @@
 -- vim.g.colorscheme = "rose-pine"
 vim.g.colorscheme = "warlock"
 vim.cmd("colorscheme " .. vim.g.colorscheme)
-vim.opt.shada = ""
+-- vim.opt.shada = ""
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -93,7 +93,7 @@ end)
 vim.keymap.set("n", "<leader>.c", function()
 	require("telescope.builtin").live_grep()
 end)
-vim.keymap.set("n", "<leader>z", ":Goyo<CR>")
+-- vim.keymap.set("n", "<leader>z", ":Goyo<CR>")
 
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {

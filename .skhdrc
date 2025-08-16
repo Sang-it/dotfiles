@@ -1,6 +1,5 @@
 # Open Alactritty
-lctrl + alt + cmd - 0x06 : open -a Arc
-lctrl + alt + cmd - 0x07 : open -a Music
+lctrl + alt + cmd - t : open -a Arc
 lctrl + alt + cmd - return : open -a Alacritty
 lctrl + alt + cmd + shift - return : open -n -a Alacritty
 
@@ -11,7 +10,12 @@ lctrl + alt + cmd - k : yabai -m window --focus north
 lctrl + alt + cmd - l : yabai -m window --focus east
 
 # Organize windows
-lctrl + alt + cmd - b : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4; yabai -m space --focus 1
+lctrl + alt + cmd + shift - b : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4; yabai -m space --focus 1
+
+# Balance windows
+lctrl + alt + cmd - b : yabai -m space --balance
+
+# Change split ratio
 
 # Swap managed window
 lctrl + alt + cmd + shift - k : yabai -m window --swap north
@@ -39,4 +43,11 @@ lctrl + alt + cmd + shift - x : yabai -m space --destroy
 lctrl + alt + cmd - q : yabai --restart-service:
 
 # Executables
-lctrl + alt + cmd - m : menubar
+lctrl + alt + cmd - n : menubar
+
+# Resize windows
+lctrl + alt + cmd - left : yabai -m window --resize left:-50:0; yabai -m window --resize right:-50:0
+lctrl + alt + cmd - right : yabai -m window --resize right:50:0; yabai -m window --resize left:50:0
+
+# Toggle float
+lctrl + alt + cmd - d : yabai -m window --toggle float; yabai -m window --toggle border

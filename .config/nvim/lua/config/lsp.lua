@@ -159,13 +159,13 @@ vim.lsp.config(
 vim.lsp.config(
 	"rust_analyzer",
 	config({
-		settings = {
-			["rust-analyzer"] = {
-				checkOnSave = {
-					command = "clippy",
-				},
-			},
-		},
+		-- settings = {
+		-- 	["rust-analyzer"] = {
+		-- 		check = {
+		-- 			command = "clippy",
+		-- 		},
+		-- 	},
+		-- },
 	})
 )
 

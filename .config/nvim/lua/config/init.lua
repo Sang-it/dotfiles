@@ -1,5 +1,4 @@
 require("config.impatient")
-require("config.goyo")
 require("config.vim")
 require("config.lsp")
 require("config.fidget")

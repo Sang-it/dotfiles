@@ -33,7 +33,7 @@ require("telescope").setup({
 			height = 0.6,
 			preview_cutoff = 120,
 		},
-		file_ignore_patterns = { "node_modules", ".git/", "dist/" , "target/"},
+		file_ignore_patterns = { "node_modules", ".git/", "dist/", "target/" },
 		file_sorter = require("telescope.sorters").get_fzy_sorter,
 		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,

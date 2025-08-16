@@ -53,16 +53,10 @@ require("lazy").setup({
 	{ "glacambre/firenvim", build = ":call firenvim#install(0)" },
 	{ "m4xshen/hardtime.nvim" },
 	{ "rubiin/fortune.nvim" },
-	{ "nicksergeant/goyo.vim" },
-	{
-		"mfussenegger/nvim-dap",
-		event = "VeryLazy",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"nvim-neotest/nvim-nio",
-			"theHamsta/nvim-dap-virtual-text",
-		},
-	},
+	{ "mfussenegger/nvim-dap" },
+	{ "rcarriga/nvim-dap-ui" },
+	{ "nvim-neotest/nvim-nio" },
+	{ "theHamsta/nvim-dap-virtual-text" },
 })
 
 require("config")
