@@ -52,7 +52,6 @@ require("lazy").setup({
 	{ "chomosuke/typst-preview.nvim" },
 	{ "glacambre/firenvim", build = ":call firenvim#install(0)" },
 	{ "m4xshen/hardtime.nvim" },
-	{ "rubiin/fortune.nvim" },
 	{ "mfussenegger/nvim-dap" },
 	{ "rcarriga/nvim-dap-ui" },
 	{ "nvim-neotest/nvim-nio" },

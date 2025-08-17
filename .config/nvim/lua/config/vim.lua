@@ -130,24 +130,3 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 		end
 	end,
 })
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local ok, fortune = pcall(require, "fortune")
-		if not ok then
-			return
-		end
-
-		local lines = fortune.get_fortune()
-		if type(lines) == "table" then
-			local message = table.concat(lines, " ")
-			local words = {}
-			for word in message:gmatch("%S+") do
-				table.insert(words, word)
-			end
-			local cleaned = table.concat(words, " ")
-			vim.schedule(function()
-				vim.api.nvim_echo({ { cleaned, "None" } }, false, {})
-			end)
-		end
-	end,
-})

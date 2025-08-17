@@ -11,7 +11,6 @@ require("config.leetcode")
 require("config.firenvim")
 require("config.conform")
 require("config.hardtime")
-require("config.fortune")
 require("config.dap")
 
 function CreateNoremapGlobal(type, opts)
