@@ -1,0 +1,69 @@
+#!/usr/bin/env sh
+
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+setup_space() {
+  local idx="$1"
+  local name="$2"
+
+  if ! yabai -m query --spaces --space "$idx" &>/dev/null; then
+    yabai -m space --create
+  fi
+
+  yabai -m space "$idx" --label "$name"
+}
+
+setup_space 1 Web
+setup_space 2 Code
+setup_space 3 Mail
+setup_space 4 Music&Reading
+
+yabai -m config \
+    mouse_follows_focus off \
+    focus_follows_mouse off \
+    window_origin_display default \
+    window_placement second_child \
+    window_topmost off \
+    window_shadow off \
+    window_opacity off \
+    window_opacity_duration 0.0 \
+    active_window_opacity 1.0 \
+    normal_window_opacity 0.90 \
+    window_border off \
+    window_border_width 6 \
+    split_ratio 0.50 \
+    auto_balance off \
+    mouse_modifier fn \
+    mouse_action1 move \
+    mouse_action2 resize \
+    mouse_drop_action swap \
+    layout bsp \
+    top_padding 10 \
+    bottom_padding 10 \
+    left_padding 10 \
+    right_padding 10 \
+    window_gap 10
+
+yabai -m rule --add app="zathura" label="zathura"
+
+# exclude apps
+yabai -m rule --add app="Texts" manage=off
+yabai -m rule --add app="Texts" manage=off
+yabai -m rule --add app="qBittorrent" manage=off
+yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="Dictionary" manage=off
+yabai -m rule --add app="Fig" manage=off
+yabai -m rule --add app="DaisyDisk" manage=off
+yabai -m rule --add app="Calculator" manage=off
+yabai -m rule --add app="FaceTime" manage=off
+# yabai -m rule --add app="Music" manage=off
+yabai -m rule --add app="Messages" manage=off
+yabai -m rule --add app="Archive Utility" manage=off
+yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
+yabai -m rule --add app="Alfred Preferences" manage=off
+yabai -m rule --add app="CleanMyMac X" manage=off
+yabai -m rule --add app="AlDente" manage=off
