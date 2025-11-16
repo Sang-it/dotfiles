@@ -1,4 +1,3 @@
--- vim.g.colorscheme = "rose-pine"
 vim.g.colorscheme = "warlock"
 vim.cmd("colorscheme " .. vim.g.colorscheme)
 -- vim.opt.shada = ""

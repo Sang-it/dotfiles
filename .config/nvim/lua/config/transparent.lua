@@ -26,8 +26,4 @@ require("transparent").setup({
 		"StatusLineNC",
 		"EndOfBuffer",
 	},
-	extra_groups = {
-		-- "NormalFloat"
-	},
 })
--- require('transparent').clear_prefix('Telescope')

@@ -2,6 +2,8 @@
 lctrl + alt + cmd - t : open -a Arc
 lctrl + alt + cmd - return : open -a Alacritty
 lctrl + alt + cmd + shift - return : open -n -a Alacritty
+lctrl + alt + cmd - g : open -a Yomu
+lctrl + alt + cmd - d : open -a Qobuz
 
 # Switch window focus
 lctrl + alt + cmd - h : yabai -m window --focus west
@@ -9,8 +11,12 @@ lctrl + alt + cmd - j : yabai -m window --focus south
 lctrl + alt + cmd - k : yabai -m window --focus north
 lctrl + alt + cmd - l : yabai -m window --focus east
 
+# Full Screen
+lctrl + alt + cmd - f : yabai -m window --toggle zoom-fullscreen
+lctrl + alt + cmd + shift - f : yabai -m window --toggle native-fullscreen
+
 # Organize windows
-lctrl + alt + cmd + shift - b : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Apple Music)$" space=^4; yabai -m space --focus 1
+lctrl + alt + cmd + shift - b : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Qobuz)$" space=^4; yabai -m space --focus 1
 
 # Balance windows
 lctrl + alt + cmd - b : yabai -m space --balance
@@ -48,6 +54,3 @@ lctrl + alt + cmd - n : menubar
 # Resize windows
 lctrl + alt + cmd - left : yabai -m window --resize left:-50:0; yabai -m window --resize right:-50:0
 lctrl + alt + cmd - right : yabai -m window --resize right:50:0; yabai -m window --resize left:50:0
-
-# Toggle float
-lctrl + alt + cmd - d : yabai -m window --toggle float; yabai -m window --toggle border

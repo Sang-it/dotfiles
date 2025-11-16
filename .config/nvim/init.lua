@@ -46,7 +46,6 @@ require("lazy").setup({
 	{ "xiyaowong/transparent.nvim" },
 	{ "hat0uma/csvview.nvim" },
 	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
 	{ "kawre/leetcode.nvim" },
 	{ "stevearc/conform.nvim" },
 	{ "chomosuke/typst-preview.nvim" },

@@ -9,11 +9,10 @@ size = 18.0
 
 [font.bold]
 family = "FiraCode Nerd Font"
-style = "Retina"
+style = "Regular"
 
 [font.normal]
 family = "FiraCode Nerd Font"
-style = "Retina"
 
 [font.offset]
 x = 0
@@ -33,5 +32,3 @@ opacity = 0
 [window.padding]
 x = 0
 y = 0
-
-[terminal]

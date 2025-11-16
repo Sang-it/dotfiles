@@ -41,16 +41,13 @@ yabai -m config \
     mouse_action2 resize \
     mouse_drop_action swap \
     layout bsp \
-    top_padding 10 \
-    bottom_padding 10 \
-    left_padding 10 \
-    right_padding 10 \
-    window_gap 10
-
-yabai -m rule --add app="zathura" label="zathura"
+    top_padding 0 \
+    bottom_padding 0 \
+    left_padding 0 \
+    right_padding 0 \
+    window_gap 5
 
 # exclude apps
-yabai -m rule --add app="Texts" manage=off
 yabai -m rule --add app="Texts" manage=off
 yabai -m rule --add app="qBittorrent" manage=off
 yabai -m rule --add app="Finder" manage=off
@@ -59,6 +56,7 @@ yabai -m rule --add app="Fig" manage=off
 yabai -m rule --add app="DaisyDisk" manage=off
 yabai -m rule --add app="Calculator" manage=off
 yabai -m rule --add app="FaceTime" manage=off
+yabai -m rule --add app="Logi Options" manage=off
 # yabai -m rule --add app="Music" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Archive Utility" manage=off
