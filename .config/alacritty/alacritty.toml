@@ -25,9 +25,11 @@ history = 5000
 args = ["--login"]
 program = "/bin/zsh"
 
+[colors.primary]
+background = "#000000"
+
 [window]
 decorations = "none"
-opacity = 0
 
 [window.padding]
 x = 0

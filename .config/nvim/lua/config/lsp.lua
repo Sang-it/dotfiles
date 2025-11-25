@@ -70,6 +70,7 @@ local function config(_config)
 end
 
 vim.lsp.enable({
+	"phpactor",
 	"ts_ls",
 	"denols",
 	"clangd",
@@ -91,6 +92,7 @@ vim.lsp.enable({
 	"dockerls",
 	"ruff",
 	"sourcekit",
+	"elmls",
 	"arduino_language_server",
 })
 
@@ -113,6 +115,8 @@ vim.lsp.config(
 )
 
 vim.lsp.config("clangd", config())
+
+vim.lsp.config("phpactor", config())
 
 vim.lsp.config("pyright", config())
 
@@ -217,6 +221,8 @@ vim.lsp.config("cmake", config())
 vim.lsp.config("dockerls", config())
 
 vim.lsp.config("ruff", config())
+
+vim.lsp.config("elmls", config())
 
 vim.lsp.config("ruff", config())
 

@@ -57,6 +57,10 @@ yabai -m rule --add app="DaisyDisk" manage=off
 yabai -m rule --add app="Calculator" manage=off
 yabai -m rule --add app="FaceTime" manage=off
 yabai -m rule --add app="Logi Options" manage=off
+yabai -m rule --add app="Logi Options" manage=off
+yabai -m rule --add app="League of Legends" manage=off
+yabai -m rule --add app="LeagueClient" manage=off
+yabai -m rule --add app="Riot Client" manage=off
 # yabai -m rule --add app="Music" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Archive Utility" manage=off
