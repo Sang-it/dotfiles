@@ -4,6 +4,8 @@ lctrl + alt + cmd - return : open -a Alacritty
 lctrl + alt + cmd + shift - return : open -n -a Alacritty
 lctrl + alt + cmd - g : open -a Yomu
 lctrl + alt + cmd - d : open -a Qobuz
+lctrl + alt + cmd - p : open -a Discord
+lctrl + alt + cmd - s : open -a Spark
 
 # Switch window focus
 lctrl + alt + cmd - h : yabai -m window --focus west

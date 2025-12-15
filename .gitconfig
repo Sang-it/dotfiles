@@ -14,3 +14,5 @@
 	tool = vimdiff
 [init]
 	defaultBranch = main
+[coderabbit]
+	machineId = cli/f5aaa1faa4f54c02af5a869666cc2b0e

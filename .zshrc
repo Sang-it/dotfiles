@@ -147,3 +147,6 @@ bindkey -s '^t' 'tms\n'
 tmc
 
 # zprof
+
+# bun completions
+[ -s "/Users/sangitmanandhar/.bun/_bun" ] && source "/Users/sangitmanandhar/.bun/_bun"

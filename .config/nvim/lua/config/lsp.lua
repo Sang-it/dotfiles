@@ -54,7 +54,6 @@ local function config(_config)
 	return vim.tbl_deep_extend("force", {
 		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
-			-- Nnoremap("<leader>f", ":lua vim.lsp.buf.format({async = true})<CR>")
 			Nnoremap("gd", ":lua vim.lsp.buf.definition()<CR>")
 			Nnoremap("K", ":lua vim.lsp.buf.hover()<CR>")
 			Nnoremap("<leader>vws", ":lua vim.lsp.buf.workspace_symbol()<CR>")
@@ -179,13 +178,13 @@ vim.lsp.config(
 vim.lsp.config(
 	"rust_analyzer",
 	config({
-		-- settings = {
-		-- 	["rust-analyzer"] = {
-		-- 		check = {
-		-- 			command = "clippy",
-		-- 		},
-		-- 	},
-		-- },
+		settings = {
+			["rust-analyzer"] = {
+				check = {
+					command = "clippy",
+				},
+			},
+		},
 	})
 )
 
