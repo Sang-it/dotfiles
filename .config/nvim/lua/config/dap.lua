@@ -30,11 +30,44 @@ dap.configurations.c = {
 	},
 }
 
+dap.configurations.rust = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+	},
+}
+
 -- Dap UI
 
-ui.setup()
+ui.setup({
+	layouts = {
+		{
+			elements = {
+				{ id = "breakpoints", size = 0.20 },
+				{ id = "stacks", size = 0.20 },
+				{ id = "scopes", size = 0.30 },
+				{ id = "watches", size = 0.30 },
+			},
+			position = "left",
+			size = 50,
+		},
+		{
+			elements = {
+				{ id = "console", size = 1.0 },
+			},
+			position = "bottom",
+			size = 10,
+		},
+	},
+})
 
-vim.fn.sign_define("DapBreakpoint", { text = "🟡" })
+vim.fn.sign_define("DapBreakpoint", { text = "⭕" })
 
 dap.listeners.before.attach.dapui_config = function()
 	ui.open()

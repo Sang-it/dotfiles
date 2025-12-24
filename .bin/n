@@ -1,0 +1,71 @@
+#!/usr/bin/env zsh
+
+show_help() {
+  cat <<EOF
+n - Smart nvim file opener with fuzzy finding
+
+Usage: n [options] [file|query]
+
+Options:
+  -i    Interactive mode (always show fzf picker)
+  -o    Straight mode (pass all args directly to nvim)
+  -h    Show this help message
+
+Behavior:
+  - If file exists, opens it directly in nvim
+  - Otherwise, fuzzy searches for matching files
+  - In HOME directory: searches with max depth 2
+  - Elsewhere: searches entire directory tree
+
+Examples:
+  n file.txt       Open file.txt (or fuzzy match if not found)
+  n -i             Open interactive file picker
+  n -o -R file     Pass -R and file directly to nvim
+  n config         Fuzzy find files matching "config"
+EOF
+}
+
+local args=()
+local interactive=0
+local straight=0
+
+for a in "$@"; do
+  case "$a" in
+    -h|--help) show_help; return ;;
+    -i) interactive=1 ;;
+    -o) straight=1 ;;
+    *)  args+=("$a") ;;
+  esac
+done
+
+if [ "$straight" -eq 1 ]; then
+  nvim "${args[@]}"
+  return
+fi
+
+if [ "${#args[@]}" -gt 0 ] && [ -e "${args[0]}" ]; then
+  nvim "${args[@]}"
+  return
+fi
+
+local query="${args[*]}"
+local file
+
+if [ "$PWD" = "$HOME" ]; then
+  if [ "$interactive" -eq 1 ]; then
+    file=$(fd --max-depth 2 --hidden . | fzf --query="$query") || return
+  else
+    [ -z "$query" ] && { show_help; return; }
+    file=$(fd --max-depth 2 --hidden . | fzf --query="$query" --filter="$query" | head -n1) || return
+  fi
+else
+
+  if [ "$interactive" -eq 1 ]; then
+    file=$(fzf --query="$query") || return
+  else
+    [ -z "$query" ] && { show_help; return; }
+    file=$(fzf --query="$query" --filter="$query" | head -n1) || return
+  fi
+fi
+
+[ -n "$file" ] && nvim "$file"

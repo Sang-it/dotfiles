@@ -55,6 +55,7 @@ require("lazy").setup({
 	{ "rcarriga/nvim-dap-ui" },
 	{ "nvim-neotest/nvim-nio" },
 	{ "theHamsta/nvim-dap-virtual-text" },
+	{ "tpope/vim-sleuth" },
 })
 
 require("config")

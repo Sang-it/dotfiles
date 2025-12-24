@@ -28,9 +28,9 @@ require("telescope").setup({
 			bottom_pane = {
 				preview_width = 0.55,
 				results_width = 0.8,
-				prompt_position = "top",
+				prompt_position = "bottom",
 			},
-			height = 0.6,
+			height = 0.3,
 			preview_cutoff = 120,
 		},
 		file_ignore_patterns = { "node_modules", ".git/", "dist/", "target/" },

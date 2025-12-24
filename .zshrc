@@ -33,9 +33,42 @@ prompt pure
 
 # Aliases
 alias tm="tmux"
-alias nv="nvim"
-# alias n="nvim"
-# alias tn="tmux new-session -A -s "$(basename "$(PWD)")" \; send-keys "nvim" C-m"
+alias kube="kubectl"
+
+# n() {
+#   local args=()
+#   local interactive=0
+#   local straight=0
+
+#   for a in "$@"; do
+#     case "$a" in
+#       -i) interactive=1 ;;
+#       -o) straight=1 ;;
+#       *)  args+=("$a") ;;
+#     esac
+#   done
+
+#   if [ "$straight" -eq 1 ]; then
+#     nvim "${args[@]}"
+#     return
+#   fi
+
+#   if [ "${#args[@]}" -gt 0 ] && [ -e "${args[0]}" ]; then
+#     nvim "${args[@]}"
+#     return
+#   fi
+
+#   local query="${args[*]}"
+#   local file
+
+#   if [ "$interactive" -eq 1 ]; then
+#     file=$(fzf --query="$query") || return
+#   else
+#     file=$(fzf --query="$query" --filter="$query" | head -n1) || return
+#   fi
+
+#   [ -n "$file" ] && nvim "$file"
+# }
 
 # Editor set to nvim
 export EDITOR="nvim"
@@ -139,14 +172,19 @@ bindkey -M vicmd '^t' tms_widget
 bindkey -s '^d' 'cd_with_fzf\n'
 # Tmux new sessions
 bindkey -s '^t' 'tms\n'
+bindkey -s '^o' 'tmc\n'
+bindkey -s '^n' 'tmn\n'
 
 # Run Feed
 ( nohup feed > /dev/null 2>&1 & ) > /dev/null 2>&1
 
 # Run tmux
-tmc
+# tmc
 
 # zprof
 
 # bun completions
 [ -s "/Users/sangitmanandhar/.bun/_bun" ] && source "/Users/sangitmanandhar/.bun/_bun"
+
+# Amp CLI
+export PATH="/Users/sangitmanandhar/.amp/bin:$PATH"
