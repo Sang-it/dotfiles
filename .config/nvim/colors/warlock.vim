@@ -78,6 +78,9 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi SpellLocal ctermbg=NONE ctermfg=243 cterm=undercurl guibg=NONE guifg=#767676 gui=undercurl guisp=#767676
     hi SpellRare ctermbg=NONE ctermfg=247 cterm=undercurl guibg=NONE guifg=#9e9e9e gui=undercurl guisp=#9e9e9e
     hi ColorColumn ctermbg=234 ctermfg=NONE cterm=NONE guibg=#1c1c1c guifg=NONE gui=NONE
+    hi NormalFloat ctermbg=236 ctermfg=250 cterm=NONE guibg=#303030 guifg=#bcbcbc gui=NONE
+    hi FloatBorder ctermbg=236 ctermfg=242 cterm=NONE guibg=#303030 guifg=#6c6c6c gui=NONE
+    hi FloatTitle ctermbg=236 ctermfg=231 cterm=NONE guibg=#303030 guifg=#ffffff gui=NONE
 
 elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     set t_Co=16
@@ -148,6 +151,9 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi SpellLocal ctermbg=NONE ctermfg=lightgrey cterm=undercurl
     hi SpellRare ctermbg=NONE ctermfg=lightgrey cterm=undercurl
     hi ColorColumn ctermbg=black ctermfg=NONE cterm=NONE
+    hi NormalFloat ctermbg=darkgrey ctermfg=lightgrey cterm=NONE
+    hi FloatBorder ctermbg=darkgrey ctermfg=lightgrey cterm=NONE
+    hi FloatTitle ctermbg=darkgrey ctermfg=white cterm=NONE
 endif
 
 hi link Terminal Normal

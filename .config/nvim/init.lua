@@ -43,19 +43,20 @@ require("lazy").setup({
 	{ "j-hui/fidget.nvim" },
 	{ "junegunn/gv.vim" },
 	{ "stevearc/oil.nvim" },
-	{ "xiyaowong/transparent.nvim" },
 	{ "hat0uma/csvview.nvim" },
 	{ "williamboman/mason.nvim" },
 	{ "kawre/leetcode.nvim" },
 	{ "stevearc/conform.nvim" },
 	{ "chomosuke/typst-preview.nvim" },
-	{ "glacambre/firenvim", build = ":call firenvim#install(0)" },
 	{ "m4xshen/hardtime.nvim" },
 	{ "mfussenegger/nvim-dap" },
 	{ "rcarriga/nvim-dap-ui" },
 	{ "nvim-neotest/nvim-nio" },
 	{ "theHamsta/nvim-dap-virtual-text" },
 	{ "tpope/vim-sleuth" },
+	{ "anuvyklack/middleclass" },
+	{ "anuvyklack/windows.nvim" },
+	{ "xiyaowong/transparent.nvim" },
 })
 
 require("config")

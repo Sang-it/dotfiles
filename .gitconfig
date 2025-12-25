@@ -11,7 +11,8 @@
 	autocrlf = input
 	excludesfile = /Users/sangitmanandhar/.gitignore
 [diff]
-	tool = vimdiff
+    external = difft
+	; tool = vimdiff
 [init]
 	defaultBranch = main
 [coderabbit]

@@ -92,7 +92,7 @@ end)
 vim.keymap.set("n", "<leader>.c", function()
 	require("telescope.builtin").live_grep()
 end)
--- vim.keymap.set("n", "<leader>z", ":Goyo<CR>")
+vim.keymap.set("n", "<leader>z", ":WindowsMaximize<CR>")
 
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
