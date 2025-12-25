@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
+paths=(
+  "/Users"
+  "$HOME"
+  "$HOME/.config"
+  "$HOME/Projects"
+  "$HOME/College"
+  "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+  "/Volumes/Store"
+  "/Volumes/Store/Projects"
+)
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find /Users ~/.config  ~/Projects ~ ~/College '/Users/sangitmanandhar/Library/Mobile Documents/com~apple~CloudDocs' '/Volumes/Store' '/Volumes/Store/Projects'  -mindepth 1 -maxdepth 1 -type d 2> /dev/null |  fzf)
+	selected=$(find "${paths[@]}" -mindepth 1 -maxdepth 1 -type d 2> /dev/null |  fzf)
 fi
 
 if [[ -z $selected ]]; then

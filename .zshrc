@@ -173,13 +173,13 @@ bindkey -s '^d' 'cd_with_fzf\n'
 # Tmux new sessions
 bindkey -s '^t' 'tms\n'
 bindkey -s '^a' 'tmc\n'
-bindkey -s '^n' 'tmn\n'
+bindkey -s '^s' 'tmn\n'
 
 # Run Feed
 ( nohup feed > /dev/null 2>&1 & ) > /dev/null 2>&1
 
 # Run tmux
-# tmc
+tmc
 
 # zprof
 

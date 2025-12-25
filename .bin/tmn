@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
+paths=(
+  "/Users"
+  "$HOME"
+  "$HOME/.config"
+  "$HOME/Projects"
+  "$HOME/College"
+  "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+  "/Volumes/Store"
+  "/Volumes/Store/Projects"
+)
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find /Users ~/.config  ~/Projects ~ ~/College '/Users/sangitmanandhar/Library/Mobile Documents/com~apple~CloudDocs' '/Volumes/Store' '/Volumes/Store/Projects'  -mindepth 1 -maxdepth 1 -type d 2> /dev/null |  fzf)
+	selected=$(find "${paths[@]}" -mindepth 1 -maxdepth 1 -type d 2> /dev/null |  fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -13,8 +24,7 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t=$selected_name 2>/dev/null; then
-	tmux new-session -ds $selected_name -c $PWD
+	tmux new-session -ds $selected_name -c $selected
 fi
 
-alacritty -e tmux attach -t "$selected_name" &
-disown
+open -n -a Alacritty --args -e tmux attach -t "$selected_name"
