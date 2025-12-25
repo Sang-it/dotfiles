@@ -53,10 +53,10 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi CursorLine ctermbg=236 ctermfg=NONE cterm=NONE guibg=#303030 guifg=NONE gui=NONE
     hi helpLeadBlank ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
     hi helpNormal ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
-    hi StatusLine ctermbg=244 ctermfg=235 cterm=NONE guibg=#808080 guifg=#262626 gui=NONE
-    hi StatusLineNC ctermbg=238 ctermfg=244 cterm=NONE guibg=#444444 guifg=#808080 gui=NONE
-    hi StatusLineTerm ctermbg=244 ctermfg=235 cterm=NONE guibg=#808080 guifg=#262626 gui=NONE
-    hi StatusLineTermNC ctermbg=238 ctermfg=244 cterm=NONE guibg=#444444 guifg=#808080 gui=NONE
+    hi StatusLine ctermbg=238 ctermfg=244 cterm=NONE guibg=#444444 guifg=#808080 gui=NONE
+    hi StatusLineNC ctermbg=244 ctermfg=235 cterm=NONE guibg=#808080 guifg=#262626 gui=NONE
+    hi StatusLineTerm ctermbg=238 ctermfg=244 cterm=NONE guibg=#444444 guifg=#808080 gui=NONE
+    hi StatusLineTermNC ctermbg=244 ctermfg=235 cterm=NONE guibg=#808080 guifg=#262626 gui=NONE
     hi Visual ctermbg=235 ctermfg=248 cterm=reverse guibg=#262626 guifg=#a8a8a8 gui=reverse
     hi VisualNOS ctermbg=NONE ctermfg=NONE cterm=underline guibg=NONE guifg=NONE gui=underline
     hi VertSplit ctermbg=238 ctermfg=238 cterm=NONE guibg=#444444 guifg=#444444 gui=NONE
@@ -126,10 +126,10 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi CursorLine ctermbg=darkgrey ctermfg=NONE cterm=NONE
     hi helpLeadBlank ctermbg=NONE ctermfg=NONE cterm=NONE
     hi helpNormal ctermbg=NONE ctermfg=NONE cterm=NONE
-    hi StatusLine ctermbg=lightgray ctermfg=black cterm=NONE
-    hi StatusLineNC ctermbg=darkgrey ctermfg=lightgray cterm=NONE
-    hi StatusLineTerm ctermbg=lightgray ctermfg=black cterm=NONE
-    hi StatusLineTermNC ctermbg=darkgrey ctermfg=lightgray cterm=NONE
+    hi StatusLine ctermbg=darkgrey ctermfg=lightgray cterm=NONE
+    hi StatusLineNC ctermbg=lightgray ctermfg=black cterm=NONE
+    hi StatusLineTerm ctermbg=darkgrey ctermfg=lightgray cterm=NONE
+    hi StatusLineTermNC ctermbg=lightgray ctermfg=black cterm=NONE
     hi Visual ctermbg=black ctermfg=lightgrey cterm=reverse
     hi VisualNOS ctermbg=NONE ctermfg=NONE cterm=underline
     hi VertSplit ctermbg=darkgrey ctermfg=darkgrey cterm=NONE
