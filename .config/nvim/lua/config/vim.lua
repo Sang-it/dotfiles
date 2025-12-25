@@ -2,6 +2,8 @@ vim.g.colorscheme = "warlock"
 vim.cmd("colorscheme " .. vim.g.colorscheme)
 -- vim.opt.shada = ""
 
+vim.g.dispatch_quickfix_height = 20
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 

@@ -172,7 +172,7 @@ bindkey -M vicmd '^t' tms_widget
 bindkey -s '^d' 'cd_with_fzf\n'
 # Tmux new sessions
 bindkey -s '^t' 'tms\n'
-bindkey -s '^o' 'tmc\n'
+bindkey -s '^a' 'tmc\n'
 bindkey -s '^n' 'tmn\n'
 
 # Run Feed
