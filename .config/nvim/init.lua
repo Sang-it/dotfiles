@@ -30,8 +30,6 @@ require("lazy").setup({
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-treesitter/nvim-treesitter" },
-	{ "nvim-telescope/telescope.nvim" },
-	{ "nvim-telescope/telescope-fzy-native.nvim" },
 	{ "tpope/vim-commentary" },
 	{ "tpope/vim-dispatch" },
 	{ "tpope/vim-surround" },
@@ -57,6 +55,7 @@ require("lazy").setup({
 	{ "anuvyklack/middleclass" },
 	{ "anuvyklack/windows.nvim" },
 	{ "xiyaowong/transparent.nvim" },
+	{ "ibhagwan/fzf-lua" },
 })
 
 require("config")
