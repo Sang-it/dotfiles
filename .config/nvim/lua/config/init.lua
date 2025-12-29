@@ -1,4 +1,5 @@
 require("config.impatient")
+require("config.nvim_tree")
 require("config.vim")
 require("config.lsp")
 require("config.fidget")

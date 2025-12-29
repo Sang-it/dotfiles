@@ -56,6 +56,7 @@ require("lazy").setup({
 	{ "anuvyklack/windows.nvim" },
 	{ "xiyaowong/transparent.nvim" },
 	{ "ibhagwan/fzf-lua" },
+	{ "nvim-tree/nvim-tree.lua" },
 })
 
 require("config")
