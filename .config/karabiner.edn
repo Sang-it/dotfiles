@@ -20,8 +20,8 @@
          :rules [[:##left_control :!COleft_control ]]
          }
 
-        {:des "tab to shift <key>, or tab when pressed alone"
-         :rules [[:##tab :right_shift nil {:alone :tab} ]]
+        {:des "right_control to backspace when pressed alone"
+         :rules [[:##right_control :right_control nil {:alone :delete_or_backspace} ]]
          }
 
         {:des "paren-mode"

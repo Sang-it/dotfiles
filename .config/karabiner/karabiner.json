@@ -26,19 +26,19 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "tab to shift <key>, or tab when pressed alone",
+        "description" : "right_control to backspace when pressed alone",
         "manipulators" : [ {
           "to_if_alone" : [ {
-            "key_code" : "tab"
+            "key_code" : "delete_or_backspace"
           } ],
           "from" : {
-            "key_code" : "tab",
+            "key_code" : "right_control",
             "modifiers" : {
               "optional" : [ "any" ]
             }
           },
           "to" : [ {
-            "key_code" : "right_shift"
+            "key_code" : "right_control"
           } ],
           "type" : "basic"
         } ]
@@ -1728,6 +1728,13 @@
           "key_code" : "up_arrow"
         } ]
       } ]
+    }, {
+      "identifiers" : {
+        "is_keyboard" : true,
+        "product_id" : 4116,
+        "vendor_id" : 13623
+      },
+      "ignore" : true
     } ],
     "name" : "Default",
     "selected" : true,

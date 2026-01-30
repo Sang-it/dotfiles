@@ -57,6 +57,8 @@ require("lazy").setup({
 	{ "xiyaowong/transparent.nvim" },
 	{ "ibhagwan/fzf-lua" },
 	{ "nvim-tree/nvim-tree.lua" },
+
+	{ "ThePrimeagen/99" },
 })
 
 require("config")

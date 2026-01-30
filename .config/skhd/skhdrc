@@ -18,7 +18,7 @@ lctrl + alt + cmd - f : yabai -m window --toggle zoom-fullscreen
 lctrl + alt + cmd + shift - f : yabai -m window --toggle native-fullscreen
 
 # Organize windows
-lctrl + alt + cmd + shift - b : yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Preview|zathura|PDF Expert|Music|Qobuz)$" space=^4; yabai -m space --focus 1
+lctrl + alt + cmd + shift - b : win_id=$(yabai -m query --windows --window | jq '.id'); yabai -m rule --apply app="^(Arc|Zen)$" space=^1; yabai -m rule --apply app="^(Alacritty|Zed)$" space=^2; yabai -m rule --apply app="^Spark$" space=^3; yabai -m rule --apply app="^(Esde|ESDE|ES-DE|Discord|Preview|zathura|PDF Expert|Music|Qobuz)$" space=^4; yabai -m window --focus "$win_id"
 
 # Balance windows
 lctrl + alt + cmd - b : yabai -m space --balance

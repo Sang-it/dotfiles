@@ -72,7 +72,7 @@ vim.lsp.enable({
 	"phpactor",
 	"ts_ls",
 	"denols",
-	"clangd",
+	-- "clangd",
 	"pyright",
 	"html",
 	"cssls",
@@ -90,7 +90,7 @@ vim.lsp.enable({
 	"cmake",
 	"dockerls",
 	"ruff",
-	"sourcekit",
+	-- "sourcekit",
 	"elmls",
 	"arduino_language_server",
 })
@@ -113,7 +113,7 @@ vim.lsp.config(
 	})
 )
 
-vim.lsp.config("clangd", config())
+-- vim.lsp.config("clangd", config())
 
 vim.lsp.config("phpactor", config())
 
@@ -255,11 +255,11 @@ vim.lsp.config(
 	})
 )
 
-vim.lsp.config(
-	"sourcekit",
-	config({
-		settings = {
-			filetypes = { "swift" },
-		},
-	})
-)
+-- vim.lsp.config(
+-- 	"sourcekit",
+-- 	config({
+-- 		settings = {
+-- 			filetypes = { "swift" },
+-- 		},
+-- 	})
+-- )

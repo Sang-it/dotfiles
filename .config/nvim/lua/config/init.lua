@@ -12,6 +12,7 @@ require("config.conform")
 require("config.hardtime")
 require("config.dap")
 require("config.fzf")
+require("config.99")
 
 function CreateNoremapGlobal(type, opts)
 	return function(lhs, rhs)
