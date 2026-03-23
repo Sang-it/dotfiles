@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	local out = vim.fn.system({
@@ -19,6 +20,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		os.exit(1)
 	end
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -57,8 +59,22 @@ require("lazy").setup({
 	{ "xiyaowong/transparent.nvim" },
 	{ "ibhagwan/fzf-lua" },
 	{ "nvim-tree/nvim-tree.lua" },
-
 	{ "ThePrimeagen/99" },
+	{
+		dir = "~/Projects/fluoride",
+		config = function()
+			require("fluoride").setup({
+				window = {
+					border = "single",
+					winblend = 15,
+					footer = false,
+					center_breakpoint = 80,
+				},
+				confirm_delete = false,
+				max_depth = 2,
+			})
+		end,
+	},
 })
 
 require("config")

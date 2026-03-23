@@ -93,15 +93,14 @@ vim.keymap.set("n", "<leader>p", ":FzfLua live_grep<CR>")
 vim.keymap.set("n", "<leader>.", ":FzfLua files<CR>")
 vim.keymap.set("n", "<leader>z", ":WindowsMaximize<CR>")
 
-vim.keymap.set("n", "<leader>ch", function()
-	require("99").fill_in_function()
-end)
 vim.keymap.set("v", "<leader>ch", function()
 	require("99").visual()
 end)
 vim.api.nvim_create_user_command("Nn", function()
 	require("99").stop_all_requests()
 end, {})
+
+vim.keymap.set("n", "<leader>gh", ":Fluoride<CR>")
 
 vim.api.nvim_create_augroup("highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {

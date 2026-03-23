@@ -179,7 +179,7 @@ bindkey -s '^s' 'tmn\n'
 ( nohup feed > /dev/null 2>&1 & ) > /dev/null 2>&1
 
 # Run tmux
-tmc
+# tmc
 
 # zprof
 
@@ -188,3 +188,6 @@ tmc
 
 # Amp CLI
 export PATH="/Users/sangitmanandhar/.amp/bin:$PATH"
+
+# Postgresql
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"

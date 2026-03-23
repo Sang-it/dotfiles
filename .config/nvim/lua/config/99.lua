@@ -1,7 +1,7 @@
 local _99 = require("99")
 
 _99.setup({
-	model = "zai-coding-plan/glm-4.7",
+	model = "anthropic/claude-opus-4-6",
 	md_files = {
 		"AGENTS.md",
 	},

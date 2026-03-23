@@ -72,7 +72,7 @@ vim.lsp.enable({
 	"phpactor",
 	"ts_ls",
 	"denols",
-	-- "clangd",
+	"clangd",
 	"pyright",
 	"html",
 	"cssls",
@@ -110,10 +110,11 @@ vim.lsp.config(
 				on_dir(vim.fn.fnamemodify(root_path, ":h"))
 			end
 		end,
+		single_file_support = true,
 	})
 )
 
--- vim.lsp.config("clangd", config())
+vim.lsp.config("clangd", config())
 
 vim.lsp.config("phpactor", config())
 
@@ -222,8 +223,6 @@ vim.lsp.config("dockerls", config())
 vim.lsp.config("ruff", config())
 
 vim.lsp.config("elmls", config())
-
-vim.lsp.config("ruff", config())
 
 vim.lsp.config(
 	"denols",

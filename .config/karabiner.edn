@@ -20,10 +20,6 @@
          :rules [[:##left_control :!COleft_control ]]
          }
 
-        {:des "right_control to backspace when pressed alone"
-         :rules [[:##right_control :right_control nil {:alone :delete_or_backspace} ]]
-         }
-
         {:des "paren-mode"
          :rules [:paren-mode
                  [:##u :4]
