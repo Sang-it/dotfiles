@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 	if vim.v.shell_error ~= 0 then
@@ -16,14 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ "neovim/nvim-lspconfig" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/nvim-cmp" },
-	{ "onsails/lspkind-nvim" },
-	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
-	{ "nvim-treesitter/nvim-treesitter", branch = "main" },
-	{ "tpope/vim-commentary" },
+	{ "nvim-treesitter/nvim-treesitter" },
 	{ "tpope/vim-dispatch" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-fugitive" },
@@ -43,7 +37,6 @@ require("lazy").setup({
 	{ "rcarriga/nvim-dap-ui" },
 	{ "nvim-neotest/nvim-nio" },
 	{ "theHamsta/nvim-dap-virtual-text" },
-	{ "tpope/vim-sleuth" },
 	{ "anuvyklack/middleclass" },
 	{ "anuvyklack/windows.nvim" },
 	{ "xiyaowong/transparent.nvim" },

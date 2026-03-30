@@ -22,8 +22,7 @@ vim.g.mapleader = " "
 vim.g.rg_derive_root = true
 vim.g.zig_fmt_autosave = 0
 
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" }
+vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" }
 
 vim.opt.hlsearch = false
 vim.opt.hidden = true
@@ -101,15 +100,6 @@ vim.api.nvim_create_user_command("Nn", function()
 end, {})
 
 vim.keymap.set("n", "<leader>gh", ":FluorideToggle<CR>")
-
-vim.api.nvim_create_augroup("highlight_yank", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-	group = "highlight_yank",
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({ timeout = 40 })
-	end,
-})
 
 vim.api.nvim_create_augroup("no_trailing_whitespace", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {

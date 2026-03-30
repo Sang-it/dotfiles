@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"float\\\\|lazy\\\\|require.*lazy\" /Users/sangitmanandhar/.config/nvim --include=*.lua)",
+      "Bash(grep -r \"luaeval\\\\|\\\\.loaded\\\\[\" /Users/sangitmanandhar --include=*.vim -n)"
+    ]
+  }
+}
