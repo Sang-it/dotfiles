@@ -3,6 +3,7 @@
 paths=(
   "/Users"
   "$HOME"
+  "$HOME/Tscircuit"
   "$HOME/.config"
   "$HOME/Projects"
   "$HOME/College"

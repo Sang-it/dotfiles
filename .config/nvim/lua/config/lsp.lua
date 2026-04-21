@@ -74,6 +74,7 @@ vim.lsp.enable({
 	"denols",
 	"clangd",
 	"pyright",
+	"tinymist",
 	"html",
 	"cssls",
 	"jdtls",
@@ -119,6 +120,8 @@ vim.lsp.config("clangd", config())
 vim.lsp.config("phpactor", config())
 
 vim.lsp.config("pyright", config())
+
+vim.lsp.config("tinymist", config())
 
 vim.lsp.config("html", config())
 

@@ -22,7 +22,7 @@ require("lazy").setup({
 	{ "onsails/lspkind-nvim" },
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
-	{ "nvim-treesitter/nvim-treesitter", branch = "main" },
+	{ "nvim-treesitter/nvim-treesitter", branch = "main", lazy = false },
 	{ "tpope/vim-commentary" },
 	{ "tpope/vim-dispatch" },
 	{ "tpope/vim-surround" },
@@ -38,7 +38,6 @@ require("lazy").setup({
 	{ "kawre/leetcode.nvim" },
 	{ "stevearc/conform.nvim" },
 	{ "chomosuke/typst-preview.nvim" },
-	{ "m4xshen/hardtime.nvim" },
 	{ "mfussenegger/nvim-dap" },
 	{ "rcarriga/nvim-dap-ui" },
 	{ "nvim-neotest/nvim-nio" },
@@ -51,6 +50,23 @@ require("lazy").setup({
 	{ "nvim-tree/nvim-tree.lua" },
 	{ "ThePrimeagen/99" },
 	{
+		dir = "~/Projects/reader.nvim",
+		config = function()
+			require("reader").setup({
+				tts_engine = "piper",
+				tts_voice = "en_GB-semaine-medium",
+				tts_speaker = 0, -- prudence
+
+				center_focus = false,
+				hide_cursor = false,
+				focus_paragraph = false,
+				auto_scroll_wpm = 300,
+				use_dimtext = true,
+				auto_open = { "epub" },
+			})
+		end,
+	},
+	{
 		dir = "~/Projects/fluoride",
 		config = function()
 			require("fluoride").setup({
@@ -61,7 +77,7 @@ require("lazy").setup({
 					footer = false,
 					center_breakpoint = 80,
 					vsplit = {
-						width = 40,
+						width = 30,
 						position = "right", -- "left" or "right"
 					},
 					split = {

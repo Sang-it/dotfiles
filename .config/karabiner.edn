@@ -11,7 +11,7 @@
 
  :simlayers {
              :paren-mode {:key :f} ;; (){}[]
-             :symbol-mode {:key :a} ;; &|!+=*%r~`
+             :symbol-mode {:key :a} ;; &|!+=*%r~`-_
              :mouse-mode {:key :spacebar} ;; mouse-movements
              }
 
@@ -48,6 +48,9 @@
                  [:##slash :!Sclose_bracket]
                  [:##p :!Sbackslash]
                  [:##y :backslash]
+
+                 [:##n :quote]
+                 [:##close_bracket :!Squote]
                  ]
          }
 

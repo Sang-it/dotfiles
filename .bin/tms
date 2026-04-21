@@ -4,6 +4,7 @@ paths=(
   "/Users"
   "$HOME"
   "$HOME/.config"
+  "$HOME/Tscircuit"
   "$HOME/Projects"
   "$HOME/College"
   "$HOME/Library/Mobile Documents/com~apple~CloudDocs"

@@ -14,6 +14,15 @@ dap.adapters = {
 			args = { "--port", "${port}" },
 		},
 	},
+	["pwa-node"] = {
+		type = "server",
+		host = "localhost",
+		port = "${port}",
+		executable = {
+			command = "js-debug-adapter",
+			args = { "${port}" },
+		},
+	},
 }
 
 -- Configurations
@@ -42,6 +51,46 @@ dap.configurations.rust = {
 		stopOnEntry = false,
 	},
 }
+
+local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+for _, language in ipairs(js_filetypes) do
+	dap.configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch TS file (tsx)",
+			program = "${file}",
+			runtimeExecutable = "tsx",
+			cwd = "${workspaceFolder}",
+			console = "integratedTerminal",
+			skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach to process",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch with tsx",
+			program = "${file}",
+			runtimeExecutable = "tsx",
+			cwd = "${workspaceFolder}",
+			console = "integratedTerminal",
+			skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
+		},
+	}
+end
 
 -- Dap UI
 

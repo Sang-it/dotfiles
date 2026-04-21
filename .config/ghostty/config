@@ -1,8 +1,7 @@
-font-family = "FiraCode Nerd Font"
+font-family = "Lexend"
 font-family-bold = "false"
 font-size = 18
 window-decoration = false
 background-opacity = 0
 confirm-close-surface = false
 macos-icon = retro
-command = /opt/homebrew/bin/rmpc

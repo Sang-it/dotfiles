@@ -16,6 +16,9 @@ plugins=(
 # Path to Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Path to Claude
+export PATH="$PATH:/Users/sangitmanandhar/.local/bin"
+
 # Path to dotnet tools
 export PATH="$PATH:/Users/sangitmanandhar/.dotnet/tools"
 
@@ -188,6 +191,12 @@ bindkey -s '^s' 'tmn\n'
 
 # Amp CLI
 export PATH="/Users/sangitmanandhar/.amp/bin:$PATH"
+
+# Bun
+export PATH="/Users/sangitmanandhar/.bun/bin:$PATH"
+
+# Kicad Cli
+export PATH="/Applications/KiCad/KiCad.app/Contents/MacOS:$PATH"
 
 # Postgresql
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"

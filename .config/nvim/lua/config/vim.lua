@@ -43,10 +43,12 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
+vim.opt.ignorecase = true
 vim.opt.scroll = 8
 -- vim.opt.showmode = false
 vim.opt.signcolumn = "number"
 vim.opt.background = "dark"
+vim.opt.mouse = "a"
 vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 vim.opt.clipboard:append("unnamedplus")
@@ -72,7 +74,7 @@ vim.keymap.set("n", "<leader>-", ":vertical resize -5<CR>")
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>h", ":Conform<CR>")
-vim.keymap.set("n", "<leader>u", ":q<CR>")
+vim.keymap.set("n", "<leader>u", ":q!<CR>")
 
 -- vim.keymap.set("n", "<leader>d", ":!date<CR>")
 vim.keymap.set("n", "<leader>o", "q:")
